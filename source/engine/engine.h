@@ -1,5 +1,5 @@
 /*
-** PERSONAL PROJECT, 2026
+** EPITECH PROJECT, 2026
 ** My_rpg
 ** File description:
 ** game infos header
@@ -12,7 +12,7 @@
 
     #include <SFML/Graphics/RenderWindow.h>
     #include <SFML/System/Clock.h>
-      
+
 typedef struct engine_s engine_t;
 
 engine_t *engine_create(void);

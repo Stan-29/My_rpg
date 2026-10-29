@@ -11,7 +11,7 @@ SRC = source/scene/scene_base.c		\
 
 NAME =	my_rpg
 
-CC = clang
+CC = epiclang
 
 CSFML_LIB = -l csfml-window -l csfml-audio -l csfml-graphics -l csfml-system -l csfml-network
 

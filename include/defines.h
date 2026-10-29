@@ -1,5 +1,5 @@
 /*
-** PERSONAL PROJECT, 2026
+** EPITECH PROJECT, 2026
 ** My_rpg
 ** File description:
 ** defines header
