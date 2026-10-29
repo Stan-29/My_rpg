@@ -10,9 +10,6 @@
 
     #include "scene/scene.h"
 
-    #include <SFML/Graphics/RenderWindow.h>
-    #include <SFML/System/Clock.h>
-
 typedef struct engine_s engine_t;
 
 engine_t *engine_create(void);

@@ -8,6 +8,8 @@
 #ifndef SCENE_H_
     #define SCENE_H_
 
+    #include "garbage_collector/garbage_collector.h"
+    #include "defines.h"
     #include <SFML/Graphics/RenderWindow.h>
     #include <SFML/Audio/Music.h>
 
