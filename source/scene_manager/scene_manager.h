@@ -8,15 +8,17 @@
 #ifndef SCENE_MANAGER_H_
     #define SCENE_MANAGER_H_
 
-    #include <SFML/Graphics/RenderWindow.h>
+    #include "types.h"
 
-typedef struct scene_manager_s scene_manager_t;
+    #include <SFML/Graphics/RenderWindow.h>
 
 scene_manager_t *scene_manager_create(void);
 void *scene_manager_destroy(scene_manager_t *scene_manager);
 void scene_manager_draw(scene_manager_t *scene_manager,
     sfRenderWindow *window);
+
 void scene_manager_set_scene(scene_manager_t *scene_manager,
     unsigned int scene_id);
+scene_t *scene_manager_get_current(scene_manager_t *scene_manager);
 
 #endif

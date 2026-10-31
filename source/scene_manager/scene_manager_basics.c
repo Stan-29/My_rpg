@@ -63,3 +63,13 @@ void scene_manager_set_scene(scene_manager_t *scene_manager,
     scene_manager->current_scene = scene_id;
     scene_start(scene_manager->scene[scene_manager->current_scene]);
 }
+
+scene_t *scene_manager_get_current(scene_manager_t *scene_manager)
+{
+    unsigned int current_scene = 0;
+
+    if (!scene_manager)
+        return NULL;
+    current_scene = scene_manager->current_scene;
+    return scene_manager->scene[current_scene];
+}

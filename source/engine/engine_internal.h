@@ -9,7 +9,8 @@
     #define ENGINE_INTERNAL_H_
 
     #include "engine/engine.h"
-    #include <SFML/Graphics/RenderWindow.h>
+    #include "scene_manager/scene_manager.h"
+    #include "scene/scene.h"
     #include <SFML/System/Clock.h>
 
 struct engine_s {
@@ -17,6 +18,7 @@ struct engine_s {
     sfClock *clock;
 };
 
-void engine_events_handler(engine_t *engine);
+unsigned int engine_events_handler(engine_t *engine,
+    scene_manager_t *scene_manager);
 
 #endif

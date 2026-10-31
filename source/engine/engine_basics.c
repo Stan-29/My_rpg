@@ -5,10 +5,12 @@
 ** engine code
 */
 #include "defines.h"
+#include "engine/engine.h"
 #include "garbage_collector/garbage_collector.h"
 #include "engine/engine_internal.h"
 #include "scene/scene.h"
 #include "scene_manager/scene_manager.h"
+#include <SFML/Window/Types.h>
 
 engine_t *engine_create(void)
 {
@@ -35,7 +37,10 @@ unsigned int engine_run(engine_t *engine)
         return ERROR;
     while (sfRenderWindow_isOpen(engine->window)) {
         sfRenderWindow_clear(engine->window, sfBlack);
-        engine_events_handler(engine);
+        if (engine_events_handler(engine, scene_manager) == ERROR) {
+            scene_manager_destroy(scene_manager);
+            return ERROR;
+        }
         scene_manager_draw(scene_manager, engine->window);
         sfRenderWindow_display(engine->window);
     }
@@ -52,4 +57,11 @@ void engine_destroy(engine_t *engine)
     if (engine->clock)
         sfClock_destroy(engine->clock);
     garbage_collector_free(engine);
+}
+
+sfRenderWindow *engine_get_window(engine_t *engine)
+{
+    if (!engine)
+        return NULL;
+    return engine->window;
 }

@@ -29,8 +29,10 @@ image_t *image_create(const images_tab_t *image_infos, unsigned int id)
     if (!image->sprite)
         return image_destroy(image);
     sfSprite_setTexture(image->sprite, image->texture, sfTrue);
-    sfSprite_setTextureRect(image->sprite, image_infos->sprite_sheet);
+    if (image_infos->sprite_sheet.width != 0)
+        sfSprite_setTextureRect(image->sprite, image_infos->sprite_sheet);
     sfSprite_setPosition(image->sprite, image_infos->pos);
+    sfSprite_setScale(image->sprite, image_infos->scale);
     return image;
 }
 
@@ -56,4 +58,11 @@ unsigned int image_get_id(image_t *image)
     if (!image)
         return 0;
     return image->id;
+}
+
+sfSprite *image_get_sprite(image_t *image)
+{
+    if (!image)
+        return 0;
+    return image->sprite;
 }

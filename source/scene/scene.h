@@ -8,14 +8,19 @@
 #ifndef SCENE_H_
     #define SCENE_H_
 
-    #include <SFML/Graphics/RenderWindow.h>
+    #include "types.h"
 
-typedef struct scene_s scene_t;
+    #include <SFML/Graphics/RenderWindow.h>
 
 scene_t *scene_create(unsigned int id);
 void scene_draw(scene_t *scene, sfRenderWindow *window);
 void *scene_destroy(scene_t *scene);
+
 void scene_start(scene_t *scene);
 void scene_stop(scene_t *scene);
+unsigned int scene_manage_click(scene_manager_t *scene_manager, scene_t *scene,
+    sfVector2f *pos);
+
+sfView *scene_get_view(scene_t *scene);
 
 #endif

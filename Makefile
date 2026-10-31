@@ -5,15 +5,18 @@
 ## Makefile
 ##
 
-SRC = source/const/sprites_tab.c 	\
+SRC = source/const/images_tab.c 	\
 	source/const/texts_tab.c 		\
 	source/engine/engine_basics.c		\
 	source/engine/engine_events.c		\
 	source/garbage_collector/garbage_collector_basics.c		\
 	source/image/image_basics.c			\
+	source/images_func/image_func_start.c 	\
 	source/linked_list/linked_list_basics.c			\
 	source/linked_list/linked_list_handling.c		\
 	source/scene/scene_basics.c			\
+	source/scene/scene_get.c			\
+	source/scene/scene_manage.c			\
 	source/scene_manager/scene_manager_basics.c			\
 	source/text/text_basics.c		\
 

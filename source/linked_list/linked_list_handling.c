@@ -29,6 +29,13 @@ linked_list_t *linked_list_get_next(linked_list_t *node)
     return node->next;
 }
 
+linked_list_t *linked_list_get_prev(linked_list_t *node)
+{
+    if (node == NULL)
+        return NULL;
+    return node->prev;
+}
+
 linked_list_t *linked_list_create_node(void *data, unsigned int id)
 {
     linked_list_t *new_elem = garbage_collector_malloc(sizeof(linked_list_t));

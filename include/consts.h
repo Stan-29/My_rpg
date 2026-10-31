@@ -8,6 +8,8 @@
 #ifndef CONSTS_H_
     #define CONSTS_H_
 
+    #include "types.h"
+
     #include <SFML/System/Vector2.h>
     #include <SFML/Graphics/Image.h>
 
@@ -16,6 +18,8 @@ typedef struct images_tab_s {
     const char *filepath;
     sfIntRect sprite_sheet;
     sfVector2f pos;
+    sfVector2f scale;
+    unsigned int (* func)(scene_manager_t *, scene_t *);
 } images_tab_t;
 
 extern const images_tab_t images_scenes_tab[];

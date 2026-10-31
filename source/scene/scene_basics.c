@@ -4,23 +4,12 @@
 ** File description:
 ** scene code
 */
-#include "scene.h"
+#include "scene_internal.h"
 #include "consts.h"
 #include "defines.h"
 #include "garbage_collector/garbage_collector.h"
-#include "linked_list/linked_list.h"
 #include "image/image.h"
 #include "text/text.h"
-#include <SFML/Graphics/View.h>
-#include <SFML/Audio/Music.h>
-
-struct scene_s {
-    unsigned int id;
-    sfView *view;
-    sfMusic *music;
-    linked_list_t *ll_images;
-    linked_list_t *ll_texts;
-};
 
 static unsigned int scene_init_images(linked_list_t **ll_images,
     unsigned int id)
@@ -128,14 +117,4 @@ void *scene_destroy(scene_t *scene)
     }
     garbage_collector_free(scene);
     return NULL;
-}
-
-void scene_start(scene_t *scene)
-{
-    sfMusic_play(scene->music);
-}
-
-void scene_stop(scene_t *scene)
-{
-    sfMusic_stop(scene->music);
 }
