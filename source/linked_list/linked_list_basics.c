@@ -55,6 +55,7 @@ void linked_list_delete_end(linked_list_t **head)
         return;
     if (temp->next == NULL) {
         *head = NULL;
+        garbage_collector_free(temp);
         return;
     }
     while (temp->next != NULL) {

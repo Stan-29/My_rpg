@@ -7,18 +7,18 @@
 #include "defines.h"
 #include "engine/engine.h"
 #include "garbage_collector/garbage_collector.h"
-#include "scene/scene.h"
 
 int main(void)
 {
     engine_t *engine = engine_create();
-    scene_t *scene = scene_create(1);
+    unsigned int return_value = OK;
 
-    if (!engine)
+    if (!engine) {
+        garbage_collector_clean();
         return ERROR;
-    engine_run(engine, scene);
+    }
+    return_value = engine_run(engine);
     engine_destroy(engine);
-    scene_destroy(scene);
     garbage_collector_clean();
-    return OK;
+    return return_value;
 }

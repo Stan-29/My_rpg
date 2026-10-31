@@ -4,11 +4,13 @@
 ** File description:
 ** engine code
 */
+#include "defines.h"
 #include "engine/engine_internal.h"
+#include "scene/scene.h"
 
 engine_t *engine_create(void)
 {
-    sfVideoMode mode = {1920, 1080, 32};
+    sfVideoMode mode = {WINDOW_WIDTH, WINDOW_HEIGHT, 32};
     engine_t *engine = garbage_collector_malloc(sizeof(engine_t));
 
     if (!engine)
@@ -23,14 +25,20 @@ engine_t *engine_create(void)
     return engine;
 }
 
-void engine_run(engine_t *engine, scene_t *scene)
+unsigned int engine_run(engine_t *engine)
 {
+    scene_t *scene = scene_create(1);
+
+    if (!scene)
+        return ERROR;
     while (sfRenderWindow_isOpen(engine->window)) {
         sfRenderWindow_clear(engine->window, sfBlack);
         engine_events_handler(engine);
-        scene_draw(scene);
+        scene_draw(scene, engine->window);
         sfRenderWindow_display(engine->window);
     }
+    scene_destroy(scene);
+    return OK;
 }
 
 void engine_destroy(engine_t *engine)
@@ -41,4 +49,5 @@ void engine_destroy(engine_t *engine)
         sfRenderWindow_destroy(engine->window);
     if (engine->clock)
         sfClock_destroy(engine->clock);
+    garbage_collector_free(engine);
 }

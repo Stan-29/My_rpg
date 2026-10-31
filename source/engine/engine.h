@@ -13,7 +13,7 @@
 typedef struct engine_s engine_t;
 
 engine_t *engine_create(void);
-void engine_run(engine_t *engine, scene_t *scene);
+unsigned int engine_run(engine_t *engine);
 void engine_destroy(engine_t *engine);
 
 #endif

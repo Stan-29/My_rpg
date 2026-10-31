@@ -11,4 +11,7 @@
     #define OK 0
     #define ERROR 84
 
+    #define WINDOW_WIDTH 1920
+    #define WINDOW_HEIGHT 1080
+
 #endif
