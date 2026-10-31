@@ -5,6 +5,7 @@
 ** engine code
 */
 #include "defines.h"
+#include "garbage_collector/garbage_collector.h"
 #include "engine/engine_internal.h"
 #include "scene/scene.h"
 

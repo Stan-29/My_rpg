@@ -6,6 +6,7 @@
 */
 #include "consts.h"
 #include "image/image.h"
+#include "garbage_collector/garbage_collector.h"
 #include <SFML/Graphics/Types.h>
 
 struct image_s {

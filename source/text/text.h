@@ -10,8 +10,6 @@
 
     #include "consts.h"
 
-    #include "garbage_collector/garbage_collector.h"
-
     #include <SFML/Graphics/Text.h>
     #include <SFML/Graphics/Font.h>
     #include <SFML/Graphics/RenderWindow.h>

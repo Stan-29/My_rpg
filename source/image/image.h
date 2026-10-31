@@ -10,8 +10,6 @@
 
     #include "consts.h"
 
-    #include "garbage_collector/garbage_collector.h"
-
     #include <SFML/Graphics/Sprite.h>
     #include <SFML/Graphics/Texture.h>
     #include <SFML/Graphics/RenderWindow.h>

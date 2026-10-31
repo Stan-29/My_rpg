@@ -9,8 +9,6 @@
     #define ENGINE_INTERNAL_H_
 
     #include "engine/engine.h"
-    #include "garbage_collector/garbage_collector.h"
-    #include "defines.h"
     #include <SFML/Graphics/RenderWindow.h>
     #include <SFML/System/Clock.h>
 

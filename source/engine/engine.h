@@ -8,8 +8,6 @@
 #ifndef ENGINE_H_
     #define ENGINE_H_
 
-    #include "scene/scene.h"
-
 typedef struct engine_s engine_t;
 
 engine_t *engine_create(void);

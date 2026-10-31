@@ -9,8 +9,6 @@
     #define LINKED_LIST_INTERNAL_H_
 
     #include "linked_list/linked_list.h"
-    #include "garbage_collector/garbage_collector.h"
-    #include "defines.h"
     #include <stdlib.h>
 
 struct linked_list_s {
