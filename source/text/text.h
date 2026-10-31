@@ -10,9 +10,7 @@
 
     #include "consts.h"
 
-    #include <SFML/Graphics/Text.h>
-    #include <SFML/Graphics/Font.h>
-    #include <SFML/Graphics/RenderWindow.h>
+    #include <SFML/Graphics/Types.h>
 
 typedef struct text_s text_t;
 

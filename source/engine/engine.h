@@ -8,7 +8,7 @@
 #ifndef ENGINE_H_
     #define ENGINE_H_
 
-    #include <SFML/Graphics/RenderWindow.h>
+    #include <SFML/Graphics/Types.h>
 
 typedef struct engine_s engine_t;
 

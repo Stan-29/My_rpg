@@ -5,9 +5,13 @@
 ** scene code
 */
 #include "consts.h"
-#include "image/image.h"
+
 #include "garbage_collector/garbage_collector.h"
-#include <SFML/Graphics/Types.h>
+#include "image/image.h"
+
+#include <SFML/Graphics/RenderWindow.h>
+#include <SFML/Graphics/Sprite.h>
+#include <SFML/Graphics/Texture.h>
 
 struct image_s {
     unsigned int id;

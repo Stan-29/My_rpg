@@ -12,6 +12,7 @@
 
 unsigned int image_func_start(scene_manager_t *scene_manager, scene_t *scene)
 {
+    (void)scene;
     scene_manager_set_scene(scene_manager, SCENE_GAME);
     return OK;
 }

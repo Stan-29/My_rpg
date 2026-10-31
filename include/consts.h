@@ -10,8 +10,9 @@
 
     #include "types.h"
 
+    #include <SFML/Graphics/Color.h>
+    #include <SFML/Graphics/Rect.h>
     #include <SFML/System/Vector2.h>
-    #include <SFML/Graphics/Image.h>
 
 typedef struct images_tab_s {
     unsigned int id_scene;

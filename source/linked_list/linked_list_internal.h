@@ -9,6 +9,7 @@
     #define LINKED_LIST_INTERNAL_H_
 
     #include "linked_list/linked_list.h"
+
     #include <stdlib.h>
 
 struct linked_list_s {

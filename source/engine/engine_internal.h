@@ -8,10 +8,12 @@
 #ifndef ENGINE_INTERNAL_H_
     #define ENGINE_INTERNAL_H_
 
+    #include "types.h"
+
     #include "engine/engine.h"
-    #include "scene_manager/scene_manager.h"
-    #include "scene/scene.h"
-    #include <SFML/System/Clock.h>
+
+    #include <SFML/Graphics/Types.h>
+    #include <SFML/System/Types.h>
 
 struct engine_s {
     sfRenderWindow *window;

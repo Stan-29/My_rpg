@@ -4,12 +4,19 @@
 ** File description:
 ** scene code
 */
-#include "scene_internal.h"
 #include "consts.h"
 #include "defines.h"
+
 #include "garbage_collector/garbage_collector.h"
 #include "image/image.h"
+#include "linked_list/linked_list.h"
+#include "scene/scene.h"
+#include "scene/scene_internal.h" // IWYU pragma: keep
 #include "text/text.h"
+
+#include <SFML/Audio/Music.h>
+#include <SFML/Graphics/RenderWindow.h>
+#include <SFML/Graphics/View.h>
 
 static unsigned int scene_init_images(linked_list_t **ll_images,
     unsigned int id)

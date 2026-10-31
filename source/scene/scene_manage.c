@@ -6,11 +6,15 @@
 */
 #include "consts.h"
 #include "defines.h"
+
 #include "image/image.h"
 #include "linked_list/linked_list.h"
-#include "scene_internal.h"
+#include "scene/scene.h"
+#include "scene/scene_internal.h" // IWYU pragma: keep
 
 #include <SFML/Audio/Music.h>
+#include <SFML/Graphics/Rect.h>
+#include <SFML/Graphics/Sprite.h>
 
 void scene_start(scene_t *scene)
 {

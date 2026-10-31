@@ -8,13 +8,10 @@
 #ifndef SCENE_INTERNAL_H_
     #define SCENE_INTERNAL_H_
 
-    #include "scene.h"
-
     #include "linked_list/linked_list.h"
 
-    #include <SFML/Graphics/RenderWindow.h>
-    #include <SFML/Graphics/View.h>
-    #include <SFML/Audio/Music.h>
+    #include <SFML/Audio/Types.h>
+    #include <SFML/Graphics/Types.h>
 
 struct scene_s {
     unsigned int id;

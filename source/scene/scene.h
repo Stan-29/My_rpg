@@ -10,7 +10,8 @@
 
     #include "types.h"
 
-    #include <SFML/Graphics/RenderWindow.h>
+    #include <SFML/Graphics/Types.h>
+    #include <SFML/System/Vector2.h>
 
 scene_t *scene_create(unsigned int id);
 void scene_draw(scene_t *scene, sfRenderWindow *window);

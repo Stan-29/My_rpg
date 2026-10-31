@@ -6,7 +6,7 @@
 */
 #include "garbage_collector/garbage_collector.h"
 #include "linked_list/linked_list.h"
-#include "linked_list/linked_list_internal.h"
+#include "linked_list/linked_list_internal.h" // IWYU pragma: keep
 
 void linked_list_add_start(linked_list_t **head,
     linked_list_t *new_node)

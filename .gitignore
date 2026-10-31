@@ -5,3 +5,4 @@ valgrind-out.txt
 *.gcno
 *.o
 .DS_Store
+.claude

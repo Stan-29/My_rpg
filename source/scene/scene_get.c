@@ -4,7 +4,10 @@
 ** File description:
 ** scene code
 */
-#include "scene_internal.h"
+#include "scene/scene.h"
+#include "scene/scene_internal.h" // IWYU pragma: keep
+
+#include <stddef.h>
 
 sfView *scene_get_view(scene_t *scene)
 {

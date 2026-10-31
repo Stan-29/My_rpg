@@ -6,7 +6,10 @@
 */
 #include "garbage_collector/garbage_collector.h"
 #include "text/text.h"
-#include <SFML/Graphics/Types.h>
+
+#include <SFML/Graphics/Font.h>
+#include <SFML/Graphics/RenderWindow.h>
+#include <SFML/Graphics/Text.h>
 
 struct text_s {
     unsigned int id;

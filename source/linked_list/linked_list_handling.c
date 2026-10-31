@@ -4,9 +4,9 @@
 ** File description:
 ** engine code
 */
-#include "linked_list/linked_list.h"
-#include "linked_list/linked_list_internal.h"
 #include "garbage_collector/garbage_collector.h"
+#include "linked_list/linked_list.h"
+#include "linked_list/linked_list_internal.h" // IWYU pragma: keep
 
 unsigned int linked_list_get_id(linked_list_t *node)
 {

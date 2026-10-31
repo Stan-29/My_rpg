@@ -4,8 +4,10 @@
 ** File description:
 ** engine code
 */
-#include "garbage_collector/garbage_collector.h"
 #include "defines.h"
+
+#include "garbage_collector/garbage_collector.h"
+
 #include <stddef.h>
 #include <stdlib.h>
 

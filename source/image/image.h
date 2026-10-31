@@ -10,9 +10,7 @@
 
     #include "consts.h"
 
-    #include <SFML/Graphics/Sprite.h>
-    #include <SFML/Graphics/Texture.h>
-    #include <SFML/Graphics/RenderWindow.h>
+    #include <SFML/Graphics/Types.h>
 
 typedef struct image_s image_t;
 

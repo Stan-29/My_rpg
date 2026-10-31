@@ -5,12 +5,15 @@
 ** engine code
 */
 #include "defines.h"
-#include "engine/engine.h"
-#include "garbage_collector/garbage_collector.h"
+
 #include "engine/engine_internal.h"
-#include "scene/scene.h"
+#include "garbage_collector/garbage_collector.h"
 #include "scene_manager/scene_manager.h"
-#include <SFML/Window/Types.h>
+
+#include <SFML/Graphics/Color.h>
+#include <SFML/Graphics/RenderWindow.h>
+#include <SFML/System/Clock.h>
+#include <SFML/Window/VideoMode.h>
 
 engine_t *engine_create(void)
 {
@@ -21,6 +24,7 @@ engine_t *engine_create(void)
         return NULL;
     engine->window = sfRenderWindow_create(mode, "My RPG",
         sfResize | sfClose, NULL);
+    sfRenderWindow_setFramerateLimit(engine->window, 60);
     engine->clock = sfClock_create();
     if (!engine->window || !engine->clock) {
         engine_destroy(engine);

@@ -6,10 +6,14 @@
 */
 #include "defines.h"
 
-#include "engine_internal.h"
-
+#include "engine/engine_internal.h"
 #include "scene/scene.h"
 #include "scene_manager/scene_manager.h"
+
+#include <SFML/Graphics/RenderWindow.h>
+#include <SFML/Window/Event.h>
+#include <SFML/Window/Keyboard.h>
+#include <SFML/Window/Mouse.h>
 
 static unsigned int manage_click(sfEvent event, engine_t *engine,
     scene_manager_t *scene_manager, scene_t *scene)

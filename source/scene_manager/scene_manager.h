@@ -10,7 +10,7 @@
 
     #include "types.h"
 
-    #include <SFML/Graphics/RenderWindow.h>
+    #include <SFML/Graphics/Types.h>
 
 scene_manager_t *scene_manager_create(void);
 void *scene_manager_destroy(scene_manager_t *scene_manager);
