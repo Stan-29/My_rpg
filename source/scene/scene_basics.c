@@ -22,13 +22,16 @@ struct scene_s {
     linked_list_t *ll_texts;
 };
 
-static unsigned int scene_init_images(linked_list_t **ll_images)
+static unsigned int scene_init_images(linked_list_t **ll_images,
+    unsigned int id)
 {
     image_t *new_elem = NULL;
     linked_list_t *new_node = NULL;
 
     for (unsigned int index = 0; images_scenes_tab[index].id_scene != 0;
         index++) {
+        if (images_scenes_tab[index].id_scene != id)
+            continue;
         new_elem = image_create(&images_scenes_tab[index], index);
         if (!new_elem)
             return ERROR;
@@ -42,13 +45,16 @@ static unsigned int scene_init_images(linked_list_t **ll_images)
     return OK;
 }
 
-static unsigned int scene_init_texts(linked_list_t **ll_texts)
+static unsigned int scene_init_texts(linked_list_t **ll_texts,
+    unsigned int id)
 {
     text_t *new_elem = NULL;
     linked_list_t *new_node = NULL;
 
     for (unsigned int index = 0; texts_scenes_tab[index].id_scene != 0;
         index++) {
+        if (texts_scenes_tab[index].id_scene != id)
+            continue;
         new_elem = text_create(&texts_scenes_tab[index], index);
         if (!new_elem)
             return ERROR;
@@ -78,10 +84,9 @@ scene_t *scene_create(unsigned int id)
         return scene_destroy(scene);
     sfMusic_setLoop(scene->music, sfTrue);
     sfMusic_setVolume(scene->music, 50.0f);
-    if (scene_init_images(&scene->ll_images) == ERROR ||
-        scene_init_texts(&scene->ll_texts) == ERROR)
+    if (scene_init_images(&scene->ll_images, id) == ERROR ||
+        scene_init_texts(&scene->ll_texts, id) == ERROR)
         return scene_destroy(scene);
-    sfMusic_play(scene->music);
     return scene;
 }
 
@@ -123,4 +128,14 @@ void *scene_destroy(scene_t *scene)
     }
     garbage_collector_free(scene);
     return NULL;
+}
+
+void scene_start(scene_t *scene)
+{
+    sfMusic_play(scene->music);
+}
+
+void scene_stop(scene_t *scene)
+{
+    sfMusic_stop(scene->music);
 }

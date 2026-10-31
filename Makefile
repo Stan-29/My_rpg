@@ -14,6 +14,7 @@ SRC = source/const/sprites_tab.c 	\
 	source/linked_list/linked_list_basics.c			\
 	source/linked_list/linked_list_handling.c		\
 	source/scene/scene_basics.c			\
+	source/scene_manager/scene_manager_basics.c			\
 	source/text/text_basics.c		\
 
 MAIN = main.c

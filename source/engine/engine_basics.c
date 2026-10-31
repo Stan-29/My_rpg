@@ -8,6 +8,7 @@
 #include "garbage_collector/garbage_collector.h"
 #include "engine/engine_internal.h"
 #include "scene/scene.h"
+#include "scene_manager/scene_manager.h"
 
 engine_t *engine_create(void)
 {
@@ -28,17 +29,17 @@ engine_t *engine_create(void)
 
 unsigned int engine_run(engine_t *engine)
 {
-    scene_t *scene = scene_create(1);
+    scene_manager_t *scene_manager = scene_manager_create();
 
-    if (!scene)
+    if (!scene_manager)
         return ERROR;
     while (sfRenderWindow_isOpen(engine->window)) {
         sfRenderWindow_clear(engine->window, sfBlack);
         engine_events_handler(engine);
-        scene_draw(scene, engine->window);
+        scene_manager_draw(scene_manager, engine->window);
         sfRenderWindow_display(engine->window);
     }
-    scene_destroy(scene);
+    scene_manager_destroy(scene_manager);
     return OK;
 }
 
