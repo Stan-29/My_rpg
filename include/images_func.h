@@ -10,6 +10,8 @@
 
     #include "types.h"
 
-unsigned int image_func_start(scene_manager_t *, scene_t *);
+unsigned int image_func_start_game(scene_manager_t *, scene_t *);
+unsigned int place_holder_func(scene_manager_t *, scene_t *);
+unsigned int image_func_back_to_menu(scene_manager_t *, scene_t *);
 
 #endif
