@@ -22,7 +22,7 @@ static unsigned int manage_click(sfEvent event, engine_t *engine,
     sfVector2f pos = sfRenderWindow_mapPixelToCoords(
         engine_get_window(engine), pixel, scene_get_view(scene));
 
-    return scene_manage_click(scene_manager, scene, &pos);
+    return scene_handle_click(scene_manager, scene, &pos);
 }
 
 unsigned int engine_events_handler(engine_t *engine,
@@ -35,7 +35,7 @@ unsigned int engine_events_handler(engine_t *engine,
         scene = scene_manager_get_current(scene_manager);
         if (event.type == sfEvtClosed || sfKeyboard_isKeyPressed(sfKeyEscape))
             sfRenderWindow_close(engine->window);
-        if (event.type == sfEvtMouseButtonPressed &&
+        if (event.type == sfEvtMouseButtonReleased &&
             event.mouseButton.button == sfMouseLeft &&
             manage_click(event, engine, scene_manager, scene) == ERROR)
             return ERROR;

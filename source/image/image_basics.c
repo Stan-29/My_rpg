@@ -8,16 +8,11 @@
 
 #include "garbage_collector/garbage_collector.h"
 #include "image/image.h"
+#include "image/image_internal.h" // IWYU pragma: keep
 
 #include <SFML/Graphics/RenderWindow.h>
 #include <SFML/Graphics/Sprite.h>
 #include <SFML/Graphics/Texture.h>
-
-struct image_s {
-    unsigned int id;
-    sfTexture *texture;
-    sfSprite *sprite;
-};
 
 image_t *image_create(const images_tab_t *image_infos, unsigned int id)
 {
@@ -26,6 +21,8 @@ image_t *image_create(const images_tab_t *image_infos, unsigned int id)
     if (!image)
         return image_destroy(image);
     image->id = id;
+    image->base_scale = image_infos->scale;
+    image->base_pos = image_infos->pos;
     image->texture = sfTexture_createFromFile(image_infos->filepath, NULL);
     if (!image->texture)
         return image_destroy(image);
@@ -55,18 +52,4 @@ void *image_destroy(image_t *image)
 void image_draw(image_t *image, sfRenderWindow *window)
 {
     sfRenderWindow_drawSprite(window, image->sprite, NULL);
-}
-
-unsigned int image_get_id(image_t *image)
-{
-    if (!image)
-        return 0;
-    return image->id;
-}
-
-sfSprite *image_get_sprite(image_t *image)
-{
-    if (!image)
-        return 0;
-    return image->sprite;
 }

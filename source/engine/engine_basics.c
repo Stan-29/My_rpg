@@ -9,6 +9,7 @@
 #include "engine/engine_internal.h"
 #include "garbage_collector/garbage_collector.h"
 #include "scene_manager/scene_manager.h"
+#include "scene/scene.h"
 
 #include <SFML/Graphics/Color.h>
 #include <SFML/Graphics/RenderWindow.h>
@@ -24,12 +25,12 @@ engine_t *engine_create(void)
         return NULL;
     engine->window = sfRenderWindow_create(mode, "My RPG",
         sfResize | sfClose, NULL);
-    sfRenderWindow_setFramerateLimit(engine->window, 60);
     engine->clock = sfClock_create();
     if (!engine->window || !engine->clock) {
         engine_destroy(engine);
         return NULL;
     }
+    sfRenderWindow_setFramerateLimit(engine->window, 60);
     return engine;
 }
 
@@ -45,6 +46,8 @@ unsigned int engine_run(engine_t *engine)
             scene_manager_destroy(scene_manager);
             return ERROR;
         }
+        scene_handle_hover(scene_manager_get_current(scene_manager),
+            engine->window);
         scene_manager_draw(scene_manager, engine->window);
         sfRenderWindow_display(engine->window);
     }
