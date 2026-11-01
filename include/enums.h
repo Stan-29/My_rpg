@@ -18,4 +18,10 @@ typedef enum scene_id_e {
     SCENE_COUNT
 } scene_id_t;
 
+typedef enum sounds_id_e {
+    SOUND_NONE = 0,
+    SOUND_CLICK,
+    SOUND_COUNT
+} sounds_id_t;
+
 #endif

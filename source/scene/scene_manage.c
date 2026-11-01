@@ -12,6 +12,7 @@
 #include "scene/scene.h"
 #include "scene/scene_internal.h" // IWYU pragma: keep
 #include "types.h"
+#include "sound/sound.h"
 
 #include <SFML/Audio/Music.h>
 #include <SFML/Graphics/Rect.h>
@@ -114,5 +115,18 @@ void scene_handle_hover(scene_t *scene, sfRenderWindow *window)
         image_change_scale(data, &new_scale);
         image_change_pos(data, &new_pos);
         temp = linked_list_get_prev(temp);
+    }
+}
+
+void scene_play_sound(scene_t *scene, unsigned int sound_id)
+{
+    linked_list_t *temp = scene->ll_sounds;
+    sound_t *data = NULL;
+
+    while (temp != NULL) {
+        data = linked_list_get_data(temp);
+        if (sound_get_id(data) == sound_id)
+            sound_play(data);
+        temp = linked_list_get_next(temp);
     }
 }

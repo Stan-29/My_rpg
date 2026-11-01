@@ -7,6 +7,7 @@
 
 SRC = source/const/images_tab.c 	\
 	source/const/musics_tab.c 		\
+	source/const/sounds_tab.c 		\
 	source/const/texts_tab.c 		\
 	source/engine/engine_basics.c		\
 	source/engine/engine_events.c		\
@@ -22,6 +23,7 @@ SRC = source/const/images_tab.c 	\
 	source/scene/scene_get.c			\
 	source/scene/scene_manage.c			\
 	source/scene_manager/scene_manager_basics.c			\
+	source/sound/sound_basics.c			\
 	source/text/text_basics.c		\
 
 MAIN = main.c
@@ -91,7 +93,7 @@ gcovrex:	all
 	gcovr --txt-metric branch --gcov-executable "llvm-cov gcov" \
 		--exclude "tests/.*"
 
-compile: re
+compile: $(NAME)
 	./$(NAME)
 
 .PHONY: all clean fclean re compile tests_run gcovrex

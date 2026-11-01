@@ -19,6 +19,7 @@ struct scene_s {
     sfMusic *music;
     linked_list_t *ll_images;
     linked_list_t *ll_texts;
+    linked_list_t *ll_sounds;
 };
 
 #endif
