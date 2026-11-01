@@ -22,11 +22,15 @@
 
 void scene_start(scene_t *scene)
 {
+    if (!scene->music)
+        return;
     sfMusic_play(scene->music);
 }
 
 void scene_stop(scene_t *scene)
 {
+    if (!scene->music)
+        return;
     sfMusic_stop(scene->music);
 }
 

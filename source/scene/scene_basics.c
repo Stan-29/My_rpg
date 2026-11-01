@@ -7,6 +7,7 @@
 #include "consts.h"
 #include "defines.h"
 
+#include "enums.h"
 #include "garbage_collector/garbage_collector.h"
 #include "image/image.h"
 #include "linked_list/linked_list.h"
@@ -64,6 +65,27 @@ static unsigned int scene_init_texts(linked_list_t **ll_texts,
     return OK;
 }
 
+static unsigned int scene_init_music(scene_t *scene, unsigned int id)
+{
+    unsigned int index = 0;
+
+    while (musics_scenes_tab[index].id_scene != SCENE_NONE) {
+        if (musics_scenes_tab[index].id_scene == id)
+            break;
+        index++;
+    }
+    if (musics_scenes_tab[index].id_scene == SCENE_NONE)
+        return OK;
+    if (musics_scenes_tab[index].filepath == NULL)
+        return OK;
+    scene->music = sfMusic_createFromFile(musics_scenes_tab[index].filepath);
+    if (!scene->music)
+        return ERROR;
+    sfMusic_setLoop(scene->music, sfTrue);
+    sfMusic_setVolume(scene->music, 50.0f);
+    return OK;
+}
+
 scene_t *scene_create(unsigned int id)
 {
     sfFloatRect rect = {0, 0, WINDOW_WIDTH, WINDOW_HEIGHT};
@@ -75,11 +97,8 @@ scene_t *scene_create(unsigned int id)
     scene->view = sfView_createFromRect(rect);
     if (!scene->view)
         return scene_destroy(scene);
-    scene->music = sfMusic_createFromFile("ressource/musics/music.wav");
-    if (!scene->music)
+    if (scene_init_music(scene, id) == ERROR)
         return scene_destroy(scene);
-    sfMusic_setLoop(scene->music, sfTrue);
-    sfMusic_setVolume(scene->music, 50.0f);
     if (scene_init_images(&scene->ll_images, id) == ERROR ||
         scene_init_texts(&scene->ll_texts, id) == ERROR)
         return scene_destroy(scene);

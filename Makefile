@@ -6,6 +6,7 @@
 ##
 
 SRC = source/const/images_tab.c 	\
+	source/const/musics_tab.c 		\
 	source/const/texts_tab.c 		\
 	source/engine/engine_basics.c		\
 	source/engine/engine_events.c		\

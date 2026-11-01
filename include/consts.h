@@ -37,4 +37,11 @@ typedef struct text_tab_s {
 
 extern const text_tab_t texts_scenes_tab[];
 
+typedef struct music_tab_s {
+    unsigned int id_scene;
+    const char *filepath;
+} music_tab_t;
+
+extern const music_tab_t musics_scenes_tab[];
+
 #endif
