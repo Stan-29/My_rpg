@@ -30,11 +30,22 @@ MAIN_OBJ = $(MAIN:.c=.o)
 
 NAME =	my_rpg
 
-CC = epiclang
+CC := $(shell command -v epiclang || echo cc)
 
-CSFML_LIB = -l csfml-window -l csfml-audio -l csfml-graphics -l csfml-system -l csfml-network
+BREW_PREFIX := $(shell brew --prefix 2>/dev/null || echo /opt/homebrew)
 
-INCLUDES = -I./include -I./source
+ifneq ($(wildcard .deps/lib),)
+    DEPS_INCLUDES = -isystem .deps/include
+    DEPS_LIBS = -L.deps/lib -Wl,-rpath,@loader_path/.deps/lib \
+		-Wl,-rpath,@loader_path/.deps/Frameworks
+else
+    DEPS_INCLUDES = -I$(BREW_PREFIX)/include
+    DEPS_LIBS = -L$(BREW_PREFIX)/lib
+endif
+
+CSFML_LIB = $(DEPS_LIBS) -l csfml-window -l csfml-audio -l csfml-graphics -l csfml-system -l csfml-network
+
+INCLUDES = -I./include -I./source $(DEPS_INCLUDES)
 
 CFLAGS = $(INCLUDES) -Wall -Wextra
 

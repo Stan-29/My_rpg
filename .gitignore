@@ -6,3 +6,4 @@ valgrind-out.txt
 *.o
 .DS_Store
 .claude
+.deps
