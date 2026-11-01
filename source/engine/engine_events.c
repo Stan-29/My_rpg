@@ -22,7 +22,7 @@ static unsigned int manage_click(sfEvent event, engine_t *engine,
     sfVector2f pos = sfRenderWindow_mapPixelToCoords(
         engine_get_window(engine), pixel, scene_get_view(scene));
 
-    return scene_handle_click(scene_manager, scene, &pos);
+    return scene_handle_click(scene_manager, scene, &pos, engine);
 }
 
 unsigned int engine_events_handler(engine_t *engine,

@@ -58,7 +58,7 @@ static void get_new_pos_and_scale(image_t *data,
 }
 
 unsigned int scene_handle_click(scene_manager_t *scene_manager, scene_t *scene,
-    sfVector2f *pos)
+    sfVector2f *pos, engine_t *engine)
 {
     linked_list_t *temp = scene->ll_images;
     image_t *data = NULL;
@@ -72,7 +72,7 @@ unsigned int scene_handle_click(scene_manager_t *scene_manager, scene_t *scene,
         if (sfFloatRect_contains(&image_bounds, pos->x, pos->y) &&
             images_scenes_tab[image_get_id(data)].func != NULL) {
             return images_scenes_tab[image_get_id(data)].
-                func(scene_manager, scene);
+                func(scene_manager, scene, engine);
         }
         temp = linked_list_get_prev(temp);
     }

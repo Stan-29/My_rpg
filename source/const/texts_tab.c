@@ -13,8 +13,6 @@
 
 const text_tab_t texts_scenes_tab[] = {
     {SCENE_MENU, "ressource/fonts/vel/vel.ttf",
-        "--ANANAS--", 100, &sfWhite, {775, 250}},
-    {SCENE_MENU, "ressource/fonts/vel/vel.ttf",
-        "--details--", 50, &sfWhite, {775, 850}},
+        "--ANANAS--", 100, &sfBlack, {775, 250}},
     {SCENE_NONE, NULL, NULL, 0, NULL, {0, 0}}
 };
