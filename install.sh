@@ -46,7 +46,9 @@ else
     if ! brew tap | grep -qx "$TAP"; then
         brew tap-new --no-git "$TAP"
     fi
-    cp "$REPO_DIR/scripts/$FORMULA.rb" "$(brew --repo "$TAP")/Formula/"
+    # Les versions recentes de Homebrew refusent un tap local non approuve.
+    brew trust "$TAP" 2>/dev/null || true
+    cp"$REPO_DIR/scripts/$FORMULA.rb" "$(brew --repo "$TAP")/Formula/"
     echo "Installation de CSFML 2.6 (compilation, quelques minutes)..."
     brew install "$TAP/$FORMULA"
 fi
