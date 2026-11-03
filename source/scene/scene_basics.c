@@ -7,7 +7,6 @@
 #include "consts.h"
 #include "defines.h"
 
-#include "enums.h"
 #include "garbage_collector/garbage_collector.h"
 #include "image/image.h"
 #include "linked_list/linked_list.h"

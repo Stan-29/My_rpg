@@ -16,9 +16,11 @@ scene_manager_t *scene_manager_create(void);
 void *scene_manager_destroy(scene_manager_t *scene_manager);
 void scene_manager_draw(scene_manager_t *scene_manager,
     sfRenderWindow *window);
-
 void scene_manager_set_scene(scene_manager_t *scene_manager,
     unsigned int scene_id);
+void scene_manager_exit_sub(scene_manager_t *scene_manager);
+
 scene_t *scene_manager_get_current(scene_manager_t *scene_manager);
+unsigned int scene_manager_get_sub_id(scene_manager_t *scene_manager);
 
 #endif

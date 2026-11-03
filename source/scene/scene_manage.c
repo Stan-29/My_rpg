@@ -4,7 +4,6 @@
 ** File description:
 ** scene code
 */
-#include "consts.h"
 #include "defines.h"
 
 #include "image/image.h"

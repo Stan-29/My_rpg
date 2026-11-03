@@ -57,6 +57,6 @@ unsigned int image_func_exit_settings(scene_manager_t *scene_manager,
 {
     (void)engine;
     scene_play_sound(scene, SOUND_CLICK);
-    scene_manager_set_scene(scene_manager, SCENE_MENU);
+    scene_manager_exit_sub(scene_manager);
     return OK;
 }

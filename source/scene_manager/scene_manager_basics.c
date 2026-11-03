@@ -4,18 +4,12 @@
 ** File description:
 ** scene_manager_basics
 */
-#include "enums.h"
 #include "consts.h"
 
 #include "garbage_collector/garbage_collector.h"
 #include "scene/scene.h"
 #include "scene_manager/scene_manager.h"
-
-struct scene_manager_s {
-    unsigned int main_scene;
-    unsigned int sub_scene;
-    scene_t *scene[SCENE_COUNT];
-};
+#include "scene_manager/scene_manager_internal.h" // IWYU pragma: keep
 
 scene_manager_t *scene_manager_create(void)
 {
@@ -66,24 +60,15 @@ void scene_manager_set_scene(scene_manager_t *scene_manager,
         scene_manager->sub_scene = scene_id;
         return;
     }
-    if (scene_manager->main_scene == scene_id) {
-        scene_manager->sub_scene = SCENE_NONE;
-        return;
-    }
     scene_stop(scene_manager->scene[scene_manager->main_scene]);
     scene_manager->sub_scene = SCENE_NONE;
     scene_manager->main_scene = scene_id;
     scene_start(scene_manager->scene[scene_manager->main_scene]);
 }
 
-scene_t *scene_manager_get_current(scene_manager_t *scene_manager)
+void scene_manager_exit_sub(scene_manager_t *scene_manager)
 {
-    unsigned int current_scene = 0;
-
     if (!scene_manager)
-        return NULL;
-    current_scene = scene_manager->main_scene;
-    if (scene_manager->sub_scene != SCENE_NONE)
-        current_scene = scene_manager->sub_scene;
-    return scene_manager->scene[current_scene];
+        return;
+    scene_manager->sub_scene = SCENE_NONE;
 }

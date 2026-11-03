@@ -5,6 +5,7 @@
 ** engine code
 */
 #include "defines.h"
+#include "enums.h"
 
 #include "engine/engine_internal.h"
 #include "scene/scene.h"
@@ -33,8 +34,11 @@ unsigned int engine_events_handler(engine_t *engine,
 
     while (sfRenderWindow_pollEvent(engine->window, &event)) {
         scene = scene_manager_get_current(scene_manager);
-        if (event.type == sfEvtClosed || sfKeyboard_isKeyPressed(sfKeyEscape))
+        if (event.type == sfEvtClosed)
             sfRenderWindow_close(engine->window);
+        if (sfKeyboard_isKeyPressed(sfKeyEscape) &&
+            scene_manager_get_sub_id(scene_manager) != SCENE_NONE)
+            scene_manager_exit_sub(scene_manager);
         if (event.type == sfEvtMouseButtonReleased &&
             event.mouseButton.button == sfMouseLeft &&
             manage_click(event, engine, scene_manager, scene) == ERROR)
