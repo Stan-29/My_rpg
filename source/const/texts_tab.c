@@ -20,9 +20,13 @@ const texts_tab_t texts_settings_tab[] = {
     {"ressource/fonts/vel/vel.ttf",
         "--Settings--", 80, &sfBlack, {775, 270}},
     {"ressource/fonts/vel/vel.ttf",
-        "Windowed", 50, &sfBlack, {680, 420}},
+        "Windowed", 50, &sfBlack, {710, 420}},
     {"ressource/fonts/vel/vel.ttf",
-        "Full screen", 50, &sfBlack, {980, 420}},
+        "Full screen", 50, &sfBlack, {1010, 420}},
+    {"ressource/fonts/vel/vel.ttf",
+        "Music volume", 40, &sfBlack, {850, 530}},
+    {"ressource/fonts/vel/vel.ttf",
+        "Sounds volume", 40, &sfBlack, {850, 650}},
     {NULL, NULL, 0, NULL, {0, 0}}
 };
 

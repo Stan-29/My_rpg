@@ -95,7 +95,7 @@ static unsigned int scene_init_musics(linked_list_t **ll_musics,
     if (!musics_tab)
         return OK;
     for (unsigned int index = 0; musics_tab[index].filepath != NULL; index++) {
-        new_elem = music_create(musics_tab, index);
+        new_elem = music_create(musics_tab);
         if (!new_elem)
             return ERROR;
         new_node = linked_list_create_node(new_elem, index);

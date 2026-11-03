@@ -9,13 +9,6 @@
 
 #include <unistd.h>
 
-unsigned int image_get_id(image_t *image)
-{
-    if (!image)
-        return 0;
-    return image->id;
-}
-
 sfSprite *image_get_sprite(image_t *image)
 {
     if (!image)
@@ -44,4 +37,11 @@ bool image_is_clickable(image_t *image)
     if (image->func != NULL)
         return true;
     return false;
+}
+
+bool image_is_movable(image_t *image)
+{
+    if (!image)
+        return false;
+    return image->is_movable;
 }

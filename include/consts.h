@@ -21,6 +21,7 @@ typedef struct images_tab_s {
     sfIntRect sprite_sheet;
     sfVector2f pos;
     sfVector2f scale;
+    bool is_movable;
     unsigned int (* func)(scene_manager_t *, scene_t *, engine_t *);
 } images_tab_t;
 

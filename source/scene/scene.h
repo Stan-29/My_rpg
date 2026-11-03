@@ -19,8 +19,7 @@ void *scene_destroy(scene_t *scene);
 
 void scene_start(scene_t *scene);
 void scene_stop(scene_t *scene);
-unsigned int scene_handle_click(scene_manager_t *scene_manager, scene_t *scene,
-    sfVector2f *pos, engine_t *engine);
+image_t *scene_find_image_by_pos(scene_t *scene, sfVector2f *pos);
 void scene_handle_hover(scene_t *scene, sfRenderWindow *window);
 void scene_play_sound(scene_t *scene, unsigned int sound_id);
 

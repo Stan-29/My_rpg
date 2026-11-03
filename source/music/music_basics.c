@@ -16,8 +16,7 @@ struct music_s {
     sfMusic *music;
 };
 
-music_t *music_create(const musics_tab_t *music_infos,
-    unsigned int index)
+music_t *music_create(const musics_tab_t *music_infos)
 {
     music_t *music = garbage_collector_malloc(sizeof(music_t));
 

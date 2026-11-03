@@ -6,13 +6,13 @@
 */
 #include "defines.h"
 
-#include "image/image.h"
 #include "linked_list/linked_list.h"
 #include "scene/scene.h"
 #include "scene/scene_internal.h" // IWYU pragma: keep
 #include "types.h"
 #include "sound/sound.h"
 #include "music/music.h"
+#include "image/image.h"
 
 #include <SFML/Audio/Music.h>
 #include <SFML/Graphics/Rect.h>
@@ -55,27 +55,6 @@ static void get_new_pos_and_scale(image_t *data,
     new_pos->x -= local.width * new_scale->x * ratio.x;
     new_pos->y -= local.height * new_scale->y * ratio.x;
     *new_scale = (sfVector2f){new_scale->x * ratio.y, new_scale->y * ratio.y};
-}
-
-unsigned int scene_handle_click(scene_manager_t *scene_manager, scene_t *scene,
-    sfVector2f *pos, engine_t *engine)
-{
-    linked_list_t *temp = scene->ll_images;
-    image_t *data = NULL;
-    sfFloatRect image_bounds = {0};
-
-    while (linked_list_get_next(temp) != NULL)
-        temp = linked_list_get_next(temp);
-    while (temp != NULL) {
-        data = linked_list_get_data(temp);
-        image_bounds = sfSprite_getGlobalBounds(image_get_sprite(data));
-        if (sfFloatRect_contains(&image_bounds, pos->x, pos->y) &&
-            image_is_clickable(data)) {
-            return image_start_func(data, scene_manager, scene, engine);
-        }
-        temp = linked_list_get_prev(temp);
-    }
-    return OK;
 }
 
 static void manage_image_state(image_t *data, sfVector2f *pos,

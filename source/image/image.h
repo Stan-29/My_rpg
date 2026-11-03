@@ -18,11 +18,11 @@ image_t *image_create(const images_tab_t *image_infos, unsigned int id);
 void *image_destroy(void *data);
 void image_draw(image_t *image, sfRenderWindow *window);
 
-unsigned int image_get_id(image_t *image);
 sfSprite *image_get_sprite(image_t *image);
 sfVector2f image_get_scale(image_t *image);
 sfVector2f image_get_pos(image_t *image);
 bool image_is_clickable(image_t *image);
+bool image_is_movable(image_t *image);
 
 void image_change_scale(image_t *image, sfVector2f *scale);
 void image_change_pos(image_t *image, sfVector2f *pos);

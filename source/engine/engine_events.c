@@ -8,6 +8,7 @@
 #include "enums.h"
 
 #include "engine/engine_internal.h"
+#include "image/image.h"
 #include "scene/scene.h"
 #include "scene_manager/scene_manager.h"
 
@@ -22,8 +23,16 @@ static unsigned int manage_click(sfEvent event, engine_t *engine,
     sfVector2i pixel = {event.mouseButton.x, event.mouseButton.y};
     sfVector2f pos = sfRenderWindow_mapPixelToCoords(
         engine_get_window(engine), pixel, scene_get_view(scene));
+    image_t *image =
+        scene_find_image_by_pos(scene, &pos);
 
-    return scene_handle_click(scene_manager, scene, &pos, engine);
+    if (!image)
+        return OK;
+    if (event.type == sfEvtMouseButtonPressed && image_is_movable(image))
+        return image_start_func(image, scene_manager, scene, engine);
+    if (event.type == sfEvtMouseButtonReleased && !image_is_movable(image))
+        return image_start_func(image, scene_manager, scene, engine);
+    return OK;
 }
 
 unsigned int engine_events_handler(engine_t *engine,
@@ -39,7 +48,8 @@ unsigned int engine_events_handler(engine_t *engine,
         if (sfKeyboard_isKeyPressed(sfKeyEscape) &&
             scene_manager_get_sub_id(scene_manager) != SCENE_NONE)
             scene_manager_exit_sub(scene_manager);
-        if (event.type == sfEvtMouseButtonReleased &&
+        if ((event.type == sfEvtMouseButtonReleased ||
+                event.type == sfEvtMouseButtonPressed) &&
             event.mouseButton.button == sfMouseLeft &&
             manage_click(event, engine, scene_manager, scene) == ERROR)
             return ERROR;

@@ -14,16 +14,23 @@
 #include <SFML/Graphics/Sprite.h>
 #include <SFML/Graphics/Texture.h>
 
+static void image_fill_struct(image_t *image, const images_tab_t *image_infos,
+    unsigned int id)
+{
+    image->id = id;
+    image->is_movable = image_infos->is_movable;
+    image->base_scale = image_infos->scale;
+    image->base_pos = image_infos->pos;
+    image->func = image_infos->func;
+}
+
 image_t *image_create(const images_tab_t *image_infos, unsigned int id)
 {
     image_t *image = garbage_collector_malloc(sizeof(image_t));
 
     if (!image)
         return image_destroy(image);
-    image->id = id;
-    image->base_scale = image_infos->scale;
-    image->base_pos = image_infos->pos;
-    image->func = image_infos->func;
+    image_fill_struct(image, image_infos, id);
     image->texture = sfTexture_createFromFile(image_infos->filepath, NULL);
     if (!image->texture)
         return image_destroy(image);
