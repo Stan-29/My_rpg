@@ -24,6 +24,7 @@ SRC = source/const/images_tab.c 	\
 	source/linked_list/linked_list_handling.c		\
 	source/music/music_basics.c		\
 	source/scene/scene_basics.c			\
+	source/scene/scene_drag.c			\
 	source/scene/scene_get.c			\
 	source/scene/scene_manage.c			\
 	source/scene_manager/scene_manager_basics.c			\

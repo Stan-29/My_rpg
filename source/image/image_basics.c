@@ -18,7 +18,7 @@ static void image_fill_struct(image_t *image, const images_tab_t *image_infos,
     unsigned int id)
 {
     image->id = id;
-    image->is_movable = image_infos->is_movable;
+    image->movable_axes = image_infos->movable_axes;
     image->base_scale = image_infos->scale;
     image->base_pos = image_infos->pos;
     image->func = image_infos->func;

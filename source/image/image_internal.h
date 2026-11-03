@@ -19,9 +19,9 @@ struct image_s {
     unsigned int id;
     sfVector2f base_scale;
     sfVector2f base_pos;
+    sfVector2f movable_axes;
     sfTexture *texture;
     sfSprite *sprite;
-    bool is_movable;
     unsigned int (* func)(scene_manager_t *, scene_t *, engine_t *);
 };
 

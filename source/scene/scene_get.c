@@ -38,3 +38,10 @@ image_t *scene_find_image_by_pos(scene_t *scene, sfVector2f *pos)
     }
     return NULL;
 }
+
+image_t *scene_get_held(scene_t *scene)
+{
+    if (!scene)
+        return NULL;
+    return scene->held;
+}

@@ -26,10 +26,17 @@ static unsigned int manage_click(sfEvent event, engine_t *engine,
     image_t *image =
         scene_find_image_by_pos(scene, &pos);
 
+    if (event.type == sfEvtMouseButtonReleased && scene_get_held(scene)) {
+        image = scene_get_held(scene);
+        scene_release(scene);
+        return image_start_func(image, scene_manager, scene, engine);
+    }
     if (!image)
         return OK;
-    if (event.type == sfEvtMouseButtonPressed && image_is_movable(image))
-        return image_start_func(image, scene_manager, scene, engine);
+    if (event.type == sfEvtMouseButtonPressed && image_is_movable(image)) {
+        scene_grab(scene, image, &pos);
+        return OK;
+    }
     if (event.type == sfEvtMouseButtonReleased && !image_is_movable(image))
         return image_start_func(image, scene_manager, scene, engine);
     return OK;

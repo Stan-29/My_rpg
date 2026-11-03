@@ -19,6 +19,7 @@
 #include <SFML/Graphics/Sprite.h>
 #include <SFML/Graphics/RenderWindow.h>
 #include <SFML/Graphics/Types.h>
+#include <SFML/System/Vector2.h>
 #include <SFML/Window/Mouse.h>
 
 void scene_start(scene_t *scene)

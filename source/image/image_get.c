@@ -43,5 +43,8 @@ bool image_is_movable(image_t *image)
 {
     if (!image)
         return false;
-    return image->is_movable;
+    if (image->movable_axes.x != 0 ||
+        image->movable_axes.y != 0)
+        return true;
+    return false;
 }

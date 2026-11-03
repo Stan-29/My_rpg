@@ -26,6 +26,7 @@ bool image_is_movable(image_t *image);
 
 void image_change_scale(image_t *image, sfVector2f *scale);
 void image_change_pos(image_t *image, sfVector2f *pos);
+void image_set_base_pos(image_t *image, sfVector2f *pos);
 void image_change_color(image_t *image, sfColor *color);
 unsigned int image_start_func(image_t *image, scene_manager_t *scene_manager,
     scene_t *scene, engine_t *engine);

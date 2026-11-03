@@ -116,6 +116,8 @@ scene_t *scene_create(unsigned int id)
     if (!scene)
         return NULL;
     scene->id = id;
+    scene->held = NULL;
+    scene->offset = (sfVector2f){0, 0};
     scene->view = sfView_createFromRect(rect);
     if (!scene->view)
         return scene_destroy(scene);
