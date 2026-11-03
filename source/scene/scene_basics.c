@@ -111,7 +111,7 @@ static unsigned int scene_init_musics(linked_list_t **ll_musics,
 
 scene_t *scene_create(unsigned int id)
 {
-    sfFloatRect rect = {0, 0, WINDOW_WIDTH, WINDOW_HEIGHT};
+    sfFloatRect rect = {0, 0, FULL_SCREEN_WIDTH, FULL_SCREEN_HEIGHT};
     scene_t *scene = garbage_collector_malloc(sizeof(scene_t));
 
     if (!scene)

@@ -19,6 +19,10 @@ const texts_tab_t texts_menu_tab[] = {
 const texts_tab_t texts_settings_tab[] = {
     {"ressource/fonts/vel/vel.ttf",
         "--Settings--", 80, &sfBlack, {775, 270}},
+    {"ressource/fonts/vel/vel.ttf",
+        "Windowed", 50, &sfBlack, {680, 420}},
+    {"ressource/fonts/vel/vel.ttf",
+        "Full screen", 50, &sfBlack, {980, 420}},
     {NULL, NULL, 0, NULL, {0, 0}}
 };
 

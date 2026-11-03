@@ -28,8 +28,13 @@ const images_tab_t images_settings_tab[] = {
         {0, 0, 0, 0}, {150, -650}, {1.4, 1.4}, NULL},
     {"./ressource/images/exit_settings_button.png",
         {0, 0, 0, 0}, {700, 700}, {1, 1}, &image_func_exit_settings},
+    {"./ressource/images/settings_elem.jpg",
+        {458, 344, 240, 110}, {650, 400}, {1, 1}, &image_func_windowed},
+    {"./ressource/images/settings_elem.jpg",
+        {458, 344, 240, 110}, {950, 400}, {1, 1}, &image_func_full_screen},
     {NULL, {0, 0, 0, 0}, {0, 0}, {0, 0}, NULL}
 };
+
 const images_tab_t images_game_tab[] = {
     {"./ressource/images/game.png",
         {0, 0, 0, 0}, {0, 0}, {1, 1}, NULL},

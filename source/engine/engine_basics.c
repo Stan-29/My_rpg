@@ -18,19 +18,18 @@
 
 engine_t *engine_create(void)
 {
-    sfVideoMode mode = {WINDOW_WIDTH, WINDOW_HEIGHT, 32};
+    sfVideoMode mode = {WINDOWED_WIDTH, WINDOWED_HEIGHT, 32};
     engine_t *engine = garbage_collector_malloc(sizeof(engine_t));
 
     if (!engine)
         return NULL;
-    engine->window = sfRenderWindow_create(mode, "My RPG",
-        sfResize | sfClose, NULL);
+    engine->window = sfRenderWindow_create(mode, "My RPG", sfClose, NULL);
     engine->clock = sfClock_create();
     if (!engine->window || !engine->clock) {
         engine_destroy(engine);
         return NULL;
     }
-    sfRenderWindow_setFramerateLimit(engine->window, 60);
+    sfRenderWindow_setFramerateLimit(engine->window, FPS);
     return engine;
 }
 
@@ -71,4 +70,18 @@ sfRenderWindow *engine_get_window(engine_t *engine)
     if (!engine)
         return NULL;
     return engine->window;
+}
+
+void engine_change_window(engine_t *engine, bool is_full_screen)
+{
+    sfVideoMode windowed = {WINDOWED_WIDTH, WINDOWED_HEIGHT, 32};
+
+    sfRenderWindow_destroy(engine->window);
+    if (is_full_screen)
+        engine->window = sfRenderWindow_create(sfVideoMode_getDesktopMode(),
+            "My RPG", sfFullscreen, NULL);
+    else
+        engine->window = sfRenderWindow_create(windowed, "My RPG",
+            sfClose, NULL);
+    sfRenderWindow_setFramerateLimit(engine->window, FPS);
 }

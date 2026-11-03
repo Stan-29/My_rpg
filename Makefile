@@ -16,8 +16,9 @@ SRC = source/const/images_tab.c 	\
 	source/image/image_basics.c			\
 	source/image/image_get.c			\
 	source/image/image_manage.c			\
-	source/images_func/image_func_start.c 	\
-	source/images_func/place_holder_func.c 	\
+	source/images_func/image_func_settings.c 	\
+	source/images_func/image_func_start.c 		\
+	source/images_func/place_holder_func.c 		\
 	source/linked_list/linked_list_basics.c			\
 	source/linked_list/linked_list_get.c			\
 	source/linked_list/linked_list_handling.c		\
