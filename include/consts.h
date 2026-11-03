@@ -14,8 +14,9 @@
     #include <SFML/Graphics/Rect.h>
     #include <SFML/System/Vector2.h>
 
+    #include <stdbool.h>
+
 typedef struct images_tab_s {
-    unsigned int id_scene;
     const char *filepath;
     sfIntRect sprite_sheet;
     sfVector2f pos;
@@ -23,34 +24,51 @@ typedef struct images_tab_s {
     unsigned int (* func)(scene_manager_t *, scene_t *, engine_t *);
 } images_tab_t;
 
-extern const images_tab_t images_scenes_tab[];
+extern const images_tab_t images_menu_tab[];
+extern const images_tab_t images_settings_tab[];
+extern const images_tab_t images_game_tab[];
 
-
-typedef struct text_tab_s {
-    unsigned int id_scene;
+typedef struct texts_tab_s {
     const char *filepath;
     const char *str;
     int size;
     sfColor *color;
     sfVector2f pos;
-} text_tab_t;
+} texts_tab_t;
 
-extern const text_tab_t texts_scenes_tab[];
+extern const texts_tab_t texts_menu_tab[];
+extern const texts_tab_t texts_settings_tab[];
+extern const texts_tab_t texts_game_tab[];
 
-typedef struct music_tab_s {
-    unsigned int id_scene;
+typedef struct musics_tab_s {
+    unsigned int id;
     const char *filepath;
-} music_tab_t;
+    float volume;
+} musics_tab_t;
 
-extern const music_tab_t musics_scenes_tab[];
+extern const musics_tab_t musics_menu_tab[];
+extern const musics_tab_t musics_settings_tab[];
+extern const musics_tab_t musics_game_tab[];
 
 typedef struct sounds_tab_s {
-    unsigned int id_scene;
     unsigned int id_sound;
     const char *filepath;
     float volume;
 } sounds_tab_t;
 
-extern const sounds_tab_t sounds_scenes_tab[];
+extern const sounds_tab_t sounds_menu_tab[];
+extern const sounds_tab_t sounds_settings_tab[];
+extern const sounds_tab_t sounds_game_tab[];
+
+typedef struct scenes_tab_s {
+    unsigned int id_scene;
+    bool is_main;
+    const images_tab_t *images;
+    const texts_tab_t *texts;
+    const musics_tab_t *musics;
+    const sounds_tab_t *sounds;
+} scenes_tab_t;
+
+extern const scenes_tab_t scenes_tab[];
 
 #endif

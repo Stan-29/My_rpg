@@ -35,8 +35,10 @@ sound_t *sound_create(const sounds_tab_t *sound_infos)
     return sound;
 }
 
-void *sound_destroy(sound_t *sound)
+void *sound_destroy(void *data)
 {
+    sound_t *sound = data;
+
     if (!sound)
         return NULL;
     sfSound_destroy(sound->sound);

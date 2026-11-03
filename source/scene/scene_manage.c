@@ -13,6 +13,7 @@
 #include "scene/scene_internal.h" // IWYU pragma: keep
 #include "types.h"
 #include "sound/sound.h"
+#include "music/music.h"
 
 #include <SFML/Audio/Music.h>
 #include <SFML/Graphics/Rect.h>
@@ -23,16 +24,16 @@
 
 void scene_start(scene_t *scene)
 {
-    if (!scene->music)
+    if (!scene)
         return;
-    sfMusic_play(scene->music);
+    music_play(linked_list_get_data(scene->ll_musics));
 }
 
 void scene_stop(scene_t *scene)
 {
-    if (!scene->music)
+    if (!scene)
         return;
-    sfMusic_stop(scene->music);
+    music_stop(linked_list_get_data(scene->ll_musics));
 }
 
 static void get_new_pos_and_scale(image_t *data,
@@ -70,9 +71,8 @@ unsigned int scene_handle_click(scene_manager_t *scene_manager, scene_t *scene,
         data = linked_list_get_data(temp);
         image_bounds = sfSprite_getGlobalBounds(image_get_sprite(data));
         if (sfFloatRect_contains(&image_bounds, pos->x, pos->y) &&
-            images_scenes_tab[image_get_id(data)].func != NULL) {
-            return images_scenes_tab[image_get_id(data)].
-                func(scene_manager, scene, engine);
+            image_is_clickable(data)) {
+            return image_start_func(data, scene_manager, scene, engine);
         }
         temp = linked_list_get_prev(temp);
     }
@@ -86,7 +86,7 @@ static void manage_image_state(image_t *data, sfVector2f *pos,
 
     image_bounds = sfSprite_getGlobalBounds(image_get_sprite(data));
     if (sfFloatRect_contains(&image_bounds, pos->x, pos->y) &&
-        images_scenes_tab[image_get_id(data)].func != NULL) {
+        image_is_clickable(data)) {
         if (sfMouse_isButtonPressed(sfMouseLeft)) {
             image_change_color(data, &(sfColor){180, 180, 180, 255});
             get_new_pos_and_scale(data, new_scale, new_pos, 2);

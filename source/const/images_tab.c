@@ -5,21 +5,35 @@
 ** images_tab
 */
 #include "consts.h"
-#include "enums.h"
 #include "images_func.h"
 
 #include <stddef.h>
 
-const images_tab_t images_scenes_tab[] = {
-    {SCENE_MENU, "./ressource/images/background.png",
-        {0, 0, 0, 0}, {0, 0}, {3.5, 3.5}, NULL},
-    {SCENE_MENU, "./ressource/images/start_button.png",
-        {0, 0, 0, 0}, {800, 500}, {0.4, 0.4}, &image_func_start_game},
-    {SCENE_MENU, "./ressource/images/Exit.jpg",
-        {0, 0, 0, 0}, {800, 700}, {0.2, 0.2}, &image_func_exit_game},
-    {SCENE_GAME, "./ressource/images/game.png",
+const images_tab_t images_menu_tab[] = {
+    {"./ressource/images/background.jpg",
+        {0, 0, 0, 0}, {0, 0}, {2.8, 2.8}, NULL},
+    {"./ressource/images/button.png",
+        {0, 0, 0, 0}, {750, 400}, {0.4, 0.4}, &image_func_start_game},
+    {"./ressource/images/button.png",
+        {0, 0, 0, 0}, {750, 550}, {0.4, 0.4}, &image_func_go_to_settings},
+    {"./ressource/images/button.png",
+        {0, 0, 0, 0}, {750, 700}, {0.4, 0.4}, &image_func_exit_game},
+    {NULL, {0, 0, 0, 0}, {0, 0}, {0, 0}, NULL}
+};
+
+const images_tab_t images_settings_tab[] = {
+    {"./ressource/images/filter.png",
+        {0, 0, 0, 0}, {0, 0}, {1920, 1080}, NULL},
+    {"./ressource/images/wood_panel.png",
+        {0, 0, 0, 0}, {150, -650}, {1.4, 1.4}, NULL},
+    {"./ressource/images/exit_settings_button.png",
+        {0, 0, 0, 0}, {700, 700}, {1, 1}, &image_func_exit_settings},
+    {NULL, {0, 0, 0, 0}, {0, 0}, {0, 0}, NULL}
+};
+const images_tab_t images_game_tab[] = {
+    {"./ressource/images/game.png",
         {0, 0, 0, 0}, {0, 0}, {1, 1}, NULL},
-    {SCENE_GAME, "./ressource/images/start_button.png",
+    {"./ressource/images/button.png",
         {0, 0, 0, 0}, {1550, 900}, {0.3, 0.3}, &image_func_back_to_menu},
-    {SCENE_NONE, NULL, {0, 0, 0, 0}, {0, 0}, {0, 0}, NULL}
+    {NULL, {0, 0, 0, 0}, {0, 0}, {0, 0}, NULL}
 };

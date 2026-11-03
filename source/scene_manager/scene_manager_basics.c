@@ -5,13 +5,15 @@
 ** scene_manager_basics
 */
 #include "enums.h"
+#include "consts.h"
 
 #include "garbage_collector/garbage_collector.h"
 #include "scene/scene.h"
 #include "scene_manager/scene_manager.h"
 
 struct scene_manager_s {
-    unsigned int current_scene;
+    unsigned int main_scene;
+    unsigned int sub_scene;
     scene_t *scene[SCENE_COUNT];
 };
 
@@ -22,7 +24,8 @@ scene_manager_t *scene_manager_create(void)
 
     if (!scene_manager)
         return NULL;
-    scene_manager->current_scene = SCENE_MENU;
+    scene_manager->main_scene = SCENE_MENU;
+    scene_manager->sub_scene = SCENE_NONE;
     for (unsigned int scene_id = SCENE_MENU; scene_id < SCENE_COUNT;
         scene_id++) {
         scene_manager->scene[scene_id] = scene_create(scene_id);
@@ -47,12 +50,11 @@ void *scene_manager_destroy(scene_manager_t *scene_manager)
 void scene_manager_draw(scene_manager_t *scene_manager,
     sfRenderWindow *window)
 {
-    unsigned int scene_id = SCENE_MENU;
-
     if (!scene_manager)
         return;
-    scene_id = scene_manager->current_scene;
-    scene_draw(scene_manager->scene[scene_id], window);
+    scene_draw(scene_manager->scene[scene_manager->main_scene], window);
+    if (scene_manager->sub_scene != SCENE_NONE)
+        scene_draw(scene_manager->scene[scene_manager->sub_scene], window);
 }
 
 void scene_manager_set_scene(scene_manager_t *scene_manager,
@@ -60,9 +62,18 @@ void scene_manager_set_scene(scene_manager_t *scene_manager,
 {
     if (!scene_manager || scene_id <= SCENE_NONE || scene_id >= SCENE_COUNT)
         return;
-    scene_stop(scene_manager->scene[scene_manager->current_scene]);
-    scene_manager->current_scene = scene_id;
-    scene_start(scene_manager->scene[scene_manager->current_scene]);
+    if (!scenes_tab[scene_id].is_main) {
+        scene_manager->sub_scene = scene_id;
+        return;
+    }
+    if (scene_manager->main_scene == scene_id) {
+        scene_manager->sub_scene = SCENE_NONE;
+        return;
+    }
+    scene_stop(scene_manager->scene[scene_manager->main_scene]);
+    scene_manager->sub_scene = SCENE_NONE;
+    scene_manager->main_scene = scene_id;
+    scene_start(scene_manager->scene[scene_manager->main_scene]);
 }
 
 scene_t *scene_manager_get_current(scene_manager_t *scene_manager)
@@ -71,6 +82,8 @@ scene_t *scene_manager_get_current(scene_manager_t *scene_manager)
 
     if (!scene_manager)
         return NULL;
-    current_scene = scene_manager->current_scene;
+    current_scene = scene_manager->main_scene;
+    if (scene_manager->sub_scene != SCENE_NONE)
+        current_scene = scene_manager->sub_scene;
     return scene_manager->scene[current_scene];
 }

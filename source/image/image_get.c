@@ -7,6 +7,8 @@
 #include "image/image_internal.h" // IWYU pragma: keep
 #include "image/image.h"
 
+#include <unistd.h>
+
 unsigned int image_get_id(image_t *image)
 {
     if (!image)
@@ -33,4 +35,13 @@ sfVector2f image_get_pos(image_t *image)
     if (!image)
         return (sfVector2f){0};
     return image->base_pos;
+}
+
+bool image_is_clickable(image_t *image)
+{
+    if (!image)
+        return false;
+    if (image->func != NULL)
+        return true;
+    return false;
 }

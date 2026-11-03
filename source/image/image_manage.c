@@ -4,6 +4,8 @@
 ** File description:
 ** scene code
 */
+#include "defines.h"
+
 #include "image/image_internal.h" // IWYU pragma: keep
 #include "image/image.h"
 
@@ -28,4 +30,12 @@ void image_change_color(image_t *image, sfColor *color)
     if (!image)
         return;
     sfSprite_setColor(image->sprite, *color);
+}
+
+unsigned int image_start_func(image_t *image, scene_manager_t *scene_manager,
+    scene_t *scene, engine_t *engine)
+{
+    if (!image)
+        return ERROR;
+    return image->func(scene_manager, scene, engine);
 }

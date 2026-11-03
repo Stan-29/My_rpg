@@ -8,6 +8,8 @@
 #ifndef IMAGE_INTERNAL_H_
     #define IMAGE_INTERNAL_H_
 
+    #include "types.h"
+
     #include <SFML/Graphics/Types.h>
     #include <SFML/System/Vector2.h>
 
@@ -17,6 +19,7 @@ struct image_s {
     sfVector2f base_pos;
     sfTexture *texture;
     sfSprite *sprite;
+    unsigned int (* func)(scene_manager_t *, scene_t *, engine_t *);
 };
 
 #endif

@@ -13,13 +13,15 @@
     #include <SFML/Audio/Types.h>
     #include <SFML/Graphics/Types.h>
 
+    #include <stdbool.h>
+
 struct scene_s {
     unsigned int id;
     sfView *view;
-    sfMusic *music;
     linked_list_t *ll_images;
     linked_list_t *ll_texts;
     linked_list_t *ll_sounds;
+    linked_list_t *ll_musics;
 };
 
 #endif
