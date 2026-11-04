@@ -14,6 +14,10 @@ const musics_tab_t musics_menu_tab[] = {
     {0, NULL, 0}
 };
 
+const musics_tab_t musics_save_tab[] = {
+    {0, NULL, 0}
+};
+
 const musics_tab_t musics_settings_tab[] = {
     {0, NULL, 0}
 };

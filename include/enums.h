@@ -11,6 +11,7 @@
 typedef enum scene_id_e {
     SCENE_NONE = 0,
     SCENE_MENU,
+    SCENE_SAVE,
     SCENE_SETTINGS,
     SCENE_GAME,
     SCENE_PAUSE,

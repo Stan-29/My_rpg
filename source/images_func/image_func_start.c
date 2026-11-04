@@ -21,7 +21,17 @@ unsigned int image_func_start_game(scene_manager_t *scene_manager,
 {
     (void)engine;
     scene_play_sound(scene, SOUND_CLICK);
+    scene_manager_exit_sub(scene_manager);
     scene_manager_set_scene(scene_manager, SCENE_GAME);
+    return OK;
+}
+
+unsigned int image_func_go_to_save(scene_manager_t *scene_manager,
+    scene_t *scene, engine_t *engine)
+{
+    (void)engine;
+    scene_play_sound(scene, SOUND_CLICK);
+    scene_manager_set_scene(scene_manager, SCENE_SAVE);
     return OK;
 }
 
@@ -52,7 +62,7 @@ unsigned int image_func_exit_game(scene_manager_t *scene_manager,
     return OK;
 }
 
-unsigned int image_func_exit_settings(scene_manager_t *scene_manager,
+unsigned int image_func_exit_sub_scene(scene_manager_t *scene_manager,
     scene_t *scene, engine_t *engine)
 {
     (void)engine;

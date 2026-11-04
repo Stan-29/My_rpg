@@ -16,6 +16,12 @@ const texts_tab_t texts_menu_tab[] = {
     {NULL, NULL, 0, NULL, {0, 0}}
 };
 
+const texts_tab_t texts_save_tab[] = {
+    {"ressource/fonts/vel/vel.ttf",
+        "--Choose a save--", 80, &sfBlack, {725, 260}},
+    {NULL, NULL, 0, NULL, {0, 0}}
+};
+
 const texts_tab_t texts_settings_tab[] = {
     {"ressource/fonts/vel/vel.ttf",
         "--Settings--", 80, &sfBlack, {775, 270}},

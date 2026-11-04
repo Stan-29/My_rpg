@@ -26,6 +26,7 @@ typedef struct images_tab_s {
 } images_tab_t;
 
 extern const images_tab_t images_menu_tab[];
+extern const images_tab_t images_save_tab[];
 extern const images_tab_t images_settings_tab[];
 extern const images_tab_t images_game_tab[];
 
@@ -38,6 +39,7 @@ typedef struct texts_tab_s {
 } texts_tab_t;
 
 extern const texts_tab_t texts_menu_tab[];
+extern const texts_tab_t texts_save_tab[];
 extern const texts_tab_t texts_settings_tab[];
 extern const texts_tab_t texts_game_tab[];
 
@@ -48,6 +50,7 @@ typedef struct musics_tab_s {
 } musics_tab_t;
 
 extern const musics_tab_t musics_menu_tab[];
+extern const musics_tab_t musics_save_tab[];
 extern const musics_tab_t musics_settings_tab[];
 extern const musics_tab_t musics_game_tab[];
 
@@ -58,6 +61,7 @@ typedef struct sounds_tab_s {
 } sounds_tab_t;
 
 extern const sounds_tab_t sounds_menu_tab[];
+extern const sounds_tab_t sounds_save_tab[];
 extern const sounds_tab_t sounds_settings_tab[];
 extern const sounds_tab_t sounds_game_tab[];
 
