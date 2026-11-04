@@ -14,6 +14,7 @@ SRC = source/const/images_tab.c 	\
 	source/engine/engine_events.c		\
 	source/garbage_collector/garbage_collector_basics.c		\
 	source/image/image_basics.c			\
+	source/image/image_check.c			\
 	source/image/image_get.c			\
 	source/image/image_manage.c			\
 	source/images_func/image_func_settings.c 	\

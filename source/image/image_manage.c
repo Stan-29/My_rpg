@@ -29,10 +29,22 @@ void image_set_base_pos(image_t *image, sfVector2f *pos)
 {
     if (!image)
         return;
-    if (image->movable_axes.x == 1)
+    if (image->movable_zone.width != 0) {
         image->base_pos.x = pos->x;
-    if (image->movable_axes.y == 1)
+        if (pos->x < image->movable_zone.left)
+            image->base_pos.x = image->movable_zone.left;
+        if (pos->x > (image->movable_zone.left + image->movable_zone.width))
+            image->base_pos.x = image->movable_zone.left +
+                image->movable_zone.width;
+    }
+    if (image->movable_zone.height != 0) {
         image->base_pos.y = pos->y;
+        if (pos->y < image->movable_zone.top)
+            image->base_pos.y = image->movable_zone.top;
+        if (pos->y > (image->movable_zone.top + image->movable_zone.height))
+            image->base_pos.y = image->movable_zone.top +
+                image->movable_zone.height;
+    }
 }
 
 void image_change_color(image_t *image, sfColor *color)

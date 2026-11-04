@@ -35,12 +35,12 @@ unsigned int image_func_full_screen(scene_manager_t *scene_manager,
     return OK;
 }
 
-static float get_ratio_slider(scene_t *scene, float pos_left, float width)
+static float get_ratio_slider(scene_t *scene)
 {
-    sfFloatRect image = sfSprite_getGlobalBounds(
-        image_get_sprite(scene_get_held(scene)));
-    float pixel = image.left + image.width / 2;
-    float ratio = (pixel - pos_left) / width;
+    image_t *held = scene_get_held(scene);
+    float ratio = (image_get_pos(held).x -
+        image_get_movable_zone(held).left) /
+        image_get_movable_zone(held).width;
 
     if (ratio < 0)
         ratio = 0;
@@ -54,7 +54,7 @@ unsigned int image_func_music_volume(scene_manager_t *scene_manager,
 {
     (void)engine;
     scene_manager_change_music_volume(scene_manager,
-        get_ratio_slider(scene, POS_LEFT_MUSICS_BAR, WIDTH_MUSICS_BAR));
+        get_ratio_slider(scene));
     scene_play_sound(scene, SOUND_CLICK);
     return OK;
 }
@@ -64,7 +64,7 @@ unsigned int image_func_sound_volume(scene_manager_t *scene_manager,
 {
     (void)engine;
     scene_manager_change_sound_volume(scene_manager,
-        get_ratio_slider(scene, POS_LEFT_SOUNDS_BAR, WIDTH_SOUNDS_BAR));
+        get_ratio_slider(scene));
     scene_play_sound(scene, SOUND_CLICK);
     return OK;
 }

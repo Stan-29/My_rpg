@@ -21,6 +21,8 @@ void image_draw(image_t *image, sfRenderWindow *window);
 sfSprite *image_get_sprite(image_t *image);
 sfVector2f image_get_scale(image_t *image);
 sfVector2f image_get_pos(image_t *image);
+sfFloatRect image_get_movable_zone(image_t *image);
+
 bool image_is_clickable(image_t *image);
 bool image_is_movable(image_t *image);
 

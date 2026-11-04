@@ -12,6 +12,7 @@
 
     #include <SFML/Graphics/Types.h>
     #include <SFML/System/Vector2.h>
+    #include <SFML/Graphics/Rect.h>
 
     #include <stdbool.h>
 
@@ -19,7 +20,7 @@ struct image_s {
     unsigned int id;
     sfVector2f base_scale;
     sfVector2f base_pos;
-    sfVector2f movable_axes;
+    sfFloatRect movable_zone;
     sfTexture *texture;
     sfSprite *sprite;
     unsigned int (* func)(scene_manager_t *, scene_t *, engine_t *);

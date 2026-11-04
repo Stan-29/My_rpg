@@ -21,11 +21,6 @@
     #define RATIO_CLICK_POS -0.05
     #define RATIO_CLICK_SCALE 0.9
 
-    #define POS_LEFT_SOUNDS_BAR 620.f
-    #define WIDTH_SOUNDS_BAR (360.f * 1.8)
-    #define POS_LEFT_MUSICS_BAR 620.f
-    #define WIDTH_MUSICS_BAR (360.f * 1.8)
-
     #define FPS 60
 
     #define INIT_RATIO 0.5
