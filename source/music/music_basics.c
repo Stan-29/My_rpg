@@ -4,6 +4,8 @@
 ** File description:
 ** scene code
 */
+#include "defines.h"
+
 #include "garbage_collector/garbage_collector.h"
 #include "music.h"
 
@@ -28,7 +30,7 @@ music_t *music_create(const musics_tab_t *music_infos)
     if (!music->music)
         return music_destroy(music);
     sfMusic_setLoop(music->music, sfTrue);
-    sfMusic_setVolume(music->music, music->base_volume);
+    sfMusic_setVolume(music->music, music->base_volume * INIT_RATIO);
     return music;
 }
 
@@ -59,13 +61,10 @@ void *music_stop(music_t *music)
     return NULL;
 }
 
-void *music_change_volume(music_t *music, float ratio)
+void music_change_volume(music_t *music, float ratio)
 {
-    float new_volume = ratio;
-
     if (!music)
-        return NULL;
-    new_volume *= music->base_volume;
-    sfMusic_setVolume(music->music, new_volume);
-    return NULL;
+        return;
+    sfMusic_setVolume(music->music, music->base_volume * ratio);
+    return;
 }

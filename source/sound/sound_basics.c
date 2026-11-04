@@ -4,6 +4,8 @@
 ** File description:
 ** scene code
 */
+#include "defines.h"
+
 #include "garbage_collector/garbage_collector.h"
 #include "sound.h"
 
@@ -13,6 +15,7 @@
 
 struct sound_s {
     unsigned int id;
+    float base_volume;
     sfSound *sound;
     sfSoundBuffer *sound_buffer;
 };
@@ -24,6 +27,7 @@ sound_t *sound_create(const sounds_tab_t *sound_infos)
     if (!sound)
         return sound_destroy(sound);
     sound->id = sound_infos->id_sound;
+    sound->base_volume = sound_infos->base_volume;
     sound->sound_buffer = sfSoundBuffer_createFromFile(sound_infos->filepath);
     if (!sound->sound_buffer)
         return sound_destroy(sound);
@@ -31,7 +35,7 @@ sound_t *sound_create(const sounds_tab_t *sound_infos)
     if (!sound->sound)
         return sound_destroy(sound);
     sfSound_setBuffer(sound->sound, sound->sound_buffer);
-    sfSound_setVolume(sound->sound, sound_infos->volume);
+    sfSound_setVolume(sound->sound, sound->base_volume * INIT_RATIO);
     return sound;
 }
 
@@ -52,6 +56,14 @@ void sound_play(sound_t *sound)
     if (!sound)
         return;
     sfSound_play(sound->sound);
+    return;
+}
+
+void sound_change_volume(sound_t *sound, float ratio)
+{
+    if (!sound)
+        return;
+    sfSound_setVolume(sound->sound, sound->base_volume * ratio);
     return;
 }
 

@@ -50,25 +50,3 @@ void scene_manager_draw(scene_manager_t *scene_manager,
     if (scene_manager->sub_scene != SCENE_NONE)
         scene_draw(scene_manager->scene[scene_manager->sub_scene], window);
 }
-
-void scene_manager_set_scene(scene_manager_t *scene_manager,
-    unsigned int scene_id)
-{
-    if (!scene_manager || scene_id <= SCENE_NONE || scene_id >= SCENE_COUNT)
-        return;
-    if (!scenes_tab[scene_id].is_main) {
-        scene_manager->sub_scene = scene_id;
-        return;
-    }
-    scene_stop(scene_manager->scene[scene_manager->main_scene]);
-    scene_manager->sub_scene = SCENE_NONE;
-    scene_manager->main_scene = scene_id;
-    scene_start(scene_manager->scene[scene_manager->main_scene]);
-}
-
-void scene_manager_exit_sub(scene_manager_t *scene_manager)
-{
-    if (!scene_manager)
-        return;
-    scene_manager->sub_scene = SCENE_NONE;
-}

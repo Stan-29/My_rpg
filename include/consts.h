@@ -54,7 +54,7 @@ extern const musics_tab_t musics_game_tab[];
 typedef struct sounds_tab_s {
     unsigned int id_sound;
     const char *filepath;
-    float volume;
+    float base_volume;
 } sounds_tab_t;
 
 extern const sounds_tab_t sounds_menu_tab[];

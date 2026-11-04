@@ -17,6 +17,20 @@
 #include <SFML/Window/Keyboard.h>
 #include <SFML/Window/Mouse.h>
 
+static unsigned int manage_held_image(sfEvent event, engine_t *engine,
+    scene_manager_t *scene_manager, scene_t *scene)
+{
+    unsigned int return_value = OK;
+
+    if (event.type == sfEvtMouseButtonReleased && scene_get_held(scene)) {
+        return_value = image_start_func(scene_get_held(scene),
+            scene_manager, scene, engine);
+        scene_release(scene);
+        return return_value;
+    }
+    return return_value;
+}
+
 static unsigned int manage_click(sfEvent event, engine_t *engine,
     scene_manager_t *scene_manager, scene_t *scene)
 {
@@ -26,11 +40,8 @@ static unsigned int manage_click(sfEvent event, engine_t *engine,
     image_t *image =
         scene_find_image_by_pos(scene, &pos);
 
-    if (event.type == sfEvtMouseButtonReleased && scene_get_held(scene)) {
-        image = scene_get_held(scene);
-        scene_release(scene);
-        return image_start_func(image, scene_manager, scene, engine);
-    }
+    if (manage_held_image(event, engine, scene_manager, scene) == ERROR)
+        return ERROR;
     if (!image)
         return OK;
     if (event.type == sfEvtMouseButtonPressed && image_is_movable(image)) {
