@@ -17,7 +17,7 @@ struct text_s {
     sfText *text;
 };
 
-text_t *text_create(const text_tab_t *text_infos, unsigned int id)
+text_t *text_create(const texts_tab_t *text_infos, unsigned int id)
 {
     text_t *text = garbage_collector_malloc(sizeof(text_t));
 
@@ -38,8 +38,10 @@ text_t *text_create(const text_tab_t *text_infos, unsigned int id)
     return text;
 }
 
-void *text_destroy(text_t *text)
+void *text_destroy(void *data)
 {
+    text_t *text = data;
+
     if (!text)
         return NULL;
     if (text->text)

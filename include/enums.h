@@ -24,4 +24,11 @@ typedef enum sounds_id_e {
     SOUND_COUNT
 } sounds_id_t;
 
+typedef enum musics_id_e {
+    MUSIC_NONE = 0,
+    MUSIC_MENU,
+    MUSIC_GAME,
+    MUSIC_COUNT
+} musics_id_t;
+
 #endif

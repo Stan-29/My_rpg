@@ -7,12 +7,7 @@
 #include "image/image_internal.h" // IWYU pragma: keep
 #include "image/image.h"
 
-unsigned int image_get_id(image_t *image)
-{
-    if (!image)
-        return 0;
-    return image->id;
-}
+#include <unistd.h>
 
 sfSprite *image_get_sprite(image_t *image)
 {
@@ -33,4 +28,11 @@ sfVector2f image_get_pos(image_t *image)
     if (!image)
         return (sfVector2f){0};
     return image->base_pos;
+}
+
+sfFloatRect image_get_movable_zone(image_t *image)
+{
+    if (!image)
+        return (sfFloatRect){0, 0, 0, 0};
+    return image->movable_zone;
 }

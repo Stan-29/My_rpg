@@ -7,22 +7,31 @@
 
 SRC = source/const/images_tab.c 	\
 	source/const/musics_tab.c 		\
+	source/const/scenes_tab.c 		\
 	source/const/sounds_tab.c 		\
 	source/const/texts_tab.c 		\
 	source/engine/engine_basics.c		\
 	source/engine/engine_events.c		\
 	source/garbage_collector/garbage_collector_basics.c		\
 	source/image/image_basics.c			\
+	source/image/image_check.c			\
 	source/image/image_get.c			\
 	source/image/image_manage.c			\
-	source/images_func/image_func_start.c 	\
-	source/images_func/place_holder_func.c 	\
+	source/images_func/image_func_settings.c 	\
+	source/images_func/image_func_start.c 		\
+	source/images_func/place_holder_func.c 		\
 	source/linked_list/linked_list_basics.c			\
+	source/linked_list/linked_list_get.c			\
 	source/linked_list/linked_list_handling.c		\
+	source/music/music_basics.c		\
 	source/scene/scene_basics.c			\
+	source/scene/scene_drag.c			\
 	source/scene/scene_get.c			\
+	source/scene/scene_handle.c			\
 	source/scene/scene_manage.c			\
 	source/scene_manager/scene_manager_basics.c			\
+	source/scene_manager/scene_manager_get.c			\
+	source/scene_manager/scene_manager_manage.c			\
 	source/sound/sound_basics.c			\
 	source/text/text_basics.c		\
 

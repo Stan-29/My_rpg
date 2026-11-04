@@ -9,8 +9,16 @@
 
 #include <stddef.h>
 
-const music_tab_t musics_scenes_tab[] = {
-    {SCENE_MENU, "ressource/musics/music.wav"},
-    {SCENE_GAME, NULL},
-    {SCENE_NONE, NULL}
+const musics_tab_t musics_menu_tab[] = {
+    {MUSIC_MENU, "ressource/musics/music.wav", 50},
+    {0, NULL, 0}
+};
+
+const musics_tab_t musics_settings_tab[] = {
+    {0, NULL, 0}
+};
+
+const musics_tab_t musics_game_tab[] = {
+    {MUSIC_GAME, "ressource/musics/music.wav", 50},
+    {0, NULL, 0}
 };

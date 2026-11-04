@@ -23,5 +23,6 @@ void *linked_list_get_data(linked_list_t *node);
 linked_list_t *linked_list_get_next(linked_list_t *node);
 linked_list_t *linked_list_get_prev(linked_list_t *node);
 linked_list_t *linked_list_create_node(void *data, unsigned int id);
+void linked_list_destroy(linked_list_t **head, void *(*destroy)(void *));
 
 #endif
