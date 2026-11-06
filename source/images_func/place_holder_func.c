@@ -5,7 +5,6 @@
 ** scene code
 */
 #include "defines.h"
-#include "types.h"
 #include "enums.h"
 
 #include "scene/scene.h"

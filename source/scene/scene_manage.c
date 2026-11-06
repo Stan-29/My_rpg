@@ -4,15 +4,12 @@
 ** File description:
 ** scene code
 */
-#include "defines.h"
-
 #include "linked_list/linked_list.h"
 #include "scene/scene.h"
 #include "scene/scene_internal.h" // IWYU pragma: keep
 #include "types.h"
 #include "sound/sound.h"
 #include "music/music.h"
-#include "image/image.h"
 
 #include <SFML/Audio/Music.h>
 #include <SFML/Graphics/Rect.h>

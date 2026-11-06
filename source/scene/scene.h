@@ -10,6 +10,8 @@
 
     #include "types.h"
 
+    #include "linked_list/linked_list.h"
+
     #include <SFML/Graphics/Types.h>
     #include <SFML/System/Vector2.h>
 
@@ -32,5 +34,6 @@ void scene_handle_drag(scene_t *scene, sfRenderWindow *window);
 sfView *scene_get_view(scene_t *scene);
 image_t *scene_get_held(scene_t *scene);
 image_t *scene_find_image_by_pos(scene_t *scene, sfVector2f *pos);
+linked_list_t *scene_get_texts(scene_t *scene);
 
 #endif

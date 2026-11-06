@@ -6,16 +6,11 @@
 */
 #include "enums.h"
 #include "defines.h"
-#include "types.h"
 
 #include "image/image.h"
 #include "scene/scene.h"
 #include "engine/engine.h"
 #include "scene_manager/scene_manager.h"
-
-#include <SFML/Graphics/Rect.h>
-#include <SFML/Graphics/Types.h>
-#include <SFML/Graphics/Sprite.h>
 
 unsigned int image_func_windowed(scene_manager_t *scene_manager,
     scene_t *scene, engine_t *engine)

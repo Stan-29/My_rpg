@@ -45,3 +45,10 @@ image_t *scene_get_held(scene_t *scene)
         return NULL;
     return scene->held;
 }
+
+linked_list_t *scene_get_texts(scene_t *scene)
+{
+    if (!scene)
+        return NULL;
+    return scene->ll_texts;
+}

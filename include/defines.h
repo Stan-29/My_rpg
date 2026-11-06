@@ -25,4 +25,7 @@
 
     #define INIT_RATIO 0.5
 
+    #define SAVE_COUNT 3
+    #define MAX_SAVE_INFOS 4
+
 #endif

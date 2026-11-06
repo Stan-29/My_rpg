@@ -76,4 +76,6 @@ typedef struct scenes_tab_s {
 
 extern const scenes_tab_t scenes_tab[];
 
+extern const char *saves_path_tab[];
+
 #endif

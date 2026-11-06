@@ -9,7 +9,6 @@
 
 #include "garbage_collector/garbage_collector.h"
 #include "image/image.h"
-#include "linked_list/linked_list.h"
 #include "scene/scene.h"
 #include "scene/scene_internal.h" // IWYU pragma: keep
 #include "text/text.h"

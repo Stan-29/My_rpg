@@ -6,16 +6,11 @@
 */
 #include "garbage_collector/garbage_collector.h"
 #include "text/text.h"
+#include "text/text_internal.h" // IWYU pragma: keep
 
 #include <SFML/Graphics/Font.h>
 #include <SFML/Graphics/RenderWindow.h>
 #include <SFML/Graphics/Text.h>
-
-struct text_s {
-    unsigned int id;
-    sfFont *font;
-    sfText *text;
-};
 
 text_t *text_create(const texts_tab_t *text_infos, unsigned int id)
 {
@@ -62,4 +57,11 @@ unsigned int text_get_id(text_t *text)
     if (!text)
         return 0;
     return text->id;
+}
+
+void text_change_str(text_t *text, char *new_str)
+{
+    if (!text)
+        return;
+    sfText_setString(text->text, new_str);
 }

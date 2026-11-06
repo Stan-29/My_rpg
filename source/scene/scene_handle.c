@@ -6,7 +6,6 @@
 */
 #include "defines.h"
 
-#include "linked_list/linked_list.h"
 #include "scene/scene.h"
 #include "scene/scene_internal.h" // IWYU pragma: keep
 #include "types.h"

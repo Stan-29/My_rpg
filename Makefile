@@ -7,6 +7,7 @@
 
 SRC = source/const/images_tab.c 	\
 	source/const/musics_tab.c 		\
+	source/const/save_tab.c 		\
 	source/const/scenes_tab.c 		\
 	source/const/sounds_tab.c 		\
 	source/const/texts_tab.c 		\
@@ -17,8 +18,9 @@ SRC = source/const/images_tab.c 	\
 	source/image/image_check.c			\
 	source/image/image_get.c			\
 	source/image/image_manage.c			\
-	source/images_func/image_func_settings.c 	\
-	source/images_func/image_func_start.c 		\
+	source/images_func/image_func_settings.c 		\
+	source/images_func/image_func_start_saves.c 	\
+	source/images_func/image_func_switch_scenes.c 	\
 	source/images_func/place_holder_func.c 		\
 	source/linked_list/linked_list_basics.c			\
 	source/linked_list/linked_list_get.c			\
@@ -34,6 +36,7 @@ SRC = source/const/images_tab.c 	\
 	source/scene_manager/scene_manager_manage.c			\
 	source/sound/sound_basics.c			\
 	source/text/text_basics.c		\
+	source/text/text_check.c		\
 
 MAIN = main.c
 
