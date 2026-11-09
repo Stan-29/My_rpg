@@ -10,7 +10,7 @@
 
     #include "types.h"
 
-unsigned int place_holder_func(scene_manager_t *,
+unsigned int image_func_go_to_pause(scene_manager_t *,
     scene_t *, engine_t *);
 
 unsigned int image_func_back_to_menu(scene_manager_t *,

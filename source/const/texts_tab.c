@@ -69,3 +69,13 @@ const texts_tab_t texts_settings_tab[] = {
 const texts_tab_t texts_game_tab[] = {
     {NULL, NULL, 0, NULL, {0, 0}}
 };
+
+const texts_tab_t texts_pause_tab[] = {
+    {"ressource/fonts/vel/vel.ttf",
+        "Pause Menu", 80, &sfBlack, {750, 260}},
+    {"ressource/fonts/vel/vel.ttf",
+        "Exit", 50, &sfBlack, {730, 420}},
+    {"ressource/fonts/vel/vel.ttf",
+        "Settings", 50, &sfBlack, {1020, 420}},
+    {NULL, NULL, 0, NULL, {0, 0}}
+};

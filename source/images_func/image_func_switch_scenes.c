@@ -13,24 +13,6 @@
 
 #include <SFML/Graphics/RenderWindow.h>
 
-unsigned int image_func_go_to_settings(scene_manager_t *scene_manager,
-    scene_t *scene, engine_t *engine)
-{
-    (void)engine;
-    scene_play_sound(scene, SOUND_CLICK);
-    scene_manager_set_scene(scene_manager, SCENE_SETTINGS);
-    return OK;
-}
-
-unsigned int image_func_back_to_menu(scene_manager_t *scene_manager,
-    scene_t *scene, engine_t *engine)
-{
-    (void)engine;
-    scene_play_sound(scene, SOUND_CLICK);
-    scene_manager_set_scene(scene_manager, SCENE_MENU);
-    return OK;
-}
-
 unsigned int image_func_exit_game(scene_manager_t *scene_manager,
     scene_t *scene, engine_t *engine)
 {
@@ -45,6 +27,10 @@ unsigned int image_func_exit_sub_scene(scene_manager_t *scene_manager,
 {
     (void)engine;
     scene_play_sound(scene, SOUND_CLICK);
-    scene_manager_exit_sub(scene_manager);
+    if (scene_manager_get_main_id(scene_manager) == SCENE_GAME &&
+        scene_manager_get_sub_id(scene_manager) != SCENE_PAUSE)
+        scene_manager_set_scene(scene_manager, SCENE_PAUSE);
+    else
+        scene_manager_exit_sub(scene_manager);
     return OK;
 }

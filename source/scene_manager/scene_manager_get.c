@@ -22,6 +22,13 @@ scene_t *scene_manager_get_current(scene_manager_t *scene_manager)
     return scene_manager->scene[current_scene];
 }
 
+unsigned int scene_manager_get_main_id(scene_manager_t *scene_manager)
+{
+    if (!scene_manager)
+        return SCENE_NONE;
+    return scene_manager->main_scene;
+}
+
 unsigned int scene_manager_get_sub_id(scene_manager_t *scene_manager)
 {
     if (!scene_manager)

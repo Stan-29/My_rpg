@@ -29,6 +29,8 @@ extern const images_tab_t images_menu_tab[];
 extern const images_tab_t images_save_tab[];
 extern const images_tab_t images_settings_tab[];
 extern const images_tab_t images_game_tab[];
+extern const images_tab_t images_pause_tab[];
+
 
 typedef struct texts_tab_s {
     const char *filepath;
@@ -42,6 +44,8 @@ extern const texts_tab_t texts_menu_tab[];
 extern const texts_tab_t texts_save_tab[];
 extern const texts_tab_t texts_settings_tab[];
 extern const texts_tab_t texts_game_tab[];
+extern const texts_tab_t texts_pause_tab[];
+
 
 typedef struct musics_tab_s {
     unsigned int id;
@@ -53,6 +57,8 @@ extern const musics_tab_t musics_menu_tab[];
 extern const musics_tab_t musics_save_tab[];
 extern const musics_tab_t musics_settings_tab[];
 extern const musics_tab_t musics_game_tab[];
+extern const musics_tab_t musics_pause_tab[];
+
 
 typedef struct sounds_tab_s {
     unsigned int id_sound;
@@ -64,6 +70,7 @@ extern const sounds_tab_t sounds_menu_tab[];
 extern const sounds_tab_t sounds_save_tab[];
 extern const sounds_tab_t sounds_settings_tab[];
 extern const sounds_tab_t sounds_game_tab[];
+extern const sounds_tab_t sounds_pause_tab[];
 
 typedef struct scenes_tab_s {
     unsigned int id_scene;

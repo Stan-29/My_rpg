@@ -18,6 +18,7 @@ const scenes_tab_t scenes_tab[SCENE_COUNT] = {
         texts_settings_tab, musics_settings_tab, sounds_settings_tab},
     [SCENE_GAME] = {SCENE_GAME, true, images_game_tab, texts_game_tab,
         musics_game_tab, sounds_game_tab},
-    [SCENE_PAUSE] = {SCENE_PAUSE, false, NULL, NULL, NULL, NULL},
+    [SCENE_PAUSE] = {SCENE_PAUSE, false, images_pause_tab, texts_pause_tab,
+        musics_pause_tab, sounds_pause_tab},
     [SCENE_INVENTORY] = {SCENE_INVENTORY, false, NULL, NULL, NULL, NULL},
 };

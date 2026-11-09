@@ -26,6 +26,7 @@ void scene_manager_change_sound_volume(scene_manager_t *scene_manager,
     float ratio);
 
 scene_t *scene_manager_get_current(scene_manager_t *scene_manager);
+unsigned int scene_manager_get_main_id(scene_manager_t *scene_manager);
 unsigned int scene_manager_get_sub_id(scene_manager_t *scene_manager);
 
 #endif

@@ -18,10 +18,10 @@ SRC = source/const/images_tab.c 	\
 	source/image/image_check.c			\
 	source/image/image_get.c			\
 	source/image/image_manage.c			\
+	source/images_func/image_func_pause.c	 		\
 	source/images_func/image_func_settings.c 		\
 	source/images_func/image_func_start_saves.c 	\
 	source/images_func/image_func_switch_scenes.c 	\
-	source/images_func/place_holder_func.c 		\
 	source/linked_list/linked_list_basics.c			\
 	source/linked_list/linked_list_get.c			\
 	source/linked_list/linked_list_handling.c		\

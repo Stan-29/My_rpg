@@ -26,3 +26,7 @@ const musics_tab_t musics_game_tab[] = {
     {MUSIC_GAME, "ressource/musics/music.wav", 50},
     {0, NULL, 0}
 };
+
+const musics_tab_t musics_pause_tab[] = {
+    {0, NULL, 0}
+};
