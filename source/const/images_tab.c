@@ -10,8 +10,8 @@
 #include <stddef.h>
 
 const images_tab_t images_menu_tab[] = {
-    {"./ressource/images/background.jpg", {0, 0, 0, 0},
-        {0, 0}, {2.8, 2.8}, {0, 0, 0, 0}, NULL},
+    {"./ressource/images/Background Menu.PNG", {0, 0, 0, 0},
+        {0, 0}, {1.15, 1.15}, {0, 0, 0, 0}, NULL},
     {"./ressource/images/button.png", {0, 0, 0, 0},
         {750, 400}, {0.4, 0.4}, {0, 0, 0, 0}, &image_func_go_to_save},
     {"./ressource/images/button.png", {0, 0, 0, 0},
