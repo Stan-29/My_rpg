@@ -18,6 +18,6 @@ engine_t *engine_create(void);
 unsigned int engine_run(engine_t *engine);
 void engine_destroy(engine_t *engine);
 sfRenderWindow *engine_get_window(engine_t *engine);
-void engine_change_window(engine_t *engine, bool is_full_screen);
+void engine_resize_window(engine_t *engine, bool is_full_screen);
 
 #endif

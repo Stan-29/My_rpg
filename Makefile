@@ -38,6 +38,8 @@ SRC = source/const/images_tab.c 	\
 	source/text/text_basics.c		\
 	source/text/text_check.c		\
 
+OBJ = $(SRC:.c=.o)
+
 MAIN = main.c
 
 MAIN_OBJ = $(MAIN:.c=.o)
@@ -64,12 +66,11 @@ INCLUDES = -I./include -I./source $(DEPS_INCLUDES)
 
 CFLAGS = $(INCLUDES) -Wall -Wextra
 
-OBJ = 	$(SRC:.c=.o)
 
+TEST_SRC = tests/unit_tests/tests_garbage_collector/*.c \
+	tests/unit_tests/tests_images/*.c \
 
-TEST_SRC = 	
-
-TEST_NAME = tests
+TEST_NAME = tests_exec
 
 TEST_CC = gcc
 

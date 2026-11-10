@@ -25,7 +25,7 @@ unsigned int image_func_windowed(scene_manager_t *scene_manager,
     scene_t *scene, engine_t *engine)
 {
     (void)scene_manager;
-    engine_change_window(engine, false);
+    engine_resize_window(engine, false);
     scene_play_sound(scene, SOUND_CLICK);
     return OK;
 }
@@ -34,7 +34,7 @@ unsigned int image_func_full_screen(scene_manager_t *scene_manager,
     scene_t *scene, engine_t *engine)
 {
     (void)scene_manager;
-    engine_change_window(engine, true);
+    engine_resize_window(engine, true);
     scene_play_sound(scene, SOUND_CLICK);
     return OK;
 }

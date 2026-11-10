@@ -1,5 +1,4 @@
 my_rpg
-tests
 valgrind-out.txt
 *.gcda
 *.gcno
