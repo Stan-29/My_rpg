@@ -5,6 +5,7 @@
 ** scene code
 */
 #include "consts.h"
+#include "defines.h"
 
 #include "garbage_collector/garbage_collector.h"
 #include "image/image.h"
@@ -62,4 +63,12 @@ void *image_destroy(void *data)
 void image_draw(image_t *image, sfRenderWindow *window)
 {
     sfRenderWindow_drawSprite(window, image->sprite, NULL);
+}
+
+unsigned int image_start_func(image_t *image, scene_manager_t *scene_manager,
+    scene_t *scene, engine_t *engine)
+{
+    if (!image)
+        return ERROR;
+    return image->func(scene_manager, scene, engine);
 }

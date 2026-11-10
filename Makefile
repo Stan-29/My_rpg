@@ -17,7 +17,7 @@ SRC = source/const/images_tab.c 	\
 	source/image/image_basics.c			\
 	source/image/image_check.c			\
 	source/image/image_get.c			\
-	source/image/image_manage.c			\
+	source/image/image_change.c			\
 	source/images_func/image_func_pause.c	 		\
 	source/images_func/image_func_settings.c 		\
 	source/images_func/image_func_start_saves.c 	\
@@ -98,7 +98,7 @@ tests_run:
 	$(TEST_CC) -o $(TEST_NAME) --coverage -lcriterion \
 	$(TEST_SRC) $(SRC) $(INCLUDES) $(CSFML_LIB)
 
-gcovrex:	all
+gcovrex:	re
 	$(MAKE) tests_run
 	./$(TEST_NAME)
 	gcovr --gcov-executable "llvm-cov gcov" \

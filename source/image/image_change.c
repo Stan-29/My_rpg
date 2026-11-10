@@ -4,8 +4,6 @@
 ** File description:
 ** scene code
 */
-#include "defines.h"
-
 #include "image/image_internal.h" // IWYU pragma: keep
 #include "image/image.h"
 
@@ -25,7 +23,7 @@ void image_change_pos(image_t *image, sfVector2f *pos)
     sfSprite_setPosition(image->sprite, *pos);
 }
 
-void image_set_base_pos(image_t *image, sfVector2f *pos)
+void image_change_base_pos(image_t *image, sfVector2f *pos)
 {
     if (!image)
         return;
@@ -52,12 +50,4 @@ void image_change_color(image_t *image, sfColor *color)
     if (!image)
         return;
     sfSprite_setColor(image->sprite, *color);
-}
-
-unsigned int image_start_func(image_t *image, scene_manager_t *scene_manager,
-    scene_t *scene, engine_t *engine)
-{
-    if (!image)
-        return ERROR;
-    return image->func(scene_manager, scene, engine);
 }
