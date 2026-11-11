@@ -62,6 +62,8 @@ void *image_destroy(void *data)
 
 void image_draw(image_t *image, sfRenderWindow *window)
 {
+    if (image == NULL || window == NULL)
+        return;
     sfRenderWindow_drawSprite(window, image->sprite, NULL);
 }
 

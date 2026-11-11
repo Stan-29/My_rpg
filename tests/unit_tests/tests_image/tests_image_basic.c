@@ -32,3 +32,23 @@ Test(image_create, basic_create)
     cr_assert(temp->sprite != NULL);
     image_destroy(temp);
 }
+
+
+Test(image_destroy, destroy_null)
+{
+    image_t *temp = image_create(&images_menu_tab[0], 0);
+
+    cr_assert(temp != NULL);
+    image_destroy(NULL);
+    image_destroy(temp);
+}
+
+
+Test(image_draw, basic_draw)
+{
+    image_t *temp = image_create(&images_menu_tab[0], 0);
+
+    image_draw(temp, NULL);
+    cr_assert(temp != NULL);
+    image_destroy(temp);
+}
