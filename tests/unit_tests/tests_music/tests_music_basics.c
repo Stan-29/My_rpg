@@ -2,11 +2,10 @@
 ** EPITECH PROJECT, 2026
 ** My RPG
 ** File description:
-** test_linked_list_basics
+** test_music_basics
 */
 #include <criterion/criterion.h>
 
-#include "consts.h"
 #include "enums.h"
 
 #include "music/music.h"
