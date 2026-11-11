@@ -17,7 +17,7 @@ SRC = source/const/images_tab.c 	\
 	source/image/image_basics.c			\
 	source/image/image_check.c			\
 	source/image/image_get.c			\
-	source/image/image_manage.c			\
+	source/image/image_change.c			\
 	source/images_func/image_func_pause.c	 		\
 	source/images_func/image_func_settings.c 		\
 	source/images_func/image_func_start_saves.c 	\
@@ -37,6 +37,8 @@ SRC = source/const/images_tab.c 	\
 	source/sound/sound_basics.c			\
 	source/text/text_basics.c		\
 	source/text/text_check.c		\
+
+OBJ = $(SRC:.c=.o)
 
 MAIN = main.c
 
@@ -64,12 +66,18 @@ INCLUDES = -I./include -I./source $(DEPS_INCLUDES)
 
 CFLAGS = $(INCLUDES) -Wall -Wextra
 
-OBJ = 	$(SRC:.c=.o)
 
+TEST_SRC = tests/unit_tests/tests_garbage_collector/*.c \
+	tests/unit_tests/tests_image/*.c \
+	tests/unit_tests/tests_images_func/*.c \
+	tests/unit_tests/tests_linked_list/*.c \
+	tests/unit_tests/tests_music/*.c \
+	tests/unit_tests/tests_scene/*.c \
+	tests/unit_tests/tests_scene_manager/*.c \
+	tests/unit_tests/tests_sound/*.c \
+	tests/unit_tests/tests_text/*.c \
 
-TEST_SRC = 	
-
-TEST_NAME = tests
+TEST_NAME = tests_exec
 
 TEST_CC = gcc
 
@@ -94,6 +102,8 @@ re:
 	$(MAKE) all
 
 tests_run:
+	rm -f *.gcno
+	rm -f *.gcda
 	$(TEST_CC) -o $(TEST_NAME) --coverage -lcriterion \
 	$(TEST_SRC) $(SRC) $(INCLUDES) $(CSFML_LIB)
 

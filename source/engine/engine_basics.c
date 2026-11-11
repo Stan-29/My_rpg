@@ -74,7 +74,7 @@ sfRenderWindow *engine_get_window(engine_t *engine)
     return engine->window;
 }
 
-void engine_change_window(engine_t *engine, bool is_full_screen)
+void engine_resize_window(engine_t *engine, bool is_full_screen)
 {
     sfVideoMode windowed = {WINDOWED_WIDTH, WINDOWED_HEIGHT, 32};
 

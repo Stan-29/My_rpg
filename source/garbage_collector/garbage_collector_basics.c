@@ -6,18 +6,12 @@
 */
 #include "defines.h"
 
-#include "garbage_collector/garbage_collector.h"
+#include "garbage_collector/garbage_collector_internal.h" // IWYU pragma: keep
 
 #include <stddef.h>
 #include <stdlib.h>
 
 static garbage_collector_t *garbage_collector = NULL;
-
-struct garbage_collector_s {
-    void *data;
-    garbage_collector_t *next;
-    garbage_collector_t *prev;
-};
 
 static unsigned int garbage_collector_add(void *data)
 {

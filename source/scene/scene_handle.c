@@ -60,11 +60,13 @@ void scene_handle_hover(scene_t *scene, sfRenderWindow *window)
 {
     linked_list_t *temp = scene->ll_images;
     image_t *data = NULL;
-    sfVector2f pos = sfRenderWindow_mapPixelToCoords(window,
-        sfMouse_getPositionRenderWindow(window), scene->view);
+    sfVector2f pos = {0};
     sfVector2f new_scale = {1, 1};
     sfVector2f new_pos = {1, 1};
 
+    if (window != NULL)
+        pos = sfRenderWindow_mapPixelToCoords(window,
+            sfMouse_getPositionRenderWindow(window), scene->view);
     while (linked_list_get_next(temp) != NULL)
         temp = linked_list_get_next(temp);
     while (temp != NULL) {

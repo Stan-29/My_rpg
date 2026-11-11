@@ -4,8 +4,6 @@
 ** File description:
 ** scene_manager_basics
 */
-#include "consts.h"
-
 #include "garbage_collector/garbage_collector.h"
 #include "scene/scene.h"
 #include "scene_manager/scene_manager.h"
@@ -44,7 +42,7 @@ void *scene_manager_destroy(scene_manager_t *scene_manager)
 void scene_manager_draw(scene_manager_t *scene_manager,
     sfRenderWindow *window)
 {
-    if (!scene_manager)
+    if (!scene_manager || window == NULL)
         return;
     scene_draw(scene_manager->scene[scene_manager->main_scene], window);
     if (scene_manager->sub_scene != SCENE_NONE)

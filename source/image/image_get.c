@@ -12,7 +12,7 @@
 sfSprite *image_get_sprite(image_t *image)
 {
     if (!image)
-        return 0;
+        return NULL;
     return image->sprite;
 }
 

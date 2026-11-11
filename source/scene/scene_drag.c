@@ -37,9 +37,10 @@ void scene_handle_drag(scene_t *scene, sfRenderWindow *window)
 
     if (!scene || !scene->held)
         return;
-    mouse_pos = sfRenderWindow_mapPixelToCoords(window,
-        sfMouse_getPositionRenderWindow(window), scene->view);
+    if (window != NULL)
+        mouse_pos = sfRenderWindow_mapPixelToCoords(window,
+            sfMouse_getPositionRenderWindow(window), scene->view);
     new_pos.x = mouse_pos.x - scene->offset.x;
     new_pos.y = mouse_pos.y - scene->offset.y;
-    image_set_base_pos(scene->held, &new_pos);
+    image_change_base_pos(scene->held, &new_pos);
 }
