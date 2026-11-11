@@ -68,7 +68,8 @@ CFLAGS = $(INCLUDES) -Wall -Wextra
 
 
 TEST_SRC = tests/unit_tests/tests_garbage_collector/*.c \
-	tests/unit_tests/tests_images/*.c \
+	tests/unit_tests/tests_image/*.c \
+	tests/unit_tests/tests_images_func/*.c \
 
 TEST_NAME = tests_exec
 
@@ -95,10 +96,12 @@ re:
 	$(MAKE) all
 
 tests_run:
+	rm -f *.gcno
+	rm -f *.gcda
 	$(TEST_CC) -o $(TEST_NAME) --coverage -lcriterion \
 	$(TEST_SRC) $(SRC) $(INCLUDES) $(CSFML_LIB)
 
-gcovrex:	re
+gcovrex:	all
 	$(MAKE) tests_run
 	./$(TEST_NAME)
 	gcovr --gcov-executable "llvm-cov gcov" \

@@ -79,7 +79,7 @@ static void update_save_infos(scene_t *scene, char *buffer,
     return;
 }
 
-static unsigned int manage_save_infos(scene_t *scene, const char *save_path,
+static void manage_save_infos(scene_t *scene, const char *save_path,
     unsigned int index_save)
 {
     char *buffer = garbage_collector_malloc(sizeof(char) * 1028);
@@ -87,13 +87,12 @@ static unsigned int manage_save_infos(scene_t *scene, const char *save_path,
     int bytes_read = 0;
 
     if (file_descriptor == -1)
-        return OK;
+        return;
     bytes_read = read(file_descriptor, buffer, 500);
     buffer[bytes_read] = '\0';
     update_save_infos(scene, buffer, index_save);
     close(file_descriptor);
     garbage_collector_free(buffer);
-    return OK;
 }
 
 unsigned int image_func_go_to_save(scene_manager_t *scene_manager,
@@ -103,10 +102,9 @@ unsigned int image_func_go_to_save(scene_manager_t *scene_manager,
     scene_play_sound(scene, SOUND_CLICK);
     scene_manager_set_scene(scene_manager, SCENE_SAVE);
     scene = scene_manager_get_current(scene_manager);
-    if (manage_save_infos(scene, saves_path_tab[0], 1) == ERROR ||
-        manage_save_infos(scene, saves_path_tab[1], 2) == ERROR ||
-        manage_save_infos(scene, saves_path_tab[2], 3) == ERROR)
-        return ERROR;
+    manage_save_infos(scene, saves_path_tab[0], 1);
+    manage_save_infos(scene, saves_path_tab[1], 2);
+    manage_save_infos(scene, saves_path_tab[2], 3);
     return OK;
 }
 

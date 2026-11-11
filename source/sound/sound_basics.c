@@ -8,17 +8,9 @@
 
 #include "garbage_collector/garbage_collector.h"
 #include "sound.h"
+#include "sound_internal.h" // IWYU pragma: keep
 
-#include <SFML/Audio/Sound.h>
-#include <SFML/Audio/SoundBuffer.h>
 #include <SFML/Audio/Types.h>
-
-struct sound_s {
-    unsigned int id;
-    float base_volume;
-    sfSound *sound;
-    sfSoundBuffer *sound_buffer;
-};
 
 sound_t *sound_create(const sounds_tab_t *sound_infos)
 {

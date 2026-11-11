@@ -8,15 +8,10 @@
 
 #include "garbage_collector/garbage_collector.h"
 #include "music.h"
+#include "music_internal.h"  // IWYU pragma: keep
 
 #include <SFML/Audio/Music.h>
 #include <SFML/Audio/Types.h>
-
-struct music_s {
-    unsigned int id;
-    float base_volume;
-    sfMusic *music;
-};
 
 music_t *music_create(const musics_tab_t *music_infos)
 {
