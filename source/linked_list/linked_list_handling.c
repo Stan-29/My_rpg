@@ -22,7 +22,8 @@ linked_list_t *linked_list_create_node(void *data, unsigned int id)
 void linked_list_destroy(linked_list_t **head, void *(*destroy)(void *))
 {
     while (*head != NULL) {
-        destroy(linked_list_get_data(*head));
+        if (destroy != NULL)
+            destroy(linked_list_get_data(*head));
         linked_list_delete_start(head);
     }
 }
