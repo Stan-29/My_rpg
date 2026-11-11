@@ -17,7 +17,7 @@ music_t *music_create(const musics_tab_t *music_infos)
 {
     music_t *music = garbage_collector_malloc(sizeof(music_t));
 
-    if (!music)
+    if (!music || music_infos->filepath == NULL)
         return music_destroy(music);
     music->id = music_infos->id;
     music->music = sfMusic_createFromFile(music_infos->filepath);
@@ -40,12 +40,11 @@ void *music_destroy(void *data)
     return NULL;
 }
 
-void *music_play(music_t *music)
+void music_play(music_t *music)
 {
     if (!music)
-        return NULL;
+        return;
     sfMusic_play(music->music);
-    return NULL;
 }
 
 void *music_stop(music_t *music)
