@@ -16,7 +16,7 @@ text_t *text_create(const texts_tab_t *text_infos, unsigned int id)
 {
     text_t *text = garbage_collector_malloc(sizeof(text_t));
 
-    if (!text)
+    if (!text || text_infos == NULL)
         return text_destroy(text);
     text->id = id;
     text->font = sfFont_createFromFile(text_infos->filepath);

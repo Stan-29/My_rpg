@@ -74,6 +74,7 @@ TEST_SRC = tests/unit_tests/tests_garbage_collector/*.c \
 	tests/unit_tests/tests_music/*.c \
 	tests/unit_tests/tests_scene/*.c \
 	tests/unit_tests/tests_sound/*.c \
+	tests/unit_tests/tests_text/*.c \
 
 TEST_NAME = tests_exec
 

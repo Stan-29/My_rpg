@@ -22,8 +22,11 @@ static bool check_following_chars(const char *actual_str,
 
 bool text_contains(text_t *text, char *str)
 {
-    const char *actual_str = sfText_getString(text->text);
+    const char *actual_str = NULL;
 
+    if (!text)
+        return false;
+    actual_str = sfText_getString(text->text);
     for (unsigned int index = 0; actual_str[index] != '\0'; index++) {
         if (actual_str[index] == str[0] &&
             check_following_chars(actual_str, index, str) == true)
