@@ -16,7 +16,7 @@ sound_t *sound_create(const sounds_tab_t *sound_infos)
 {
     sound_t *sound = garbage_collector_malloc(sizeof(sound_t));
 
-    if (!sound)
+    if (!sound || sound_infos == NULL)
         return sound_destroy(sound);
     sound->id = sound_infos->id_sound;
     sound->base_volume = sound_infos->base_volume;
