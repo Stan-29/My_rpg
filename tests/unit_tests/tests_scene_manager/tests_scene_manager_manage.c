@@ -7,6 +7,8 @@
 #include <SFML/Audio/Music.h>
 #include <criterion/criterion.h>
 
+#include "consts.h"
+#include "defines.h"
 #include "enums.h"
 #include "linked_list/linked_list.h"
 #include "scene_manager/scene_manager.h"
@@ -82,8 +84,8 @@ Test(scene_manager_change_music_volume, basic_change_volume_music)
     music_t *music = NULL;
 
     scene_manager_change_music_volume(scene_manager, 1);
-    music = linked_list_get_data(scene_manager_get_current(scene_manager)->ll_musics);
-    cr_assert(sfMusic_getVolume(music->music) == 50);
+    music = linked_list_get_data(scene_manager_get_current(scene_manager)->lists->ll_musics);
+    cr_assert(sfMusic_getVolume(music->music) == musics_menu_tab[0].volume);
     scene_manager_destroy(scene_manager);
 }
 
@@ -93,8 +95,8 @@ Test(scene_manager_change_music_volume, change_volume_music_on_null)
     music_t *music = NULL;
 
     scene_manager_change_music_volume(NULL, 1);
-    music = linked_list_get_data(scene_manager_get_current(scene_manager)->ll_musics);
-    cr_assert(sfMusic_getVolume(music->music) == 25);
+    music = linked_list_get_data(scene_manager_get_current(scene_manager)->lists->ll_musics);
+    cr_assert(sfMusic_getVolume(music->music) == musics_menu_tab[0].volume * INIT_RATIO);
     scene_manager_destroy(scene_manager);
 }
 
@@ -105,7 +107,7 @@ Test(scene_manager_change_sound_volume, basic_change_volume_sound)
     sound_t *sound = NULL;
 
     scene_manager_change_sound_volume(scene_manager, 1);
-    sound = linked_list_get_data(scene_manager_get_current(scene_manager)->ll_sounds);
+    sound = linked_list_get_data(scene_manager_get_current(scene_manager)->lists->ll_sounds);
     cr_assert(sfSound_getVolume(sound->sound) == 50);
     scene_manager_destroy(scene_manager);
 }
@@ -116,7 +118,7 @@ Test(scene_manager_change_sound_volume, change_volume_sound_on_null)
     sound_t *sound = NULL;
 
     scene_manager_change_sound_volume(NULL, 1);
-    sound = linked_list_get_data(scene_manager_get_current(scene_manager)->ll_sounds);
+    sound = linked_list_get_data(scene_manager_get_current(scene_manager)->lists->ll_sounds);
     cr_assert(sfSound_getVolume(sound->sound) == 25);
     scene_manager_destroy(scene_manager);
 }

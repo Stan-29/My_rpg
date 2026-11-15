@@ -58,7 +58,7 @@ static void manage_image_state(image_t *data, sfVector2f *pos,
 
 void scene_handle_hover(scene_t *scene, sfRenderWindow *window)
 {
-    linked_list_t *temp = scene->ll_images;
+    linked_list_t *temp = scene->lists->ll_images;
     image_t *data = NULL;
     sfVector2f pos = {0};
     sfVector2f new_scale = {1, 1};
@@ -81,7 +81,7 @@ void scene_handle_hover(scene_t *scene, sfRenderWindow *window)
 
 void scene_play_sound(scene_t *scene, unsigned int sound_id)
 {
-    linked_list_t *temp = scene->ll_sounds;
+    linked_list_t *temp = scene->lists->ll_sounds;
     sound_t *data = NULL;
 
     while (temp != NULL) {

@@ -41,7 +41,7 @@ Test(image_func_go_to_settings, basic_change_in_scene)
 static void add_held_with_id(scene_manager_t *scene_manager, scene_t *scene,
     unsigned int id)
 {
-    linked_list_t *temp = scene->ll_images;
+    linked_list_t *temp = scene->lists->ll_images;
     image_t *data = NULL;
 
     while (temp != NULL) {
@@ -67,7 +67,7 @@ Test(image_func_music_volume, change_music_volume_to_min)
     image_func_music_volume(scene_manager, scene, engine);
     scene_manager->sub_scene = SCENE_NONE;
     scene = scene_manager_get_current(scene_manager);
-    music = linked_list_get_data(scene->ll_musics);
+    music = linked_list_get_data(scene->lists->ll_musics);
     cr_assert(sfMusic_getVolume(music->music) == 0);
     scene_manager_destroy(scene_manager);
     engine_destroy(engine);
@@ -89,7 +89,7 @@ Test(image_func_music_volume, basic_change_music_volume)
     image_func_music_volume(scene_manager, scene, engine);
     scene_manager->sub_scene = SCENE_NONE;
     scene = scene_manager_get_current(scene_manager);
-    music = linked_list_get_data(scene->ll_musics);
+    music = linked_list_get_data(scene->lists->ll_musics);
     cr_assert_float_eq(sfMusic_getVolume(music->music),
         music->base_volume * 0.5, 0.01);
     scene_manager_destroy(scene_manager);
@@ -112,7 +112,7 @@ Test(image_func_music_volume, change_music_volume_to_max)
     image_func_music_volume(scene_manager, scene, engine);
     scene_manager->sub_scene = SCENE_NONE;
     scene = scene_manager_get_current(scene_manager);
-    music = linked_list_get_data(scene->ll_musics);
+    music = linked_list_get_data(scene->lists->ll_musics);
     cr_assert(sfMusic_getVolume(music->music) == music->base_volume);
     scene_manager_destroy(scene_manager);
     engine_destroy(engine);
@@ -134,7 +134,7 @@ Test(image_func_sound_volume, change_sound_volume_to_min)
     image_func_sound_volume(scene_manager, scene, engine);
     scene_manager->sub_scene = SCENE_NONE;
     scene = scene_manager_get_current(scene_manager);
-    sound = linked_list_get_data(scene->ll_sounds);
+    sound = linked_list_get_data(scene->lists->ll_sounds);
     cr_assert(sfSound_getVolume(sound->sound) == 0);
     scene_manager_destroy(scene_manager);
     engine_destroy(engine);
@@ -157,7 +157,7 @@ Test(image_func_sound_volume, basic_change_sound_volume)
     image_func_sound_volume(scene_manager, scene, engine);
     scene_manager->sub_scene = SCENE_NONE;
     scene = scene_manager_get_current(scene_manager);
-    sound = linked_list_get_data(scene->ll_sounds);
+    sound = linked_list_get_data(scene->lists->ll_sounds);
     cr_assert_float_eq(sfSound_getVolume(sound->sound),
         sound->base_volume * 0.5, 0.01);
     scene_manager_destroy(scene_manager);
@@ -180,7 +180,7 @@ Test(image_func_sound_volume, change_sound_volume_to_max)
     image_func_sound_volume(scene_manager, scene, engine);
     scene_manager->sub_scene = SCENE_NONE;
     scene = scene_manager_get_current(scene_manager);
-    sound = linked_list_get_data(scene->ll_sounds);
+    sound = linked_list_get_data(scene->lists->ll_sounds);
     cr_assert(sfSound_getVolume(sound->sound) == sound->base_volume);
     scene_manager_destroy(scene_manager);
     engine_destroy(engine);

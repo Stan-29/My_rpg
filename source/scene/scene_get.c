@@ -21,7 +21,7 @@ sfView *scene_get_view(scene_t *scene)
 
 image_t *scene_find_image_by_pos(scene_t *scene, sfVector2f *pos)
 {
-    linked_list_t *temp = scene->ll_images;
+    linked_list_t *temp = scene->lists->ll_images;
     image_t *data = NULL;
     sfFloatRect image_bounds = {0};
 
@@ -50,5 +50,5 @@ linked_list_t *scene_get_texts(scene_t *scene)
 {
     if (!scene)
         return NULL;
-    return scene->ll_texts;
+    return scene->lists->ll_texts;
 }

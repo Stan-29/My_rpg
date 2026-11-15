@@ -11,20 +11,26 @@
     #include "types.h"
 
     #include "linked_list/linked_list.h"
+    #include "map/map.h"
 
     #include <SFML/Audio/Types.h>
     #include <SFML/Graphics/Types.h>
     #include <SFML/System/Vector2.h>
+
+typedef struct scene_list_s {
+    linked_list_t *ll_images;
+    linked_list_t *ll_texts;
+    linked_list_t *ll_sounds;
+    linked_list_t *ll_musics;
+} scene_list_t;
 
 struct scene_s {
     unsigned int id;
     sfView *view;
     image_t *held;
     sfVector2f offset;
-    linked_list_t *ll_images;
-    linked_list_t *ll_texts;
-    linked_list_t *ll_sounds;
-    linked_list_t *ll_musics;
+    map_t *map;
+    scene_list_t *lists;
 };
 
 #endif

@@ -44,7 +44,7 @@ Test(scene_change_sound_volume, basic_change_volume)
     sound_t *sound = NULL;
 
     scene_change_sound_volume(scene, 1);
-    sound = linked_list_get_data(scene->ll_sounds);
+    sound = linked_list_get_data(scene->lists->ll_sounds);
     cr_assert(sound->base_volume == 50);
     scene_destroy(scene);
 }
@@ -65,7 +65,7 @@ Test(scene_change_music_volume, basic_change_volume)
     music_t *music = NULL;
 
     scene_change_music_volume(scene, 1);
-    music = linked_list_get_data(scene->ll_sounds);
+    music = linked_list_get_data(scene->lists->ll_sounds);
     cr_assert(music->base_volume == 50);
     scene_destroy(scene);
 }

@@ -17,10 +17,10 @@ Test(scene_create, basic_create)
 
     cr_assert(scene->id == SCENE_MENU);
     cr_assert(scene->held == NULL);
-    cr_assert(scene->ll_images != NULL);
-    cr_assert(scene->ll_sounds != NULL);
-    cr_assert(scene->ll_texts != NULL);
-    cr_assert(scene->ll_musics != NULL);
+    cr_assert(scene->lists->ll_images != NULL);
+    cr_assert(scene->lists->ll_sounds != NULL);
+    cr_assert(scene->lists->ll_texts != NULL);
+    cr_assert(scene->lists->ll_musics != NULL);
     cr_assert(scene->offset.x == 0);
     cr_assert(scene->offset.y == 0);
     cr_assert(scene->view != NULL);

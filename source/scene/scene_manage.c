@@ -23,14 +23,14 @@ void scene_start(scene_t *scene)
 {
     if (!scene)
         return;
-    music_play(linked_list_get_data(scene->ll_musics));
+    music_play(linked_list_get_data(scene->lists->ll_musics));
 }
 
 void scene_stop(scene_t *scene)
 {
     if (!scene)
         return;
-    music_stop(linked_list_get_data(scene->ll_musics));
+    music_stop(linked_list_get_data(scene->lists->ll_musics));
 }
 
 void scene_change_sound_volume(scene_t *scene, float ratio)
@@ -40,7 +40,7 @@ void scene_change_sound_volume(scene_t *scene, float ratio)
 
     if (!scene)
         return;
-    temp = scene->ll_sounds;
+    temp = scene->lists->ll_sounds;
     while (temp != NULL) {
         data = linked_list_get_data(temp);
         sound_change_volume(data, ratio);
@@ -55,7 +55,7 @@ void scene_change_music_volume(scene_t *scene, float ratio)
 
     if (!scene)
         return;
-    temp = scene->ll_musics;
+    temp = scene->lists->ll_musics;
     while (temp != NULL) {
         data = linked_list_get_data(temp);
         music_change_volume(data, ratio);

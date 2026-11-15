@@ -9,6 +9,7 @@ SRC = source/const/floor_tab.c 		\
 	source/const/images_tab.c 		\
 	source/const/map_tab.c 			\
 	source/const/musics_tab.c 		\
+	source/const/object_tab.c 		\
 	source/const/save_tab.c 		\
 	source/const/scenes_tab.c 		\
 	source/const/sounds_tab.c 		\
@@ -27,6 +28,7 @@ SRC = source/const/floor_tab.c 		\
 	source/linked_list/linked_list_basics.c			\
 	source/linked_list/linked_list_get.c			\
 	source/linked_list/linked_list_handling.c		\
+	source/map/map_basics.c					\
 	source/music/music_basics.c		\
 	source/scene/scene_basics.c			\
 	source/scene/scene_drag.c			\

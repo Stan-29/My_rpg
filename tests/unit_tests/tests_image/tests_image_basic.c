@@ -25,8 +25,8 @@ Test(image_create, basic_create)
     cr_assert(temp->movable_zone.width == 0);
     cr_assert(temp->base_pos.x == 0);
     cr_assert(temp->base_pos.y == 0);
-    cr_assert(temp->base_scale.x == (const float)2.8);
-    cr_assert(temp->base_scale.y == (const float)2.8);
+    cr_assert(temp->base_scale.x == images_menu_tab[0].scale.x);
+    cr_assert(temp->base_scale.y == images_menu_tab[0].scale.y);
     cr_assert(temp->func == NULL);
     cr_assert(temp->texture != NULL);
     cr_assert(temp->sprite != NULL);

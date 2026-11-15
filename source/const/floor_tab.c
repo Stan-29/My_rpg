@@ -7,7 +7,7 @@
 #include "consts.h"
 #include "enums.h"
 
-const ground_tab_t ground_tab[] = {
-    [FLOOR_GRASS] = {"./ressource/images/floor/grass_tile.png"},
-    [FLOOR_PATH] = {"./ressource/images/florr/path_tile.png"},
+const floor_tab_t floor_tab[] = {
+    [FLOOR_GRASS] = {"./ressource/images/floors/grass_tile.png"},
+    [FLOOR_PATH] = {"./ressource/images/floors/path_tile.png"},
 };

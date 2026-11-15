@@ -33,8 +33,8 @@ Test(image_change_scale, image_null)
 
     image_change_scale(NULL, &(sfVector2f){2, 2});
     new_scale = sfSprite_getScale(temp->sprite);
-    cr_assert(new_scale.x == (const float)2.8);
-    cr_assert(new_scale.y == (const float)2.8);
+    cr_assert(new_scale.x == images_menu_tab[0].scale.x);
+    cr_assert(new_scale.y == images_menu_tab[0].scale.y);
     image_destroy(temp);
 }
 

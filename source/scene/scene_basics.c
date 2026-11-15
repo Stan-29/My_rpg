@@ -6,9 +6,11 @@
 */
 #include "consts.h"
 #include "defines.h"
+#include "enums.h"
 
 #include "garbage_collector/garbage_collector.h"
 #include "image/image.h"
+#include "map/map.h"
 #include "scene/scene.h"
 #include "scene/scene_internal.h" // IWYU pragma: keep
 #include "text/text.h"
@@ -107,6 +109,26 @@ static unsigned int scene_init_musics(linked_list_t **ll_musics,
     return OK;
 }
 
+static unsigned int scene_init_lists(scene_t *scene, unsigned int id)
+{
+    scene->lists = garbage_collector_malloc(sizeof(scene_list_t));
+    if (!scene->lists)
+        return ERROR;
+    if (scene_init_sounds(&scene->lists->ll_sounds,
+            scenes_tab[id].sounds) == ERROR)
+        return ERROR;
+    if (scene_init_musics(&scene->lists->ll_musics,
+            scenes_tab[id].musics) == ERROR)
+        return ERROR;
+    if (scene_init_images(&scene->lists->ll_images,
+            scenes_tab[id].images) == ERROR)
+        return ERROR;
+    if (scene_init_texts(&scene->lists->ll_texts,
+            scenes_tab[id].texts) == ERROR)
+        return ERROR;
+    return OK;
+}
+
 scene_t *scene_create(unsigned int id)
 {
     sfFloatRect rect = {0, 0, FULL_SCREEN_WIDTH, FULL_SCREEN_HEIGHT};
@@ -120,13 +142,14 @@ scene_t *scene_create(unsigned int id)
     scene->view = sfView_createFromRect(rect);
     if (!scene->view)
         return scene_destroy(scene);
-    if (scene_init_sounds(&scene->ll_sounds, scenes_tab[id].sounds) == ERROR)
+    if (scene_init_lists(scene, id) == ERROR)
         return scene_destroy(scene);
-    if (scene_init_musics(&scene->ll_musics, scenes_tab[id].musics) == ERROR)
-        return scene_destroy(scene);
-    if (scene_init_images(&scene->ll_images, scenes_tab[id].images) == ERROR ||
-        scene_init_texts(&scene->ll_texts, scenes_tab[id].texts) == ERROR)
-        return scene_destroy(scene);
+    if (id == SCENE_GAME) {
+        scene->map = map_create();
+        if (!scene->map)
+            return scene_destroy(scene);
+    } else
+        scene->map = NULL;
     return scene;
 }
 
@@ -137,12 +160,13 @@ void scene_draw(scene_t *scene, sfRenderWindow *window)
     if (!scene)
         return;
     sfRenderWindow_setView(window, scene->view);
-    temp = scene->ll_images;
+    map_draw(scene->map, window);
+    temp = scene->lists->ll_images;
     while (temp != NULL) {
         image_draw(linked_list_get_data(temp), window);
         temp = linked_list_get_next(temp);
     }
-    temp = scene->ll_texts;
+    temp = scene->lists->ll_texts;
     while (temp != NULL) {
         text_draw(linked_list_get_data(temp), window);
         temp = linked_list_get_next(temp);
@@ -156,10 +180,14 @@ void *scene_destroy(scene_t *scene)
         return NULL;
     if (scene->view)
         sfView_destroy(scene->view);
-    linked_list_destroy(&scene->ll_musics, &music_destroy);
-    linked_list_destroy(&scene->ll_sounds, &sound_destroy);
-    linked_list_destroy(&scene->ll_images, &image_destroy);
-    linked_list_destroy(&scene->ll_texts, &text_destroy);
+    if (scene->lists) {
+        linked_list_destroy(&scene->lists->ll_musics, &music_destroy);
+        linked_list_destroy(&scene->lists->ll_sounds, &sound_destroy);
+        linked_list_destroy(&scene->lists->ll_images, &image_destroy);
+        linked_list_destroy(&scene->lists->ll_texts, &text_destroy);
+        garbage_collector_free(scene->lists);
+    }
+    map_destroy(scene->map);
     garbage_collector_free(scene);
     return NULL;
 }

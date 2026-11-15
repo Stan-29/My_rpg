@@ -62,8 +62,6 @@ const images_tab_t images_settings_tab[] = {
 };
 
 const images_tab_t images_game_tab[] = {
-    {"./ressource/images/game.png", {0, 0, 0, 0},
-        {0, 0}, {1, 1}, {0, 0, 0, 0}, NULL},
     {"./ressource/images/button.png", {0, 0, 0, 0},
         {1550, 900}, {0.3, 0.3}, {0, 0, 0, 0}, &image_func_go_to_pause},
     {NULL, {0, 0, 0, 0}, {0, 0}, {0, 0}, {0, 0, 0, 0}, NULL}
