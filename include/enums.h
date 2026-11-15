@@ -19,6 +19,18 @@ typedef enum scene_id_e {
     SCENE_COUNT
 } scene_id_t;
 
+typedef enum floor_id_e {
+    FLOOR_GRASS = 0,
+    FLOOR_PATH,
+    FLOOR_COUNT
+} floor_id_t;
+
+typedef enum object_id_e {
+    OBJECT_NONE = 0,
+    OBJECT_TREE,
+    OBJECT_COUNT
+} object_id_t;
+
 typedef enum sounds_id_e {
     SOUND_NONE = 0,
     SOUND_CLICK,

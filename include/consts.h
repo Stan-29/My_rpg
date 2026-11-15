@@ -9,6 +9,7 @@
     #define CONSTS_H_
 
     #include "types.h"
+    #include "defines.h"
 
     #include <SFML/Graphics/Color.h>
     #include <SFML/Graphics/Rect.h>
@@ -84,5 +85,20 @@ typedef struct scenes_tab_s {
 extern const scenes_tab_t scenes_tab[];
 
 extern const char *saves_path_tab[];
+
+typedef struct ground_tab_s {
+    const char *filepath;
+} ground_tab_t;
+
+extern const ground_tab_t ground_tab[];
+extern const int map_ground[MAP_ROWS][MAP_COLS];
+
+typedef struct object_tab_s {
+    const char *filepath;
+    bool solid;
+} object_tab_t;
+
+extern const object_tab_t object_tab[];
+extern const int map_objects[MAP_ROWS][MAP_COLS];
 
 #endif

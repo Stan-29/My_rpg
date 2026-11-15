@@ -5,7 +5,9 @@
 ## Makefile
 ##
 
-SRC = source/const/images_tab.c 	\
+SRC = source/const/floor_tab.c 		\
+	source/const/images_tab.c 		\
+	source/const/map_tab.c 			\
 	source/const/musics_tab.c 		\
 	source/const/save_tab.c 		\
 	source/const/scenes_tab.c 		\

@@ -11,6 +11,11 @@
     #define OK 0
     #define ERROR 84
 
+    #define TILE_W 64
+    #define TILE_H 32
+    #define MAP_ROWS 5
+    #define MAP_COLS 5
+
     #define FULL_SCREEN_WIDTH 1920
     #define FULL_SCREEN_HEIGHT 1080
     #define WINDOWED_WIDTH 1280
