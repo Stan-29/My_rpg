@@ -159,8 +159,8 @@ void scene_draw(scene_t *scene, sfRenderWindow *window)
 
     if (!scene)
         return;
-    sfRenderWindow_setView(window, scene->view);
     map_draw(scene->map, window);
+    sfRenderWindow_setView(window, scene->view);
     temp = scene->lists->ll_images;
     while (temp != NULL) {
         image_draw(linked_list_get_data(temp), window);

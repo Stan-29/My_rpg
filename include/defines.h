@@ -11,8 +11,8 @@
     #define OK 0
     #define ERROR 84
 
-    #define TILE_W 256
-    #define TILE_H 128
+    #define TILE_W 192
+    #define TILE_H 96
     #define MAP_ROWS 25
     #define MAP_COLS 25
 
