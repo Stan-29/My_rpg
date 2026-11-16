@@ -14,7 +14,6 @@
 #include <SFML/Graphics/RenderWindow.h>
 #include <SFML/Graphics/Sprite.h>
 #include <SFML/Graphics/Texture.h>
-#include <SFML/System/Vector2.h>
 #include <SFML/Graphics/View.h>
 
 static map_t *map_create_textures(map_t *map)
@@ -135,4 +134,10 @@ void map_draw(map_t *map, sfRenderWindow *window)
     for (int row = 0; row < MAP_ROWS; row++)
         for (int col = 0; col < MAP_COLS; col++)
             map_draw_object(map, window, row, col);
+}
+
+void map_update_view(map_t *map, sfVector2f dir, float dt)
+{
+    sfView_move(map->camera, (sfVector2f){dir.x * CAMERA_SPEED * dt,
+        dir.y * CAMERA_SPEED * dt});
 }

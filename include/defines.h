@@ -28,6 +28,8 @@
 
     #define FPS 60
 
+    #define CAMERA_SPEED 300
+
     #define INIT_RATIO 0.5
 
     #define SAVE_COUNT 3

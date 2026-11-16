@@ -64,7 +64,7 @@ else
     DEPS_LIBS = -L$(BREW_PREFIX)/lib
 endif
 
-CSFML_LIB = $(DEPS_LIBS) -l csfml-window -l csfml-audio -l csfml-graphics -l csfml-system -l csfml-network
+CSFML_LIB = $(DEPS_LIBS) -l csfml-window -l csfml-audio -l csfml-graphics -l csfml-system -l csfml-network -lm
 
 INCLUDES = -I./include -I./source $(DEPS_INCLUDES)
 

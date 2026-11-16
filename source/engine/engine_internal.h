@@ -18,6 +18,7 @@
 struct engine_s {
     sfRenderWindow *window;
     sfClock *clock;
+    float delta;
 };
 
 unsigned int engine_events_handler(engine_t *engine,

@@ -41,6 +41,7 @@ unsigned int engine_run(engine_t *engine)
         return ERROR;
     while (sfRenderWindow_isOpen(engine->window)) {
         sfRenderWindow_clear(engine->window, sfBlack);
+        engine->delta = sfTime_asSeconds(sfClock_restart(engine->clock));
         if (engine_events_handler(engine, scene_manager) == ERROR) {
             scene_manager_destroy(scene_manager);
             return ERROR;

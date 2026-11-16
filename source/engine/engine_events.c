@@ -5,12 +5,13 @@
 ** engine code
 */
 #include "defines.h"
-#include "enums.h"
 
 #include "engine/engine_internal.h"
 #include "image/image.h"
 #include "scene/scene.h"
 #include "scene_manager/scene_manager.h"
+#include "types.h"
+#include <math.h>
 
 #include <SFML/Graphics/RenderWindow.h>
 #include <SFML/Window/Event.h>
@@ -53,6 +54,28 @@ static unsigned int manage_click(sfEvent event, engine_t *engine,
     return OK;
 }
 
+static unsigned int manage_keyboard(engine_t *engine, scene_t *scene)
+{
+    sfVector2f dir = {0, 0};
+    float length = 0;
+
+    if (sfKeyboard_isKeyPressed(sfKeyQ))
+        dir.x -= 1;
+    if (sfKeyboard_isKeyPressed(sfKeyD))
+        dir.x += 1;
+    if (sfKeyboard_isKeyPressed(sfKeyZ))
+        dir.y -= 1;
+    if (sfKeyboard_isKeyPressed(sfKeyS))
+        dir.y += 1;
+    length = sqrtf(dir.x * dir.x + dir.y * dir.y);
+    if (length != 0) {
+        dir.x /= length;
+        dir.y /= length;
+    }
+    scene_update_map_view(scene, dir, engine->delta);
+    return OK;
+}
+
 unsigned int engine_events_handler(engine_t *engine,
     scene_manager_t *scene_manager)
 {
@@ -63,8 +86,7 @@ unsigned int engine_events_handler(engine_t *engine,
         scene = scene_manager_get_current(scene_manager);
         if (event.type == sfEvtClosed)
             sfRenderWindow_close(engine->window);
-        if (sfKeyboard_isKeyPressed(sfKeyEscape) &&
-            scene_manager_get_sub_id(scene_manager) != SCENE_NONE)
+        if (sfKeyboard_isKeyPressed(sfKeyEscape))
             scene_manager_exit_sub(scene_manager);
         if ((event.type == sfEvtMouseButtonReleased ||
                 event.type == sfEvtMouseButtonPressed) &&
@@ -72,5 +94,6 @@ unsigned int engine_events_handler(engine_t *engine,
             manage_click(event, engine, scene_manager, scene) == ERROR)
             return ERROR;
     }
+    manage_keyboard(engine, scene_manager_get_current(scene_manager));
     return OK;
 }
