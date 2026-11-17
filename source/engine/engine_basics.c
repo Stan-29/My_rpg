@@ -68,13 +68,6 @@ void engine_destroy(engine_t *engine)
     garbage_collector_free(engine);
 }
 
-sfRenderWindow *engine_get_window(engine_t *engine)
-{
-    if (!engine)
-        return NULL;
-    return engine->window;
-}
-
 void engine_resize_window(engine_t *engine, bool is_full_screen)
 {
     sfVideoMode windowed = {WINDOWED_WIDTH, WINDOWED_HEIGHT, 32};

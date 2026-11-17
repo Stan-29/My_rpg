@@ -103,4 +103,12 @@ extern const int map_objects[MAP_ROWS][MAP_COLS];
 
 extern const int map_objects[MAP_ROWS][MAP_COLS];
 
+
+typedef struct events_tab_s {
+    int key_id;
+    unsigned int (* func)(scene_manager_t *, scene_t *, engine_t *);
+} events_tab_t;
+
+extern const events_tab_t events_tab[];
+
 #endif

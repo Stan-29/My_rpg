@@ -64,7 +64,7 @@ void scene_change_music_volume(scene_t *scene, float ratio)
     }
 }
 
-void scene_update_map_view(scene_t *scene, sfVector2f dir, float dt)
+void scene_update_map_view(scene_t *scene, sfVector2f *dir, float dt)
 {
     if (!scene->map)
         return;

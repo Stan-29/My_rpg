@@ -5,13 +5,13 @@
 ** engine code
 */
 #include "defines.h"
+#include "consts.h"
 
 #include "engine/engine_internal.h"
 #include "image/image.h"
 #include "scene/scene.h"
 #include "scene_manager/scene_manager.h"
 #include "types.h"
-#include <math.h>
 
 #include <SFML/Graphics/RenderWindow.h>
 #include <SFML/Window/Event.h>
@@ -54,25 +54,17 @@ static unsigned int manage_click(sfEvent event, engine_t *engine,
     return OK;
 }
 
-static unsigned int manage_keyboard(engine_t *engine, scene_t *scene)
+static unsigned int manage_keyboard(engine_t *engine,
+    scene_manager_t *scene_manager, scene_t *scene)
 {
-    sfVector2f dir = {0, 0};
-    float length = 0;
+    unsigned int return_value = OK;
 
-    if (sfKeyboard_isKeyPressed(sfKeyQ))
-        dir.x -= 1;
-    if (sfKeyboard_isKeyPressed(sfKeyD))
-        dir.x += 1;
-    if (sfKeyboard_isKeyPressed(sfKeyZ))
-        dir.y -= 1;
-    if (sfKeyboard_isKeyPressed(sfKeyS))
-        dir.y += 1;
-    length = sqrtf(dir.x * dir.x + dir.y * dir.y);
-    if (length != 0) {
-        dir.x /= length;
-        dir.y /= length;
+    for (unsigned int index = 0; events_tab[index].key_id != -1; index++) {
+        if (sfKeyboard_isKeyPressed(events_tab[index].key_id))
+            return_value = events_tab[index].func(scene_manager, scene, engine);
+        if (return_value == ERROR)
+            return ERROR;
     }
-    scene_update_map_view(scene, dir, engine->delta);
     return OK;
 }
 
@@ -94,6 +86,7 @@ unsigned int engine_events_handler(engine_t *engine,
             manage_click(event, engine, scene_manager, scene) == ERROR)
             return ERROR;
     }
-    manage_keyboard(engine, scene_manager_get_current(scene_manager));
+    manage_keyboard(engine, scene_manager,
+        scene_manager_get_current(scene_manager));
     return OK;
 }

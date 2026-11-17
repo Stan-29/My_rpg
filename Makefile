@@ -5,7 +5,8 @@
 ## Makefile
 ##
 
-SRC = source/const/floor_tab.c 		\
+SRC = source/const/events_tab.c 	\
+	source/const/floor_tab.c 		\
 	source/const/images_tab.c 		\
 	source/const/map_tab.c 			\
 	source/const/musics_tab.c 		\
@@ -16,6 +17,8 @@ SRC = source/const/floor_tab.c 		\
 	source/const/texts_tab.c 		\
 	source/engine/engine_basics.c		\
 	source/engine/engine_events.c		\
+	source/engine/engine_get.c			\
+	source/events_func/event_func_move_map.c		\
 	source/garbage_collector/garbage_collector_basics.c		\
 	source/image/image_basics.c			\
 	source/image/image_check.c			\

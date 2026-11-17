@@ -26,7 +26,7 @@ void scene_handle_hover(scene_t *scene, sfRenderWindow *window);
 void scene_play_sound(scene_t *scene, unsigned int sound_id);
 void scene_change_music_volume(scene_t *scene, float ratio);
 void scene_change_sound_volume(scene_t *scene, float ratio);
-void scene_update_map_view(scene_t *scene, sfVector2f dir, float dt);
+void scene_update_map_view(scene_t *scene, sfVector2f *dir, float dt);
 
 void scene_grab(scene_t *scene, image_t *image, sfVector2f *mouse_pos);
 void scene_release(scene_t *scene);

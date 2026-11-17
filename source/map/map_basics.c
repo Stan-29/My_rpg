@@ -136,8 +136,8 @@ void map_draw(map_t *map, sfRenderWindow *window)
             map_draw_object(map, window, row, col);
 }
 
-void map_update_view(map_t *map, sfVector2f dir, float dt)
+void map_update_view(map_t *map, sfVector2f *dir, float dt)
 {
-    sfView_move(map->camera, (sfVector2f){dir.x * CAMERA_SPEED * dt,
-        dir.y * CAMERA_SPEED * dt});
+    sfView_move(map->camera, (sfVector2f){dir->x * CAMERA_SPEED * dt,
+        dir->y * CAMERA_SPEED * dt});
 }
