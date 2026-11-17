@@ -25,6 +25,13 @@ Test(scene_manager_destroy, basic_destroy)
     cr_assert(scene_manager_destroy(scene_manager) == NULL);
 }
 
+Test(scene_manager_destroy, basic_null)
+{
+    scene_manager_t *scene_manager = NULL;
+
+    cr_assert(scene_manager_destroy(scene_manager) == NULL);
+}
+
 
 Test(scene_manager_draw, basic_draw)
 {

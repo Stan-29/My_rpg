@@ -16,7 +16,8 @@
 unsigned int image_func_go_to_pause(scene_manager_t *scene_manager,
     scene_t *scene, engine_t *engine)
 {
-    (void)engine;
+    if (!scene_manager || !scene || !engine)
+        return ERROR;
     scene_play_sound(scene, SOUND_CLICK);
     scene_manager_set_scene(scene_manager, SCENE_PAUSE);
     return OK;
@@ -25,7 +26,8 @@ unsigned int image_func_go_to_pause(scene_manager_t *scene_manager,
 unsigned int image_func_back_to_menu(scene_manager_t *scene_manager,
     scene_t *scene, engine_t *engine)
 {
-    (void)engine;
+    if (!scene_manager || !scene || !engine)
+        return ERROR;
     scene_play_sound(scene, SOUND_CLICK);
     scene_manager_set_scene(scene_manager, SCENE_MENU);
     return OK;

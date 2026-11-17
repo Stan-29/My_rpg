@@ -29,7 +29,7 @@ image_t *image_create(const images_tab_t *image_infos, unsigned int id)
 {
     image_t *image = garbage_collector_malloc(sizeof(image_t));
 
-    if (!image)
+    if (!image || image_infos->filepath == NULL)
         return image_destroy(image);
     image_fill_struct(image, image_infos, id);
     image->texture = sfTexture_createFromFile(image_infos->filepath, NULL);
@@ -70,7 +70,7 @@ void image_draw(image_t *image, sfRenderWindow *window)
 unsigned int image_start_func(image_t *image, scene_manager_t *scene_manager,
     scene_t *scene, engine_t *engine)
 {
-    if (!image)
+    if (!image || !image->func)
         return ERROR;
     return image->func(scene_manager, scene, engine);
 }

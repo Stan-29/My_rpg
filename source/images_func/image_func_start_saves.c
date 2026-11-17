@@ -98,7 +98,8 @@ static void manage_save_infos(scene_t *scene, const char *save_path,
 unsigned int image_func_go_to_save(scene_manager_t *scene_manager,
     scene_t *scene, engine_t *engine)
 {
-    (void)engine;
+    if (!scene_manager || !scene || !engine)
+        return ERROR;
     scene_play_sound(scene, SOUND_CLICK);
     scene_manager_set_scene(scene_manager, SCENE_SAVE);
     scene = scene_manager_get_current(scene_manager);
@@ -111,7 +112,8 @@ unsigned int image_func_go_to_save(scene_manager_t *scene_manager,
 unsigned int image_func_start_save1(scene_manager_t *scene_manager,
     scene_t *scene, engine_t *engine)
 {
-    (void)engine;
+    if (!scene_manager || !scene || !engine)
+        return ERROR;
     scene_play_sound(scene, SOUND_CLICK);
     scene_manager_exit_sub(scene_manager);
     scene_manager_set_scene(scene_manager, SCENE_GAME);
@@ -121,7 +123,8 @@ unsigned int image_func_start_save1(scene_manager_t *scene_manager,
 unsigned int image_func_start_save2(scene_manager_t *scene_manager,
     scene_t *scene, engine_t *engine)
 {
-    (void)engine;
+    if (!scene_manager || !scene || !engine)
+        return ERROR;
     scene_play_sound(scene, SOUND_CLICK);
     scene_manager_exit_sub(scene_manager);
     scene_manager_set_scene(scene_manager, SCENE_GAME);
@@ -131,7 +134,8 @@ unsigned int image_func_start_save2(scene_manager_t *scene_manager,
 unsigned int image_func_start_save3(scene_manager_t *scene_manager,
     scene_t *scene, engine_t *engine)
 {
-    (void)engine;
+    if (!scene_manager || !scene || !engine)
+        return ERROR;
     scene_play_sound(scene, SOUND_CLICK);
     scene_manager_exit_sub(scene_manager);
     scene_manager_set_scene(scene_manager, SCENE_GAME);

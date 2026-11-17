@@ -58,7 +58,7 @@ map_t *map_create(void)
     map->offset = (sfVector2f){(float)FULL_SCREEN_WIDTH / 2, 100};
     center = get_screen_pos_from_tab(map, MAP_COLS / 2, MAP_ROWS / 2);
     map->camera = sfView_createFromRect((sfFloatRect){0, 0,
-        FULL_SCREEN_WIDTH, FULL_SCREEN_HEIGHT});
+            FULL_SCREEN_WIDTH, FULL_SCREEN_HEIGHT});
     center.y += TILE_H / 2.0f;
     sfView_setCenter(map->camera, center);
     for (unsigned int index = 0; index < FLOOR_COUNT; index++)
@@ -138,6 +138,8 @@ void map_draw(map_t *map, sfRenderWindow *window)
 
 void map_update_view(map_t *map, sfVector2f *dir, float dt)
 {
+    if (!map)
+        return;
     sfView_move(map->camera, (sfVector2f){dir->x * CAMERA_SPEED * dt,
-        dir->y * CAMERA_SPEED * dt});
+            dir->y * CAMERA_SPEED * dt});
 }

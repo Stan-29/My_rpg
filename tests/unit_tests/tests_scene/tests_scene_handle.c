@@ -10,6 +10,10 @@
 
 #include "scene/scene.h"
 #include "scene/scene_internal.h" // IWYU pragma: keep
+#include "defines.h"
+#include "image/image_internal.h" // IWYU pragma: keep
+#include "linked_list/linked_list.h"
+#include <SFML/Graphics/Sprite.h>
 
 Test(scene_handle_hover, basic_handle_hover)
 {
@@ -19,6 +23,21 @@ Test(scene_handle_hover, basic_handle_hover)
     cr_assert(scene != NULL);
     scene_destroy(scene);
 }
+
+Test(scene_handle_hover, hover_clickable_image)
+{
+    scene_t *scene = scene_create(SCENE_MENU);
+    image_t *button = linked_list_get_data(
+        linked_list_get_next(scene->lists->ll_images));
+
+    button->base_pos = (sfVector2f){0, 0};
+    sfSprite_setPosition(button->sprite, (sfVector2f){0, 0});
+    scene_handle_hover(scene, NULL);
+    cr_assert_float_eq(sfSprite_getScale(button->sprite).x,
+        button->base_scale.x * RATIO_HOVER_SCALE, 0.01);
+    scene_destroy(scene);
+}
+
 
 Test(scene_play_sound, basic_sound_play)
 {

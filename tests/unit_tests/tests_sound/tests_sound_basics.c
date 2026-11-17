@@ -28,6 +28,15 @@ Test(sound_create, create_on_NULL)
     sound_destroy(sound);
 }
 
+Test(sound_create, create_with_wrong_path)
+{
+    sounds_tab_t infos = {0, "nope.wav", 50};
+    sound_t *sound = sound_create(&infos);
+
+    cr_assert(sound == NULL);
+}
+
+
 Test(sound_destroy, basic_destroy)
 {
     sound_t *sound = sound_create(&sounds_menu_tab[0]);

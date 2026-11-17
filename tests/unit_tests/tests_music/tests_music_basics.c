@@ -28,6 +28,15 @@ Test(music_create, create_on_NULL)
     music_destroy(music);
 }
 
+Test(music_create, create_with_wrong_path)
+{
+    musics_tab_t infos = {0, "nope.wav", 50};
+    music_t *music = music_create(&infos);
+
+    cr_assert(music == NULL);
+}
+
+
 Test(music_destroy, basic_destroy)
 {
     music_t *music = music_create(&musics_menu_tab[0]);

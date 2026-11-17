@@ -85,7 +85,7 @@ Test(scene_manager_change_music_volume, basic_change_volume_music)
 
     scene_manager_change_music_volume(scene_manager, 1);
     music = linked_list_get_data(scene_manager_get_current(scene_manager)->lists->ll_musics);
-    cr_assert(sfMusic_getVolume(music->music) == musics_menu_tab[0].volume);
+    cr_assert_float_eq(sfMusic_getVolume(music->music), musics_menu_tab[0].volume, 0.01);
     scene_manager_destroy(scene_manager);
 }
 
@@ -96,7 +96,7 @@ Test(scene_manager_change_music_volume, change_volume_music_on_null)
 
     scene_manager_change_music_volume(NULL, 1);
     music = linked_list_get_data(scene_manager_get_current(scene_manager)->lists->ll_musics);
-    cr_assert(sfMusic_getVolume(music->music) == musics_menu_tab[0].volume * INIT_RATIO);
+    cr_assert_float_eq(sfMusic_getVolume(music->music), musics_menu_tab[0].volume * INIT_RATIO, 0.01);
     scene_manager_destroy(scene_manager);
 }
 

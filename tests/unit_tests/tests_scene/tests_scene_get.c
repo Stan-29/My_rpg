@@ -51,6 +51,15 @@ Test(scene_find_image_by_pos, find_by_pos_no_image)
     scene_destroy(scene);
 }
 
+Test(scene_find_image_by_pos, find_by_pos_not_clickable)
+{
+    scene_t *scene = scene_create(SCENE_MENU);
+    image_t *image = scene_find_image_by_pos(scene, &(sfVector2f){10, 10});
+
+    cr_assert(image == NULL);
+    scene_destroy(scene);
+}
+
 
 Test(scene_get_held, basic_get_held)
 {

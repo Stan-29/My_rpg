@@ -15,7 +15,8 @@
 unsigned int image_func_go_to_settings(scene_manager_t *scene_manager,
     scene_t *scene, engine_t *engine)
 {
-    (void)engine;
+    if (!scene_manager || !scene || !engine)
+        return ERROR;
     scene_play_sound(scene, SOUND_CLICK);
     scene_manager_set_scene(scene_manager, SCENE_SETTINGS);
     return OK;
@@ -24,7 +25,8 @@ unsigned int image_func_go_to_settings(scene_manager_t *scene_manager,
 unsigned int image_func_windowed(scene_manager_t *scene_manager,
     scene_t *scene, engine_t *engine)
 {
-    (void)scene_manager;
+    if (!scene_manager || !scene || !engine)
+        return ERROR;
     engine_resize_window(engine, false);
     scene_play_sound(scene, SOUND_CLICK);
     return OK;
@@ -33,7 +35,8 @@ unsigned int image_func_windowed(scene_manager_t *scene_manager,
 unsigned int image_func_full_screen(scene_manager_t *scene_manager,
     scene_t *scene, engine_t *engine)
 {
-    (void)scene_manager;
+    if (!scene_manager || !scene || !engine)
+        return ERROR;
     engine_resize_window(engine, true);
     scene_play_sound(scene, SOUND_CLICK);
     return OK;
@@ -56,7 +59,8 @@ static float get_ratio_slider(scene_t *scene)
 unsigned int image_func_music_volume(scene_manager_t *scene_manager,
     scene_t *scene, engine_t *engine)
 {
-    (void)engine;
+    if (!scene_manager || !scene || !engine)
+        return ERROR;
     scene_manager_change_music_volume(scene_manager,
         get_ratio_slider(scene));
     scene_play_sound(scene, SOUND_CLICK);
@@ -66,7 +70,8 @@ unsigned int image_func_music_volume(scene_manager_t *scene_manager,
 unsigned int image_func_sound_volume(scene_manager_t *scene_manager,
     scene_t *scene, engine_t *engine)
 {
-    (void)engine;
+    if (!scene_manager || !scene || !engine)
+        return ERROR;
     scene_manager_change_sound_volume(scene_manager,
         get_ratio_slider(scene));
     scene_play_sound(scene, SOUND_CLICK);

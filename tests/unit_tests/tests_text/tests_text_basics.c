@@ -28,6 +28,14 @@ Test(text_create, create_on_NULL)
     text_destroy(text);
 }
 
+Test(text_create, create_with_wrong_path)
+{
+    texts_tab_t infos = {"nope.ttf", "abc", 10, NULL, {0, 0}};
+    text_t *text = text_create(&infos, 1);
+
+    cr_assert(text == NULL);
+}
+
 
 Test(text_destroy, basic_destroy)
 {

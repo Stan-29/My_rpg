@@ -18,7 +18,7 @@ SRC = source/const/events_tab.c 	\
 	source/engine/engine_basics.c		\
 	source/engine/engine_events.c		\
 	source/engine/engine_get.c			\
-	source/events_func/event_func_move_map.c		\
+	source/events_func/events_func_move_map.c		\
 	source/garbage_collector/garbage_collector_basics.c		\
 	source/image/image_basics.c			\
 	source/image/image_check.c			\
@@ -74,10 +74,13 @@ INCLUDES = -I./include -I./source $(DEPS_INCLUDES)
 CFLAGS = $(INCLUDES) -Wall -Wextra
 
 
-TEST_SRC = tests/unit_tests/tests_garbage_collector/*.c \
+TEST_SRC = tests/unit_tests/tests_engine/*.c \
+	tests/unit_tests/tests_events_func/*.c \
+	tests/unit_tests/tests_garbage_collector/*.c \
 	tests/unit_tests/tests_image/*.c \
 	tests/unit_tests/tests_images_func/*.c \
 	tests/unit_tests/tests_linked_list/*.c \
+	tests/unit_tests/tests_map/*.c \
 	tests/unit_tests/tests_music/*.c \
 	tests/unit_tests/tests_scene/*.c \
 	tests/unit_tests/tests_scene_manager/*.c \

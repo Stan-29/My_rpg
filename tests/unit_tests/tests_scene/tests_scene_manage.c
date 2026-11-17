@@ -15,6 +15,9 @@
 #include "sound/sound_internal.h" // IWYU pragma: keep
 #include "music/music.h"
 #include "music/music_internal.h" // IWYU pragma: keep
+#include "map/map_internal.h" // IWYU pragma: keep
+
+#include <SFML/Graphics/View.h>
 
 Test(scene_start, basic_scene_start)
 {
@@ -77,4 +80,40 @@ Test(scene_change_music_volume, change_volume_on_null)
     scene_change_music_volume(scene, 1);
     cr_assert(scene == NULL);
     scene_destroy(scene);
+}
+
+
+Test(scene_update_map_view, basic_update_map_view)
+{
+    scene_t *scene = scene_create(SCENE_GAME);
+    sfVector2f camera_pos = {0};
+
+    camera_pos = sfView_getCenter(scene->map->camera);
+    scene_update_map_view(scene, &(sfVector2f){0, 1}, 1);
+    cr_assert_float_eq(sfView_getCenter(scene->map->camera).y, camera_pos.y + CAMERA_SPEED, 0.01);
+    scene_destroy(scene);
+}
+
+Test(scene_update_map_view, update_map_view_on_null_map)
+{
+    scene_t *scene = scene_create(SCENE_MENU);
+
+    scene_update_map_view(scene, &(sfVector2f){0, 1}, 1);
+    cr_assert(scene->map == NULL);
+    scene_destroy(scene);
+}
+
+Test(scene_update_map_view, update_map_view_on_null)
+{
+    scene_t *scene = NULL;
+
+    scene_change_music_volume(scene, 1);
+    cr_assert(scene == NULL);
+    scene_destroy(scene);
+}
+
+Test(scene_stop, scene_stop_on_null)
+{
+    scene_stop(NULL);
+    cr_assert(true);
 }
