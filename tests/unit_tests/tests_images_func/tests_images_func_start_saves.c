@@ -2,12 +2,12 @@
 ** EPITECH PROJECT, 2026
 ** My RPG
 ** File description:
-** test_images_func_settings
+** tests_images_func_start_saves
 */
 #include <criterion/criterion.h>
 
-#include "enums.h"
 #include "defines.h"
+#include "enums.h"
 
 #include "scene_manager/scene_manager.h"
 #include "scene_manager/scene_manager_internal.h" // IWYU pragma: keep
@@ -34,7 +34,6 @@ Test(image_func_go_to_save, null_params)
 {
     cr_assert(image_func_go_to_save(NULL, NULL, NULL) == ERROR);
 }
-
 
 Test(image_func_start_save1, basic_change_in_scene)
 {

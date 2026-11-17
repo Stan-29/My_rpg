@@ -2,12 +2,14 @@
 ** EPITECH PROJECT, 2026
 ** My RPG
 ** File description:
-** test_linked_list_basics
+** tests_linked_list_get
 */
 #include <criterion/criterion.h>
 
 #include "linked_list/linked_list.h"
 #include "linked_list/linked_list_internal.h" // IWYU pragma: keep
+
+#include <stdlib.h>
 
 Test(linked_list_get_id, basic_get_id)
 {
@@ -26,7 +28,6 @@ Test(linked_list_get_id, get_id_on_null)
     cr_assert(linked_list_get_id(list) == 0);
 }
 
-
 Test(linked_list_get_data, basic_get_data)
 {
     char *data = malloc(sizeof(char) * 6);
@@ -36,6 +37,7 @@ Test(linked_list_get_data, basic_get_data)
     linked_list_add_start(&list, new_node);
     cr_assert(linked_list_get_data(list) == data);
     linked_list_destroy(&list, NULL);
+    free(data);
 }
 
 Test(linked_list_get_data, get_data_on_null)
@@ -44,7 +46,6 @@ Test(linked_list_get_data, get_data_on_null)
 
     cr_assert(linked_list_get_data(list) == NULL);
 }
-
 
 Test(linked_list_get_next, basic_get_next)
 {
@@ -65,8 +66,7 @@ Test(linked_list_get_next, get_next_on_null)
     cr_assert(linked_list_get_next(list) == NULL);
 }
 
-
-Test(linked_list_get_prev, basic_get_next)
+Test(linked_list_get_prev, basic_get_prev)
 {
     linked_list_t *new_node1 = linked_list_create_node(NULL, 1);
     linked_list_t *new_node2 = linked_list_create_node(NULL, 2);
@@ -78,7 +78,7 @@ Test(linked_list_get_prev, basic_get_next)
     linked_list_destroy(&list, NULL);
 }
 
-Test(linked_list_get_prev, get_next_on_null)
+Test(linked_list_get_prev, get_prev_on_null)
 {
     linked_list_t *list = NULL;
 

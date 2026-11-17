@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2026
 ** My RPG
 ** File description:
-** test_scene_basics
+** tests_scene_basics
 */
 #include <criterion/criterion.h>
 
@@ -21,8 +21,8 @@ Test(scene_create, basic_create)
     cr_assert(scene->lists->ll_sounds != NULL);
     cr_assert(scene->lists->ll_texts != NULL);
     cr_assert(scene->lists->ll_musics != NULL);
-    cr_assert(scene->offset.x == 0);
-    cr_assert(scene->offset.y == 0);
+    cr_assert_float_eq(scene->offset.x, 0, 0.01);
+    cr_assert_float_eq(scene->offset.y, 0, 0.01);
     cr_assert(scene->view != NULL);
     scene_destroy(scene);
 }

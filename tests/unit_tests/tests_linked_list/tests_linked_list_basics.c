@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2026
 ** My RPG
 ** File description:
-** test_linked_list_basics
+** tests_linked_list_basics
 */
 #include <criterion/criterion.h>
 
@@ -33,7 +33,6 @@ Test(linked_list_add_start, add_on_filled_list)
     linked_list_destroy(&list, NULL);
 }
 
-
 Test(linked_list_add_end, add_on_empty_list)
 {
     linked_list_t *new_node = linked_list_create_node(NULL, 1);
@@ -57,7 +56,6 @@ Test(linked_list_add_end, add_on_filled_list)
     cr_assert(list->id == 1);
     linked_list_destroy(&list, NULL);
 }
-
 
 Test(linked_list_delete_start, delete_one_elem_list)
 {
@@ -92,7 +90,6 @@ Test(linked_list_delete_start, delete_start_empty_list)
     cr_assert(list == NULL);
 }
 
-
 Test(linked_list_delete_end, delete_one_elem_list)
 {
     linked_list_t *new_node1 = linked_list_create_node(NULL, 1);
@@ -125,7 +122,6 @@ Test(linked_list_delete_end, delete_end_empty_list)
     linked_list_delete_end(&list);
     cr_assert(list == NULL);
 }
-
 
 Test(linked_list_delete_id, delete_one_elem_list)
 {
@@ -182,7 +178,7 @@ Test(linked_list_delete_id, delete_list)
     linked_list_destroy(&list, NULL);
 }
 
-Test(linked_list_delete_id, delete_od_empty_list)
+Test(linked_list_delete_id, delete_on_empty_list)
 {
     linked_list_t *list = NULL;
 

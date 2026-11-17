@@ -2,12 +2,13 @@
 ** EPITECH PROJECT, 2026
 ** My RPG
 ** File description:
-** test_garbage_collector_free
+** tests_garbage_collector_free
 */
 #include <criterion/criterion.h>
 
 #include "garbage_collector/garbage_collector.h"
-#include "garbage_collector/garbage_collector_internal.h" // IWYU pragma: keep
+
+#include <stdlib.h>
 
 Test(garbage_collector_free, free_size_one_list)
 {
@@ -65,5 +66,6 @@ Test(garbage_collector_free, free_not_in_list)
     cr_assert(temp3 != NULL);
     cr_assert(temp4 != NULL);
     cr_assert(garbage_collector_free(temp4) == NULL);
+    free(temp4);
     garbage_collector_clean();
 }

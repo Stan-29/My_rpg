@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2026
 ** My RPG
 ** File description:
-** test_scene_get
+** tests_scene_get
 */
 #include <criterion/criterion.h>
 
@@ -13,7 +13,9 @@
 #include "scene/scene.h"
 #include "scene/scene_internal.h" // IWYU pragma: keep
 
+#include <SFML/Graphics/Rect.h>
 #include <SFML/Graphics/Sprite.h>
+#include <stdbool.h>
 
 Test(scene_get_view, basic_get_view)
 {
@@ -30,7 +32,6 @@ Test(scene_get_view, get_view_on_null)
     cr_assert(scene_get_view(scene) == NULL);
 }
 
-
 Test(scene_find_image_by_pos, basic_find_by_pos)
 {
     scene_t *scene = scene_create(SCENE_MENU);
@@ -46,7 +47,7 @@ Test(scene_find_image_by_pos, find_by_pos_no_image)
 {
     scene_t *scene = scene_create(SCENE_MENU);
     image_t *image = scene_find_image_by_pos(scene, &(sfVector2f){-1, -1});
-    
+
     cr_assert(image == NULL);
     scene_destroy(scene);
 }
@@ -59,7 +60,6 @@ Test(scene_find_image_by_pos, find_by_pos_not_clickable)
     cr_assert(image == NULL);
     scene_destroy(scene);
 }
-
 
 Test(scene_get_held, basic_get_held)
 {
@@ -79,8 +79,7 @@ Test(scene_get_held, get_held_on_null)
     cr_assert(scene_get_held(scene) == NULL);
 }
 
-
-Test(scene_get_texts, basic_get_held)
+Test(scene_get_texts, basic_get_texts)
 {
     scene_t *scene = scene_create(SCENE_MENU);
     linked_list_t *list = scene_get_texts(scene);
@@ -89,7 +88,7 @@ Test(scene_get_texts, basic_get_held)
     scene_destroy(scene);
 }
 
-Test(scene_get_texts, get_held_on_null)
+Test(scene_get_texts, get_texts_on_null)
 {
     scene_t *scene = NULL;
     linked_list_t *list = scene_get_texts(scene);

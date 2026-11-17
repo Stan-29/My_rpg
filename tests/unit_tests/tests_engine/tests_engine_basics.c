@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2026
 ** My RPG
 ** File description:
-** test_engine_get
+** tests_engine_basics
 */
 #include <criterion/criterion.h>
 
@@ -21,10 +21,8 @@ Test(engine_destroy, basic_destroy)
     engine_destroy(engine);
 }
 
-Test(engine_get_window, destory_with_null)
+Test(engine_destroy, destroy_on_null)
 {
-    engine_t *engine = NULL;
-
-    cr_assert(engine == NULL);
-    engine_destroy(engine);
+    engine_destroy(NULL);
+    cr_assert(engine_get_window(NULL) == NULL);
 }

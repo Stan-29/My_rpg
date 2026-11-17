@@ -2,18 +2,20 @@
 ** EPITECH PROJECT, 2026
 ** My RPG
 ** File description:
-** test_scene_handle
+** tests_scene_handle
 */
 #include <criterion/criterion.h>
 
+#include "defines.h"
 #include "enums.h"
 
 #include "scene/scene.h"
 #include "scene/scene_internal.h" // IWYU pragma: keep
-#include "defines.h"
 #include "image/image_internal.h" // IWYU pragma: keep
 #include "linked_list/linked_list.h"
+
 #include <SFML/Graphics/Sprite.h>
+#include <SFML/System/Vector2.h>
 
 Test(scene_handle_hover, basic_handle_hover)
 {
@@ -37,7 +39,6 @@ Test(scene_handle_hover, hover_clickable_image)
         button->base_scale.x * RATIO_HOVER_SCALE, 0.01);
     scene_destroy(scene);
 }
-
 
 Test(scene_play_sound, basic_sound_play)
 {

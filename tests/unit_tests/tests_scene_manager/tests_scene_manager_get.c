@@ -2,11 +2,12 @@
 ** EPITECH PROJECT, 2026
 ** My RPG
 ** File description:
-** test_scene_manager_get
+** tests_scene_manager_get
 */
 #include <criterion/criterion.h>
 
 #include "enums.h"
+
 #include "scene_manager/scene_manager.h"
 #include "scene_manager/scene_manager_internal.h" // IWYU pragma: keep
 #include "scene/scene_internal.h" // IWYU pragma: keep
@@ -36,7 +37,6 @@ Test(scene_manager_get_current, get_current_on_null)
     scene_manager_destroy(scene_manager);
 }
 
-
 Test(scene_manager_get_main_id, basic_get_main)
 {
     scene_manager_t *scene_manager = scene_manager_create();
@@ -52,7 +52,6 @@ Test(scene_manager_get_main_id, get_main_on_null)
     cr_assert(scene_manager_get_main_id(NULL) == SCENE_NONE);
     scene_manager_destroy(scene_manager);
 }
-
 
 Test(scene_manager_get_sub_id, basic_get_sub)
 {

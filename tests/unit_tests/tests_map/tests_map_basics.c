@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2026
 ** My RPG
 ** File description:
-** test_map_basics
+** tests_map_basics
 */
 #include <criterion/criterion.h>
 
@@ -28,7 +28,8 @@ Test(map_update_view, basic_update_view)
 
     camera_pos = sfView_getCenter(map->camera);
     map_update_view(map, &(sfVector2f){0, 1}, 1);
-    cr_assert_float_eq(sfView_getCenter(map->camera).y, camera_pos.y + CAMERA_SPEED, 0.01);
+    cr_assert_float_eq(sfView_getCenter(map->camera).y,
+        camera_pos.y + CAMERA_SPEED, 0.01);
     map_destroy(map);
 }
 
@@ -41,8 +42,7 @@ Test(map_update_view, update_view_on_null)
     map_destroy(map);
 }
 
-
-Test(map_draw, draw_on_null)
+Test(map_draw, draw_null_window)
 {
     map_t *map = map_create();
 
@@ -54,5 +54,5 @@ Test(map_draw, draw_on_null)
 Test(map_draw, draw_null_map)
 {
     map_draw(NULL, NULL);
-    cr_assert(true);
+    // ne doit pas crasher
 }

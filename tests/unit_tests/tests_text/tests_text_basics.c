@@ -2,14 +2,14 @@
 ** EPITECH PROJECT, 2026
 ** My RPG
 ** File description:
-** test_text_basics
+** tests_text_basics
 */
 #include <criterion/criterion.h>
 
 #include "text/text.h"
 #include "text/text_internal.h" // IWYU pragma: keep
 
-#include <SFML/Graphics/Text.h>
+#include <stdbool.h>
 
 Test(text_create, basic_create)
 {
@@ -20,7 +20,7 @@ Test(text_create, basic_create)
     text_destroy(text);
 }
 
-Test(text_create, create_on_NULL)
+Test(text_create, create_on_null)
 {
     text_t *text = text_create(NULL, 1);
 
@@ -36,7 +36,6 @@ Test(text_create, create_with_wrong_path)
     cr_assert(text == NULL);
 }
 
-
 Test(text_destroy, basic_destroy)
 {
     text_t *text = text_create(&texts_menu_tab[0], 1);
@@ -50,7 +49,6 @@ Test(text_destroy, destroy_on_null)
 
     cr_assert(text_destroy(text) == NULL);
 }
-
 
 Test(text_get_id, basic_get_id)
 {
@@ -66,7 +64,6 @@ Test(text_get_id, get_id_on_null)
 
     cr_assert(text_get_id(text) == 0);
 }
-
 
 Test(text_change_str, basic_change_on_text)
 {

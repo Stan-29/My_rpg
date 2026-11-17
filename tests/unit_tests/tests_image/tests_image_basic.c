@@ -2,13 +2,12 @@
 ** EPITECH PROJECT, 2026
 ** My RPG
 ** File description:
-** test_image_create
+** tests_image_basic
 */
-#include <SFML/Graphics/Rect.h>
-#include <SFML/System/Vector2.h>
 #include <criterion/criterion.h>
 
 #include "consts.h"
+
 #include "image/image.h"
 #include "image/image_internal.h" // IWYU pragma: keep
 
@@ -18,15 +17,14 @@ Test(image_create, basic_create)
 
     cr_assert(temp != NULL);
     cr_assert(temp->id == 0);
-    cr_assert(temp->movable_zone.height == 0);
-    cr_assert(temp->movable_zone.height == 0);
-    cr_assert(temp->movable_zone.left == 0);
-    cr_assert(temp->movable_zone.top == 0);
-    cr_assert(temp->movable_zone.width == 0);
-    cr_assert(temp->base_pos.x == 0);
-    cr_assert(temp->base_pos.y == 0);
-    cr_assert(temp->base_scale.x == images_menu_tab[0].scale.x);
-    cr_assert(temp->base_scale.y == images_menu_tab[0].scale.y);
+    cr_assert_float_eq(temp->movable_zone.height, 0, 0.01);
+    cr_assert_float_eq(temp->movable_zone.left, 0, 0.01);
+    cr_assert_float_eq(temp->movable_zone.top, 0, 0.01);
+    cr_assert_float_eq(temp->movable_zone.width, 0, 0.01);
+    cr_assert_float_eq(temp->base_pos.x, 0, 0.01);
+    cr_assert_float_eq(temp->base_pos.y, 0, 0.01);
+    cr_assert_float_eq(temp->base_scale.x, images_menu_tab[0].scale.x, 0.01);
+    cr_assert_float_eq(temp->base_scale.y, images_menu_tab[0].scale.y, 0.01);
     cr_assert(temp->func == NULL);
     cr_assert(temp->texture != NULL);
     cr_assert(temp->sprite != NULL);
@@ -41,7 +39,6 @@ Test(image_create, create_with_null_path)
     image_destroy(temp);
 }
 
-
 Test(image_destroy, destroy_null)
 {
     image_t *temp = image_create(&images_menu_tab[0], 0);
@@ -50,7 +47,6 @@ Test(image_destroy, destroy_null)
     image_destroy(NULL);
     image_destroy(temp);
 }
-
 
 Test(image_draw, basic_draw)
 {
@@ -61,23 +57,18 @@ Test(image_draw, basic_draw)
     image_destroy(temp);
 }
 
-
 Test(image_start_func, start_func_on_null)
 {
-    image_t *temp = image_create(&images_menu_tab[0], 0);
-
     cr_assert(image_start_func(NULL, NULL, NULL, NULL) == ERROR);
-    image_destroy(temp);
 }
 
-Test(image_start_func, basic_start_func)
+Test(image_start_func, start_func_no_func)
 {
-    image_t *temp = image_create(&images_pause_tab[2], 2);
+    image_t *temp = image_create(&images_menu_tab[0], 0);
 
     cr_assert(image_start_func(temp, NULL, NULL, NULL) == ERROR);
     image_destroy(temp);
 }
-
 
 Test(image_create, create_with_wrong_path)
 {
@@ -91,7 +82,7 @@ Test(image_create, create_with_wrong_path)
 Test(image_draw, draw_null_image)
 {
     image_draw(NULL, NULL);
-    cr_assert(true);
+    // ne doit pas crasher
 }
 
 Test(image_start_func, start_func_with_func)

@@ -2,14 +2,14 @@
 ** EPITECH PROJECT, 2026
 ** My RPG
 ** File description:
-** test_text_basics
+** tests_text_check
 */
 #include <criterion/criterion.h>
 
 #include "text/text.h"
 #include "text/text_internal.h" // IWYU pragma: keep
 
-#include <SFML/Graphics/Text.h>
+#include <stdbool.h>
 
 Test(text_contains, basic_check)
 {

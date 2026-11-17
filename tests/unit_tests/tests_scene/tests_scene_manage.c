@@ -2,10 +2,12 @@
 ** EPITECH PROJECT, 2026
 ** My RPG
 ** File description:
-** test_scene_manage
+** tests_scene_manage
 */
 #include <criterion/criterion.h>
 
+#include "consts.h"
+#include "defines.h"
 #include "enums.h"
 
 #include "linked_list/linked_list.h"
@@ -17,7 +19,9 @@
 #include "music/music_internal.h" // IWYU pragma: keep
 #include "map/map_internal.h" // IWYU pragma: keep
 
+#include <SFML/Audio/Music.h>
 #include <SFML/Graphics/View.h>
+#include <SFML/System/Vector2.h>
 
 Test(scene_start, basic_scene_start)
 {
@@ -48,7 +52,7 @@ Test(scene_change_sound_volume, basic_change_volume)
 
     scene_change_sound_volume(scene, 1);
     sound = linked_list_get_data(scene->lists->ll_sounds);
-    cr_assert(sound->base_volume == 50);
+    cr_assert_float_eq(sound->base_volume, 50, 0.01);
     scene_destroy(scene);
 }
 
@@ -61,15 +65,15 @@ Test(scene_change_sound_volume, change_volume_on_null)
     scene_destroy(scene);
 }
 
-
 Test(scene_change_music_volume, basic_change_volume)
 {
     scene_t *scene = scene_create(SCENE_MENU);
     music_t *music = NULL;
 
     scene_change_music_volume(scene, 1);
-    music = linked_list_get_data(scene->lists->ll_sounds);
-    cr_assert(music->base_volume == 50);
+    music = linked_list_get_data(scene->lists->ll_musics);
+    cr_assert_float_eq(sfMusic_getVolume(music->music),
+        musics_menu_tab[0].volume, 0.01);
     scene_destroy(scene);
 }
 
@@ -82,7 +86,6 @@ Test(scene_change_music_volume, change_volume_on_null)
     scene_destroy(scene);
 }
 
-
 Test(scene_update_map_view, basic_update_map_view)
 {
     scene_t *scene = scene_create(SCENE_GAME);
@@ -90,7 +93,8 @@ Test(scene_update_map_view, basic_update_map_view)
 
     camera_pos = sfView_getCenter(scene->map->camera);
     scene_update_map_view(scene, &(sfVector2f){0, 1}, 1);
-    cr_assert_float_eq(sfView_getCenter(scene->map->camera).y, camera_pos.y + CAMERA_SPEED, 0.01);
+    cr_assert_float_eq(sfView_getCenter(scene->map->camera).y,
+        camera_pos.y + CAMERA_SPEED, 0.01);
     scene_destroy(scene);
 }
 
@@ -105,15 +109,10 @@ Test(scene_update_map_view, update_map_view_on_null_map)
 
 Test(scene_update_map_view, update_map_view_on_null)
 {
-    scene_t *scene = NULL;
-
-    scene_change_music_volume(scene, 1);
-    cr_assert(scene == NULL);
-    scene_destroy(scene);
+    scene_update_map_view(NULL, &(sfVector2f){0, 1}, 1);
 }
 
 Test(scene_stop, scene_stop_on_null)
 {
     scene_stop(NULL);
-    cr_assert(true);
 }

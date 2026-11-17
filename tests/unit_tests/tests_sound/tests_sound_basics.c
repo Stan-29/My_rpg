@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2026
 ** My RPG
 ** File description:
-** test_sound_basics
+** tests_sound_basics
 */
 #include <criterion/criterion.h>
 
@@ -20,7 +20,7 @@ Test(sound_create, basic_create)
     sound_destroy(sound);
 }
 
-Test(sound_create, create_on_NULL)
+Test(sound_create, create_on_null)
 {
     sound_t *sound = sound_create(NULL);
 
@@ -36,7 +36,6 @@ Test(sound_create, create_with_wrong_path)
     cr_assert(sound == NULL);
 }
 
-
 Test(sound_destroy, basic_destroy)
 {
     sound_t *sound = sound_create(&sounds_menu_tab[0]);
@@ -50,7 +49,6 @@ Test(sound_destroy, destroy_on_null)
 
     cr_assert(sound_destroy(sound) == NULL);
 }
-
 
 Test(sound_play, basic_play)
 {
@@ -69,7 +67,6 @@ Test(sound_play, play_on_null)
     cr_assert(sound == NULL);
 }
 
-
 Test(sound_change_volume, basic_change_volume)
 {
     sound_t *sound = sound_create(&sounds_menu_tab[0]);
@@ -79,14 +76,13 @@ Test(sound_change_volume, basic_change_volume)
     sound_destroy(sound);
 }
 
-Test(sound_change_volume, cheange_volume_on_null)
+Test(sound_change_volume, change_volume_on_null)
 {
     sound_t *sound = NULL;
 
     sound_change_volume(sound, 1);
     cr_assert(sound == NULL);
 }
-
 
 Test(sound_get_id, basic_get_id)
 {

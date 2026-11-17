@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2026
 ** My RPG
 ** File description:
-** test_music_basics
+** tests_music_basics
 */
 #include <criterion/criterion.h>
 
@@ -20,7 +20,7 @@ Test(music_create, basic_create)
     music_destroy(music);
 }
 
-Test(music_create, create_on_NULL)
+Test(music_create, create_with_null_path)
 {
     music_t *music = music_create(&musics_settings_tab[0]);
 
@@ -36,7 +36,6 @@ Test(music_create, create_with_wrong_path)
     cr_assert(music == NULL);
 }
 
-
 Test(music_destroy, basic_destroy)
 {
     music_t *music = music_create(&musics_menu_tab[0]);
@@ -50,7 +49,6 @@ Test(music_destroy, destroy_on_null)
 
     cr_assert(music_destroy(music) == NULL);
 }
-
 
 Test(music_play, basic_play)
 {
@@ -69,7 +67,6 @@ Test(music_play, play_on_null)
     cr_assert(music == NULL);
 }
 
-
 Test(music_stop, basic_stop)
 {
     music_t *music = music_create(&musics_menu_tab[0]);
@@ -87,7 +84,6 @@ Test(music_stop, stop_on_null)
     cr_assert(music == NULL);
 }
 
-
 Test(music_change_volume, basic_change_volume)
 {
     music_t *music = music_create(&musics_menu_tab[0]);
@@ -97,7 +93,7 @@ Test(music_change_volume, basic_change_volume)
     music_destroy(music);
 }
 
-Test(music_change_volume, cheange_volume_on_null)
+Test(music_change_volume, change_volume_on_null)
 {
     music_t *music = NULL;
 

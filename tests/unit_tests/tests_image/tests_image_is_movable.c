@@ -2,15 +2,16 @@
 ** EPITECH PROJECT, 2026
 ** My RPG
 ** File description:
-** test_image_is_movable
+** tests_image_is_movable
 */
-#include <SFML/Graphics/Rect.h>
-#include <SFML/System/Vector2.h>
 #include <criterion/criterion.h>
 
 #include "consts.h"
+
 #include "image/image.h"
 #include "image/image_internal.h" // IWYU pragma: keep
+
+#include <stdbool.h>
 
 Test(image_is_movable, image_not_clickable)
 {

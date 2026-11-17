@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2026
 ** My RPG
 ** File description:
-** test_linked_list_basics
+** tests_linked_list_handle
 */
 #include <criterion/criterion.h>
 

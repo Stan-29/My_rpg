@@ -2,12 +2,12 @@
 ** EPITECH PROJECT, 2026
 ** My RPG
 ** File description:
-** test_images_func_settings
+** tests_images_func_start_switch_scenes
 */
 #include <criterion/criterion.h>
 
-#include "enums.h"
 #include "defines.h"
+#include "enums.h"
 
 #include "scene_manager/scene_manager.h"
 #include "scene_manager/scene_manager_internal.h" // IWYU pragma: keep

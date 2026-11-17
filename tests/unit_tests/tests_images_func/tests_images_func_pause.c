@@ -2,12 +2,12 @@
 ** EPITECH PROJECT, 2026
 ** My RPG
 ** File description:
-** test_images_func_pause
+** tests_images_func_pause
 */
 #include <criterion/criterion.h>
 
-#include "enums.h"
 #include "defines.h"
+#include "enums.h"
 
 #include "scene_manager/scene_manager.h"
 #include "scene_manager/scene_manager_internal.h" // IWYU pragma: keep
