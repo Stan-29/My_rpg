@@ -35,4 +35,7 @@
     #define SAVE_COUNT 3
     #define MAX_SAVE_INFOS 4
 
+    #define MAP_OFFSET_X (FULL_SCREEN_WIDTH / 2.0f)
+    #define MAP_OFFSET_Y 100.0f
+
 #endif

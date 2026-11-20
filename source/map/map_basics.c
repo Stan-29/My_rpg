@@ -15,6 +15,9 @@
 #include <SFML/Graphics/Sprite.h>
 #include <SFML/Graphics/Texture.h>
 #include <SFML/Graphics/View.h>
+#include <SFML/System/Vector2.h>
+
+#include <math.h>
 
 static map_t *map_create_textures(map_t *map)
 {
@@ -42,8 +45,8 @@ static sfVector2f get_screen_pos_from_tab(map_t *map, int col, int row)
 {
     sfVector2f pos = {0};
 
-    pos.x = (col - row) * (TILE_W / 2.0f) + map->offset.x;
-    pos.y = (col + row) * (TILE_H / 2.0f) + map->offset.y;
+    pos.x = (col - row) * (TILE_W / 2.0f) + MAP_OFFSET_X;
+    pos.y = (col + row) * (TILE_H / 2.0f) + MAP_OFFSET_Y;
     return pos;
 }
 
@@ -55,7 +58,7 @@ map_t *map_create(void)
     if (!map)
         return map_destroy(map);
     map->sprite = NULL;
-    map->offset = (sfVector2f){(float)FULL_SCREEN_WIDTH / 2, 100};
+    map->dir = (sfVector2f){0};
     center = get_screen_pos_from_tab(map, MAP_COLS / 2, MAP_ROWS / 2);
     map->camera = sfView_createFromRect((sfFloatRect){0, 0,
             FULL_SCREEN_WIDTH, FULL_SCREEN_HEIGHT});
@@ -136,10 +139,26 @@ void map_draw(map_t *map, sfRenderWindow *window)
             map_draw_object(map, window, row, col);
 }
 
-void map_update_view(map_t *map, sfVector2f *dir, float dt)
+void map_update_dir(map_t *map, sfVector2f *dir)
 {
     if (!map)
         return;
-    sfView_move(map->camera, (sfVector2f){dir->x * CAMERA_SPEED * dt,
-            dir->y * CAMERA_SPEED * dt});
+    map->dir.x += dir->x;
+    map->dir.y += dir->y; 
+}
+
+void map_update_view(map_t *map, float dt)
+{
+    float len = 0;
+
+    if (!map)
+        return;
+    len = sqrtf(map->dir.x * map->dir.x + map->dir.y * map->dir.y);
+    if (len > 0) {
+        map->dir.x /= len;
+        map->dir.y /= len;
+    }
+    sfView_move(map->camera, (sfVector2f){map->dir.x * CAMERA_SPEED * dt,
+        map->dir.y * CAMERA_SPEED * dt});
+    map->dir = (sfVector2f){0};
 }

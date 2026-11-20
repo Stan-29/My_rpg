@@ -50,6 +50,7 @@ unsigned int engine_run(engine_t *engine)
             engine->window);
         scene_handle_hover(scene_manager_get_current(scene_manager),
             engine->window);
+        scene_update(scene_manager_get_current(scene_manager), engine->delta);
         scene_manager_draw(scene_manager, engine->window);
         sfRenderWindow_display(engine->window);
     }

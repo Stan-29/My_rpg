@@ -17,8 +17,8 @@ struct map_s {
     sfTexture *floor_textures[FLOOR_COUNT];
     sfTexture *object_textures[OBJECT_COUNT];
     sfSprite *sprite;
-    sfVector2f offset;
     sfView *camera;
+    sfVector2f dir;
 };
 
 #endif

@@ -5,7 +5,6 @@
 ** scene code
 */
 #include "linked_list/linked_list.h"
-#include "map/map.h"
 #include "scene/scene.h"
 #include "scene/scene_internal.h" // IWYU pragma: keep
 #include "types.h"
@@ -62,11 +61,4 @@ void scene_change_music_volume(scene_t *scene, float ratio)
         music_change_volume(data, ratio);
         temp = linked_list_get_next(temp);
     }
-}
-
-void scene_update_map_view(scene_t *scene, sfVector2f *dir, float dt)
-{
-    if (!scene || !scene->map)
-        return;
-    map_update_view(scene->map, dir, dt);
 }

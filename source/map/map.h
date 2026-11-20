@@ -16,6 +16,7 @@ typedef struct map_s map_t;
 map_t *map_create(void);
 void *map_destroy(map_t *map);
 void map_draw(map_t *map, sfRenderWindow *window);
-void map_update_view(map_t *map, sfVector2f *dir, float dt);
+void map_update_dir(map_t *map, sfVector2f *dir);
+void map_update_view(map_t *map, float dt);
 
 #endif

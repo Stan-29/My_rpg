@@ -38,6 +38,7 @@ SRC = source/const/events_tab.c 	\
 	source/scene/scene_get.c			\
 	source/scene/scene_handle.c			\
 	source/scene/scene_manage.c			\
+	source/scene/scene_update.c			\
 	source/scene_manager/scene_manager_basics.c			\
 	source/scene_manager/scene_manager_get.c			\
 	source/scene_manager/scene_manager_manage.c			\
