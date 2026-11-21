@@ -101,8 +101,20 @@ typedef struct object_tab_s {
 extern const object_tab_t object_tab[];
 extern const int map_objects[MAP_ROWS][MAP_COLS];
 
-extern const int map_objects[MAP_ROWS][MAP_COLS];
+typedef struct skin_tab_s {
+    const char *filepath;
+} skin_tab_t;
 
+extern const skin_tab_t skin_tab[];
+
+typedef struct state_tab_s {
+    unsigned int first_row;
+    unsigned int frame_count;
+    float delay;
+    float speed;
+} state_tab_t;
+
+extern const state_tab_t state_tab[];
 
 typedef struct events_tab_s {
     int key_id;

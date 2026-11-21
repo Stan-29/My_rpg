@@ -7,7 +7,6 @@
 #include <criterion/criterion.h>
 
 #include "consts.h"
-#include "defines.h"
 #include "enums.h"
 
 #include "linked_list/linked_list.h"

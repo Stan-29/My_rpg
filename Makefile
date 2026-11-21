@@ -13,7 +13,9 @@ SRC = source/const/events_tab.c 	\
 	source/const/object_tab.c 		\
 	source/const/save_tab.c 		\
 	source/const/scenes_tab.c 		\
+	source/const/skin_tab.c 		\
 	source/const/sounds_tab.c 		\
+	source/const/state_tab.c 		\
 	source/const/texts_tab.c 		\
 	source/engine/engine_basics.c		\
 	source/engine/engine_events.c		\
@@ -33,6 +35,7 @@ SRC = source/const/events_tab.c 	\
 	source/linked_list/linked_list_handling.c		\
 	source/map/map_basics.c					\
 	source/music/music_basics.c		\
+	source/player/player_basics.c			\
 	source/scene/scene_basics.c			\
 	source/scene/scene_drag.c			\
 	source/scene/scene_get.c			\

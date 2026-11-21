@@ -44,4 +44,26 @@ typedef enum musics_id_e {
     MUSIC_COUNT
 } musics_id_t;
 
+typedef enum skin_id_e {
+    SKIN_BOY = 0,
+    SKIN_GIRL,
+    SKIN_COUNT
+} skin_id_t;
+
+typedef enum state_id_e {
+    STATE_IDLE = 0,
+    STATE_WALKING,
+    STATE_RUNNING,
+    STATE_ATTACKING,
+    STATE_COUNT
+} state_id_t;
+
+typedef enum dir_id_e {
+    DIR_DOWN = 0,
+    DIR_LEFT,
+    DIR_RIGHT,
+    DIR_UP,
+    DIR_COUNT
+} dir_id_t;
+
 #endif

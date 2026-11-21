@@ -29,6 +29,10 @@
     #define FPS 60
 
     #define CAMERA_SPEED 300
+    #define PLAYER_SPEED 300
+
+    #define CAMERA_LOOKAHEAD 150
+    #define CAMERA_SMOOTH 4
 
     #define INIT_RATIO 0.5
 
@@ -37,5 +41,8 @@
 
     #define MAP_OFFSET_X (FULL_SCREEN_WIDTH / 2.0f)
     #define MAP_OFFSET_Y 100.0f
+
+    #define FRAME_W 48
+    #define FRAME_H 64
 
 #endif
