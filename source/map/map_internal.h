@@ -18,7 +18,6 @@ struct map_s {
     sfTexture *object_textures[OBJECT_COUNT];
     sfSprite *sprite;
     sfView *camera;
-    sfVector2f dir;
 };
 
 #endif

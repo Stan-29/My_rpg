@@ -12,31 +12,22 @@
 #include <SFML/Graphics/View.h>
 #include <SFML/System/Vector2.h>
 
-#include <math.h>
- 
 
-void map_update_dir(map_t *map, sfVector2f *dir)
+void map_update_view(map_t *map, sfVector2f *pos, sfVector2f *dir, float dt)
 {
-    if (!map)
+    sfVector2f target = {0};
+    float factor = CAMERA_SMOOTH * dt;
+    sfVector2f center = {0};
+    
+    if (!map || !pos || !dir)
         return;
-    map->dir.x += dir->x;
-    map->dir.y += dir->y;
-}
-
-void map_update_view(map_t *map, float dt)
-{
-    float len = 0;
-
-    if (!map)
-        return;
-    len = sqrtf(map->dir.x * map->dir.x + map->dir.y * map->dir.y);
-    if (len > 0) {
-        map->dir.x /= len;
-        map->dir.y /= len;
-    }
-    sfView_move(map->camera, (sfVector2f){map->dir.x * CAMERA_SPEED * dt,
-            map->dir.y * CAMERA_SPEED * dt});
-    map->dir = (sfVector2f){0};
+    target.x = pos->x + dir->x * CAMERA_LOOKAHEAD;
+    target.y = pos->y + dir->y * CAMERA_LOOKAHEAD;
+    center = sfView_getCenter(map->camera);
+    center.x = center.x + (target.x - center.x) * factor;
+    center.y = center.y + (target.y - center.y) * factor;
+    sfView_setCenter(map->camera, center);
+    return;
 }
 
 void map_set_center(map_t *map, sfVector2f *pos)

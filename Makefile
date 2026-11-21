@@ -20,7 +20,7 @@ SRC = source/const/events_tab.c 	\
 	source/engine/engine_basics.c		\
 	source/engine/engine_events.c		\
 	source/engine/engine_get.c			\
-	source/events_func/events_func_move_map.c		\
+	source/events_func/events_func_move_player.c		\
 	source/garbage_collector/garbage_collector_basics.c		\
 	source/image/image_basics.c			\
 	source/image/image_check.c			\
@@ -37,7 +37,8 @@ SRC = source/const/events_tab.c 	\
 	source/map/map_update.c					\
 	source/music/music_basics.c		\
 	source/player/player_basics.c			\
-	source/player/player_get.c			\
+	source/player/player_get.c				\
+	source/player/player_update.c			\
 	source/scene/scene_basics.c			\
 	source/scene/scene_drag.c			\
 	source/scene/scene_get.c			\

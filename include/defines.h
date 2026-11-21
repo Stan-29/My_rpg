@@ -28,13 +28,12 @@
 
     #define FPS 60
 
-    #define CAMERA_SPEED 300
     #define PLAYER_SPEED 300
 
-    #define CAMERA_LOOKAHEAD 150
-    #define CAMERA_SMOOTH 4
+    #define CAMERA_LOOKAHEAD 300
+    #define CAMERA_SMOOTH 2
 
-    #define INIT_RATIO 0.5
+    #define INIT_RATIO 0.5f
 
     #define SAVE_COUNT 3
     #define MAX_SAVE_INFOS 4

@@ -48,7 +48,6 @@ map_t *map_create(void)
     if (!map)
         return map_destroy(map);
     map->sprite = NULL;
-    map->dir = (sfVector2f){0};
     map->camera = sfView_createFromRect((sfFloatRect){0, 0,
         FULL_SCREEN_WIDTH, FULL_SCREEN_HEIGHT});
     for (unsigned int index = 0; index < FLOOR_COUNT; index++)

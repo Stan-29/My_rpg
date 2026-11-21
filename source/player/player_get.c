@@ -10,7 +10,6 @@
 #include <SFML/System/Vector2.h>
 
 #include <stddef.h>
- 
 
 sfVector2f *player_get_pos(player_t *player)
 {
