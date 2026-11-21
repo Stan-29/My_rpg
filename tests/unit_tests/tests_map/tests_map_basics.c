@@ -107,5 +107,4 @@ Test(map_draw, draw_null_window)
 Test(map_draw, draw_null_map)
 {
     map_draw(NULL, NULL);
-    // ne doit pas crasher
 }

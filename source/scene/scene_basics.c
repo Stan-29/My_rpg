@@ -16,10 +16,14 @@
 #include "text/text.h"
 #include "sound/sound.h"
 #include "music/music.h"
+#include "types.h"
 
 #include <SFML/Audio/Music.h>
 #include <SFML/Graphics/RenderWindow.h>
+#include <SFML/Graphics/Types.h>
 #include <SFML/Graphics/View.h>
+
+ 
 
 static unsigned int scene_init_images(linked_list_t **ll_images,
     const images_tab_t *images_tab)
@@ -129,6 +133,21 @@ static unsigned int scene_init_lists(scene_t *scene, unsigned int id)
     return OK;
 }
 
+static unsigned int handle_game(scene_t *scene, unsigned int id)
+{
+    if (id == SCENE_GAME) {
+        scene->map = map_create();
+        scene->player = player_create(&default_save.player);
+        if (!scene->map || !scene->player)
+            return ERROR;
+        map_set_center(scene->map, player_get_pos(scene->player));
+    } else {
+        scene->map = NULL;
+        scene->player = NULL;
+    }
+    return OK;
+}
+
 scene_t *scene_create(unsigned int id)
 {
     sfFloatRect rect = {0, 0, FULL_SCREEN_WIDTH, FULL_SCREEN_HEIGHT};
@@ -144,12 +163,8 @@ scene_t *scene_create(unsigned int id)
         return scene_destroy(scene);
     if (scene_init_lists(scene, id) == ERROR)
         return scene_destroy(scene);
-    if (id == SCENE_GAME) {
-        scene->map = map_create();
-        if (!scene->map)
-            return scene_destroy(scene);
-    } else
-        scene->map = NULL;
+    if (handle_game(scene, id) == ERROR)
+        return scene_destroy(scene);
     return scene;
 }
 
@@ -160,6 +175,7 @@ void scene_draw(scene_t *scene, sfRenderWindow *window)
     if (!scene)
         return;
     map_draw(scene->map, window);
+    player_draw(scene->player, window);
     sfRenderWindow_setView(window, scene->view);
     temp = scene->lists->ll_images;
     while (temp != NULL) {
@@ -188,6 +204,7 @@ void *scene_destroy(scene_t *scene)
         garbage_collector_free(scene->lists);
     }
     map_destroy(scene->map);
+    player_destroy(scene->player);
     garbage_collector_free(scene);
     return NULL;
 }

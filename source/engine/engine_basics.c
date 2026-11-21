@@ -33,6 +33,15 @@ engine_t *engine_create(void)
     return engine;
 }
 
+static void engine_scenes_handler(engine_t *engine,
+    scene_manager_t *scene_manager)
+{
+    scene_handle_drag(scene_manager_get_current(scene_manager),
+        engine->window);
+    scene_handle_hover(scene_manager_get_current(scene_manager),
+        engine->window);
+}
+
 unsigned int engine_run(engine_t *engine)
 {
     scene_manager_t *scene_manager = scene_manager_create();
@@ -46,10 +55,7 @@ unsigned int engine_run(engine_t *engine)
             scene_manager_destroy(scene_manager);
             return ERROR;
         }
-        scene_handle_drag(scene_manager_get_current(scene_manager),
-            engine->window);
-        scene_handle_hover(scene_manager_get_current(scene_manager),
-            engine->window);
+        engine_scenes_handler(engine, scene_manager);
         scene_update(scene_manager_get_current(scene_manager), engine->delta);
         scene_manager_draw(scene_manager, engine->window);
         sfRenderWindow_display(engine->window);

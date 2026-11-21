@@ -12,6 +12,7 @@
 
     #include "linked_list/linked_list.h"
     #include "map/map.h"
+    #include "player/player.h"
 
     #include <SFML/Audio/Types.h>
     #include <SFML/Graphics/Types.h>
@@ -30,6 +31,7 @@ struct scene_s {
     image_t *held;
     sfVector2f offset;
     map_t *map;
+    player_t *player;
     scene_list_t *lists;
 };
 

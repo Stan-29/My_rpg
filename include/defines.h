@@ -44,5 +44,8 @@
 
     #define FRAME_W 48
     #define FRAME_H 64
+    #define PLAYER_SCALE 2
+    #define PLAYER_SPAWN_COL 12
+    #define PLAYER_SPAWN_ROW 12
 
 #endif

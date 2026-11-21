@@ -15,7 +15,6 @@ void scene_update_map_dir(scene_t *scene, sfVector2f *dir)
     map_update_dir(scene->map, dir);
 }
 
-
 void scene_update(scene_t *scene, float dt)
 {
     if (!scene || !scene->map)

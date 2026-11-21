@@ -34,8 +34,10 @@ SRC = source/const/events_tab.c 	\
 	source/linked_list/linked_list_get.c			\
 	source/linked_list/linked_list_handling.c		\
 	source/map/map_basics.c					\
+	source/map/map_update.c					\
 	source/music/music_basics.c		\
 	source/player/player_basics.c			\
+	source/player/player_get.c			\
 	source/scene/scene_basics.c			\
 	source/scene/scene_drag.c			\
 	source/scene/scene_get.c			\
@@ -86,6 +88,7 @@ TEST_SRC = tests/unit_tests/tests_engine/*.c \
 	tests/unit_tests/tests_linked_list/*.c \
 	tests/unit_tests/tests_map/*.c \
 	tests/unit_tests/tests_music/*.c \
+	tests/unit_tests/tests_player/*.c	\
 	tests/unit_tests/tests_scene/*.c \
 	tests/unit_tests/tests_scene_manager/*.c \
 	tests/unit_tests/tests_sound/*.c \
