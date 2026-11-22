@@ -11,7 +11,7 @@ SRC = source/const/events_tab.c 	\
 	source/const/map_tab.c 			\
 	source/const/musics_tab.c 		\
 	source/const/object_tab.c 		\
-	source/const/save_tab.c 		\
+	source/const/saves_tab.c 		\
 	source/const/scenes_tab.c 		\
 	source/const/skin_tab.c 		\
 	source/const/sounds_tab.c 		\

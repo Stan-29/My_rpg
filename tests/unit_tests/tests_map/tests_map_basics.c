@@ -20,79 +20,65 @@ Test(map_create, basic_create)
     cr_assert(map != NULL);
     map_destroy(map);
 }
-
-Test(map_update_view, basic_update_view)
+Test(map_update_view, stopped_moves_toward_pos)
 {
     map_t *map = map_create();
-    sfVector2f camera_pos = sfView_getCenter(map->camera);
 
-    map_update_dir(map, &(sfVector2f){0, 1});
-    map_update_view(map, 1);
-    cr_assert_float_eq(sfView_getCenter(map->camera).y,
-        camera_pos.y + CAMERA_SPEED, 0.01);
-    map_destroy(map);
-}
-
-Test(map_update_view, diagonal_is_normalized)
-{
-    map_t *map = map_create();
-    sfVector2f camera_pos = sfView_getCenter(map->camera);
-
-    map_update_dir(map, &(sfVector2f){1, 0});
-    map_update_dir(map, &(sfVector2f){0, -1});
-    map_update_view(map, 1);
+    map_set_center(map, &(sfVector2f){0, 0});
+    map_update_view(map, &(sfVector2f){100, 0}, &(sfVector2f){0, 0}, 0.1f);
     cr_assert_float_eq(sfView_getCenter(map->camera).x,
-        camera_pos.x + CAMERA_SPEED * 0.7071f, 0.1);
+        100 * CAMERA_SMOOTH * 0.1f, 0.01);
+    map_destroy(map);
+}
+
+Test(map_update_view, moving_targets_lookahead)
+{
+    map_t *map = map_create();
+
+    map_set_center(map, &(sfVector2f){0, 0});
+    map_update_view(map, &(sfVector2f){0, 0}, &(sfVector2f){1, 0}, 0.1f);
+    cr_assert_float_eq(sfView_getCenter(map->camera).x,
+        CAMERA_LOOKAHEAD * CAMERA_SMOOTH * 0.1f, 0.01);
+    map_destroy(map);
+}
+
+Test(map_update_view, big_dt_lands_on_target)
+{
+    map_t *map = map_create();
+
+    map_set_center(map, &(sfVector2f){0, 0});
+    map_update_view(map, &(sfVector2f){50, 20}, &(sfVector2f){0, 1}, 10);
+    cr_assert_float_eq(sfView_getCenter(map->camera).x, 50, 0.01);
     cr_assert_float_eq(sfView_getCenter(map->camera).y,
-        camera_pos.y - CAMERA_SPEED * 0.7071f, 0.1);
-    map_destroy(map);
-}
-
-Test(map_update_view, opposite_keys_dont_move)
-{
-    map_t *map = map_create();
-    sfVector2f camera_pos = sfView_getCenter(map->camera);
-
-    map_update_dir(map, &(sfVector2f){0, 1});
-    map_update_dir(map, &(sfVector2f){0, -1});
-    map_update_view(map, 1);
-    cr_assert_float_eq(sfView_getCenter(map->camera).y, camera_pos.y, 0.01);
-    map_destroy(map);
-}
-
-Test(map_update_view, dir_is_reset_after_update)
-{
-    map_t *map = map_create();
-    sfVector2f camera_pos = {0};
-
-    map_update_dir(map, &(sfVector2f){0, 1});
-    map_update_view(map, 1);
-    camera_pos = sfView_getCenter(map->camera);
-    map_update_view(map, 1);
-    cr_assert_float_eq(sfView_getCenter(map->camera).y, camera_pos.y, 0.01);
-    cr_assert_float_eq(map->dir.y, 0, 0.01);
+        20 + CAMERA_LOOKAHEAD, 0.01);
     map_destroy(map);
 }
 
 Test(map_update_view, update_view_on_null)
 {
-    map_update_view(NULL, 1);
-}
-
-Test(map_update_dir, dir_is_summed)
-{
     map_t *map = map_create();
 
-    map_update_dir(map, &(sfVector2f){1, 0});
-    map_update_dir(map, &(sfVector2f){0, 1});
-    cr_assert_float_eq(map->dir.x, 1, 0.01);
-    cr_assert_float_eq(map->dir.y, 1, 0.01);
+    map_update_view(NULL, &(sfVector2f){0, 0}, &(sfVector2f){0, 0}, 1);
+    map_update_view(map, NULL, &(sfVector2f){0, 0}, 1);
+    map_update_view(map, &(sfVector2f){0, 0}, NULL, 1);
+    map_set_center(map, NULL);
+    cr_assert(map != NULL);
     map_destroy(map);
 }
 
-Test(map_update_dir, update_dir_on_null)
+Test(map_set_center, basic_set_center)
 {
-    map_update_dir(NULL, &(sfVector2f){0, 1});
+    map_t *map = map_create();
+
+    map_set_center(map, &(sfVector2f){42, 24});
+    cr_assert_float_eq(sfView_getCenter(map->camera).x, 42, 0.01);
+    cr_assert_float_eq(sfView_getCenter(map->camera).y, 24, 0.01);
+    map_destroy(map);
+}
+
+Test(map_set_center, set_center_on_null)
+{
+    map_set_center(NULL, &(sfVector2f){0, 0});
 }
 
 Test(map_draw, draw_null_window)

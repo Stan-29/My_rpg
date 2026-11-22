@@ -18,8 +18,6 @@
 #include <SFML/Graphics/Types.h>
 #include <SFML/System/Vector2.h>
 
- 
-
 static void player_fill_saved_infos(player_t *player, const player_save_t *data)
 {
     player->move.pos = data->pos;
@@ -59,10 +57,12 @@ player_t *player_create(const player_save_t *data)
 {
     player_t *player = garbage_collector_malloc(sizeof(player_t));
 
-    if (!player)
+    if (!player || !data)
         return NULL;
     player_fill_saved_infos(player, data);
     if (player_fill_skin(&player->skin) == ERROR)
+        return player_destroy(player);
+    if (player->skin.textures[player->skin.current_skin] == NULL)
         return player_destroy(player);
     if (player_fill_anim(&player->anim,
             player->skin.textures[player->skin.current_skin],

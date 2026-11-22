@@ -9,18 +9,16 @@
 
 #include <SFML/System/Vector2.h>
 
-#include <stddef.h>
-
-sfVector2f *player_get_pos(player_t *player)
+sfVector2f player_get_pos(player_t *player)
 {
     if (!player)
-        return NULL;
-    return &player->move.pos;
+        return (sfVector2f){0, 0};
+    return player->move.pos;
 }
 
-sfVector2f *player_get_movement(player_t *player)
+sfVector2f player_get_movement(player_t *player)
 {
     if (!player)
-        return NULL;
-    return &player->move.movement;
+        return (sfVector2f){0, 0};
+    return player->move.movement;
 }

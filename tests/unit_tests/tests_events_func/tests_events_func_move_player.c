@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2026
 ** My RPG
 ** File description:
-** tests_events_func_move_map
+** tests_events_func_move_player
 */
 #include <criterion/criterion.h>
 
@@ -13,7 +13,7 @@
 #include "scene/scene_internal.h" // IWYU pragma: keep
 #include "engine/engine.h"
 #include "engine/engine_internal.h" // IWYU pragma: keep
-#include "map/map_internal.h" // IWYU pragma: keep
+#include "player/player_internal.h" // IWYU pragma: keep
 
 #include "events_func.h"
 
@@ -26,7 +26,7 @@ Test(event_func_move_up, basic_move_up)
     scene_manager_set_scene(scene_manager, SCENE_GAME);
     scene = scene_manager_get_current(scene_manager);
     event_func_move_up(scene_manager, scene, engine);
-    cr_assert_float_eq(scene->map->dir.y, -1, 0.01);
+    cr_assert_float_eq(scene->player->move.movement.y, -1, 0.01);
     scene_manager_destroy(scene_manager);
     engine_destroy(engine);
 }
@@ -40,7 +40,7 @@ Test(event_func_move_down, basic_move_down)
     scene_manager_set_scene(scene_manager, SCENE_GAME);
     scene = scene_manager_get_current(scene_manager);
     event_func_move_down(scene_manager, scene, engine);
-    cr_assert_float_eq(scene->map->dir.y, 1, 0.01);
+    cr_assert_float_eq(scene->player->move.movement.y, 1, 0.01);
     scene_manager_destroy(scene_manager);
     engine_destroy(engine);
 }
@@ -54,7 +54,7 @@ Test(event_func_move_left, basic_move_left)
     scene_manager_set_scene(scene_manager, SCENE_GAME);
     scene = scene_manager_get_current(scene_manager);
     event_func_move_left(scene_manager, scene, engine);
-    cr_assert_float_eq(scene->map->dir.x, -1, 0.01);
+    cr_assert_float_eq(scene->player->move.movement.x, -1, 0.01);
     scene_manager_destroy(scene_manager);
     engine_destroy(engine);
 }
@@ -68,7 +68,7 @@ Test(event_func_move_right, basic_move_right)
     scene_manager_set_scene(scene_manager, SCENE_GAME);
     scene = scene_manager_get_current(scene_manager);
     event_func_move_right(scene_manager, scene, engine);
-    cr_assert_float_eq(scene->map->dir.x, 1, 0.01);
+    cr_assert_float_eq(scene->player->move.movement.x, 1, 0.01);
     scene_manager_destroy(scene_manager);
     engine_destroy(engine);
 }

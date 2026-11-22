@@ -17,8 +17,6 @@
 #include <SFML/Graphics/View.h>
 #include <SFML/System/Vector2.h>
 
- 
-
 static map_t *map_create_textures(map_t *map)
 {
     for (unsigned int index = 0; index < FLOOR_COUNT; index++) {
@@ -49,7 +47,7 @@ map_t *map_create(void)
         return map_destroy(map);
     map->sprite = NULL;
     map->camera = sfView_createFromRect((sfFloatRect){0, 0,
-        FULL_SCREEN_WIDTH, FULL_SCREEN_HEIGHT});
+            FULL_SCREEN_WIDTH, FULL_SCREEN_HEIGHT});
     for (unsigned int index = 0; index < FLOOR_COUNT; index++)
         map->floor_textures[index] = NULL;
     for (unsigned int index = 0; index < OBJECT_COUNT; index++)
@@ -79,8 +77,8 @@ static sfVector2f get_screen_pos_from_tab(int col, int row)
 {
     sfVector2f pos = {0};
 
-    pos.x = (col - row) * (TILE_W / 2.0f) + MAP_OFFSET_X;
-    pos.y = (col + row) * (TILE_H / 2.0f) + MAP_OFFSET_Y;
+    pos.x = TILE_TO_WORLD_X(col, row);
+    pos.y = TILE_TO_WORLD_Y(col, row);
     return pos;
 }
 

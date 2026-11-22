@@ -23,8 +23,6 @@
 #include <SFML/Graphics/Types.h>
 #include <SFML/Graphics/View.h>
 
- 
-
 static unsigned int scene_init_images(linked_list_t **ll_images,
     const images_tab_t *images_tab)
 {
@@ -135,12 +133,15 @@ static unsigned int scene_init_lists(scene_t *scene, unsigned int id)
 
 static unsigned int handle_game(scene_t *scene, unsigned int id)
 {
+    sfVector2f pos = {0};
+
     if (id == SCENE_GAME) {
         scene->map = map_create();
         scene->player = player_create(&default_save.player);
         if (!scene->map || !scene->player)
             return ERROR;
-        map_set_center(scene->map, player_get_pos(scene->player));
+        pos = player_get_pos(scene->player);
+        map_set_center(scene->map, &pos);
     } else {
         scene->map = NULL;
         scene->player = NULL;

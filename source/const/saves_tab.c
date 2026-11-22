@@ -8,8 +8,6 @@
 
 #include "saves.h"
 
-#include <stddef.h>
-
 const char *saves_path_tab[SAVE_COUNT] = {
     "./saves/save1.data",
     "./saves/save2.data",
@@ -17,7 +15,8 @@ const char *saves_path_tab[SAVE_COUNT] = {
 };
 
 const save_t default_save = {
-    .player.pos.x = 0,
-    .player.pos.y = 0,
+    .player.pos.x = TILE_TO_WORLD_X(PLAYER_SPAWN_COL, PLAYER_SPAWN_ROW),
+    .player.pos.y = TILE_TO_WORLD_Y(PLAYER_SPAWN_COL, PLAYER_SPAWN_ROW)
+        + TILE_H / 2.0f,
     .player.skin = SKIN_BOY
 };

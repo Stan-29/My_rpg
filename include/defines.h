@@ -47,4 +47,9 @@
     #define PLAYER_SPAWN_COL 12
     #define PLAYER_SPAWN_ROW 12
 
+    #define HALF_TILE_W (TILE_W / 2.0f)
+    #define HALF_TILE_H (TILE_H / 2.0f)
+    #define TILE_TO_WORLD_X(c, r) (((c) - (r)) * HALF_TILE_W + MAP_OFFSET_X)
+    #define TILE_TO_WORLD_Y(c, r) (((c) + (r)) * HALF_TILE_H + MAP_OFFSET_Y)
+
 #endif

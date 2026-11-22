@@ -28,7 +28,7 @@ void player_set_run(player_t *player, bool run);
 void player_reset_inputs(player_t *player);
 void player_set_skin(player_t *player, skin_id_t skin);
 
-sfVector2f *player_get_pos(player_t *player);
-sfVector2f *player_get_movement(player_t *player);
+sfVector2f player_get_pos(player_t *player);
+sfVector2f player_get_movement(player_t *player);
 
 #endif

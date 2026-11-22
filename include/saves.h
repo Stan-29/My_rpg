@@ -12,8 +12,6 @@
 
     #include <SFML/System/Vector2.h>
 
-    #include <stdbool.h>
-
 typedef struct player_save_s {
     sfVector2f pos;
     skin_id_t skin;
