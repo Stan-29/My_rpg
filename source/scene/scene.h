@@ -15,6 +15,8 @@
     #include <SFML/Graphics/Types.h>
     #include <SFML/System/Vector2.h>
 
+    #include <stdbool.h>
+
 scene_t *scene_create(unsigned int id);
 void scene_draw(scene_t *scene, sfRenderWindow *window);
 void *scene_destroy(scene_t *scene);
@@ -29,6 +31,7 @@ void scene_change_sound_volume(scene_t *scene, float ratio);
 
 void scene_update_player_dir(scene_t *scene, sfVector2f *dir);
 void scene_update(scene_t *scene, float dt);
+void scene_set_player_run(scene_t *scene, bool running_state);
 
 void scene_grab(scene_t *scene, image_t *image, sfVector2f *mouse_pos);
 void scene_release(scene_t *scene);

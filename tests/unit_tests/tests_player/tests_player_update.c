@@ -120,3 +120,146 @@ Test(player_get_movement, get_movement_on_null)
 {
     cr_assert_float_eq(player_get_movement(NULL).x, 0, 0.01);
 }
+
+
+Test(player_update, no_input_is_idle)
+{
+    player_t *player = player_create(&default_save.player);
+    sfVector2f start = player->move.pos;
+
+    player_update(player, 1);
+    cr_assert(player->state.state == STATE_IDLE);
+    cr_assert_float_eq(player->move.pos.x, start.x, 0.01);
+    cr_assert_float_eq(player->move.pos.y, start.y, 0.01);
+    player_destroy(player);
+}
+
+Test(player_update, input_is_walking)
+{
+    player_t *player = player_create(&default_save.player);
+
+    player_update_dir(player, &(sfVector2f){1, 0});
+    player_update(player, 0);
+    cr_assert(player->state.state == STATE_WALKING);
+    player_destroy(player);
+}
+
+Test(player_update, input_and_run_is_running)
+{
+    player_t *player = player_create(&default_save.player);
+    sfVector2f start = player->move.pos;
+
+    player_update_dir(player, &(sfVector2f){1, 0});
+    player_set_run(player, true);
+    player_update(player, 1);
+    cr_assert(player->state.state == STATE_RUNNING);
+    cr_assert_float_eq(player->move.pos.x,
+        start.x + state_tab[STATE_RUNNING].speed, 0.01);
+    player_destroy(player);
+}
+
+Test(player_update, run_without_input_is_idle)
+{
+    player_t *player = player_create(&default_save.player);
+
+    player_set_run(player, true);
+    player_update(player, 0);
+    cr_assert(player->state.state == STATE_IDLE);
+    player_destroy(player);
+}
+
+Test(player_update, facing_follows_each_direction)
+{
+    player_t *player = player_create(&default_save.player);
+
+    player_update_dir(player, &(sfVector2f){-1, 0});
+    player_update(player, 0);
+    cr_assert(player->move.facing == DIR_LEFT);
+    player_reset_inputs(player);
+    player_update_dir(player, &(sfVector2f){1, 0});
+    player_update(player, 0);
+    cr_assert(player->move.facing == DIR_RIGHT);
+    player_reset_inputs(player);
+    player_update_dir(player, &(sfVector2f){0, -1});
+    player_update(player, 0);
+    cr_assert(player->move.facing == DIR_UP);
+    player_reset_inputs(player);
+    player_update_dir(player, &(sfVector2f){0, 1});
+    player_update(player, 0);
+    cr_assert(player->move.facing == DIR_DOWN);
+    player_destroy(player);
+}
+
+Test(player_update, diagonal_faces_horizontal)
+{
+    player_t *player = player_create(&default_save.player);
+
+    player_update_dir(player, &(sfVector2f){1, -1});
+    player_update(player, 0);
+    cr_assert(player->move.facing == DIR_RIGHT);
+    player_destroy(player);
+}
+
+Test(player_update, facing_kept_when_stopped)
+{
+    player_t *player = player_create(&default_save.player);
+
+    player_update_dir(player, &(sfVector2f){-1, 0});
+    player_update(player, 0);
+    player_reset_inputs(player);
+    player_update(player, 0);
+    cr_assert(player->state.state == STATE_IDLE);
+    cr_assert(player->move.facing == DIR_LEFT);
+    player_destroy(player);
+}
+
+Test(player_update, frame_advances_after_delay)
+{
+    player_t *player = player_create(&default_save.player);
+
+    player_update(player, state_tab[STATE_IDLE].delay);
+    cr_assert(player->anim.frame == 1);
+    player_destroy(player);
+}
+
+Test(player_update, frame_loops_after_frame_count)
+{
+    player_t *player = player_create(&default_save.player);
+
+    for (unsigned int i = 0; i < state_tab[STATE_IDLE].frame_count; i++)
+        player_update(player, state_tab[STATE_IDLE].delay);
+    cr_assert(player->anim.frame == 0);
+    player_destroy(player);
+}
+
+Test(player_update, change_of_direction_resets_anim)
+{
+    player_t *player = player_create(&default_save.player);
+
+    player_update_dir(player, &(sfVector2f){1, 0});
+    player_update(player, state_tab[STATE_WALKING].delay);
+    player_reset_inputs(player);
+    player_update_dir(player, &(sfVector2f){0, -1});
+    player_update(player, 0);
+    cr_assert(player->anim.frame == 0);
+    cr_assert_float_eq(player->anim.timer, 0, 0.001);
+    player_destroy(player);
+}
+
+Test(player_update, rect_on_running_up_row)
+{
+    player_t *player = player_create(&default_save.player);
+
+    player_update_dir(player, &(sfVector2f){0, -1});
+    player_set_run(player, true);
+    player_update(player, 0);
+    cr_assert(player->anim.rect.top ==
+        (int)(state_tab[STATE_RUNNING].first_row + DIR_UP) * FRAME_H);
+    cr_assert(player->anim.rect.left == 0);
+    player_destroy(player);
+}
+
+Test(player_set_run, set_run_on_null)
+{
+    player_set_run(NULL, true);
+}

@@ -16,5 +16,6 @@ const events_tab_t events_tab[] = {
     {sfKeyZ, &event_func_move_up},
     {sfKeyQ, &event_func_move_left},
     {sfKeyD, &event_func_move_right},
+    {sfKeyLShift, &event_func_run},
     {-1, NULL}
 };

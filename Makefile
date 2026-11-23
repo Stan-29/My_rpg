@@ -21,6 +21,7 @@ SRC = source/const/events_tab.c 	\
 	source/engine/engine_events.c		\
 	source/engine/engine_get.c			\
 	source/events_func/events_func_move_player.c		\
+	source/events_func/events_func_player_handling.c	\
 	source/garbage_collector/garbage_collector_basics.c		\
 	source/image/image_basics.c			\
 	source/image/image_check.c			\
@@ -132,6 +133,7 @@ gcovrex:	all
 		--exclude "tests/.*"
 	gcovr --txt-metric branch --gcov-executable "llvm-cov gcov" \
 		--exclude "tests/.*"
+	$(MAKE) fclean
 
 compile: $(NAME)
 	./$(NAME)

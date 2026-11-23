@@ -18,5 +18,7 @@ unsigned int event_func_move_left(scene_manager_t *scene_manager,
     scene_t *scene, engine_t *engine);
 unsigned int event_func_move_right(scene_manager_t *scene_manager,
     scene_t *scene, engine_t *engine);
+unsigned int event_func_run(scene_manager_t *scene_manager,
+    scene_t *scene, engine_t *engine);
 
 #endif

@@ -28,3 +28,10 @@ void scene_update(scene_t *scene, float dt)
     map_update_view(scene->map, &pos, &dir, dt);
     player_reset_inputs(scene->player);
 }
+
+void scene_set_player_run(scene_t *scene, bool running_state)
+{
+    if (!scene || !scene->player)
+        return;
+    player_set_run(scene->player, running_state);
+}
