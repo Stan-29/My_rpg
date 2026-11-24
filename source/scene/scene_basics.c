@@ -169,14 +169,24 @@ scene_t *scene_create(unsigned int id)
     return scene;
 }
 
+static void draw_game(scene_t *scene, sfRenderWindow *window)
+{
+    float feet_y = 0;
+
+    feet_y = player_get_pos(scene->player).y;
+    map_draw_floor(scene->map, window);
+    map_draw_objects(scene->map, window, feet_y, false);
+    player_draw(scene->player, window);
+    map_draw_objects(scene->map, window, feet_y, true);
+}
+
 void scene_draw(scene_t *scene, sfRenderWindow *window)
 {
     linked_list_t *temp = NULL;
 
     if (!scene)
         return;
-    map_draw(scene->map, window);
-    player_draw(scene->player, window);
+    draw_game(scene, window);
     sfRenderWindow_setView(window, scene->view);
     temp = scene->lists->ll_images;
     while (temp != NULL) {

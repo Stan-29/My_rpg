@@ -18,7 +18,10 @@ typedef struct map_s map_t;
 
 map_t *map_create(void);
 void *map_destroy(map_t *map);
-void map_draw(map_t *map, sfRenderWindow *window);
+
+void map_draw_floor(map_t *map, sfRenderWindow *window);
+void map_draw_objects(map_t *map, sfRenderWindow *window,
+    float feet_y, bool front);
 
 void map_update_view(map_t *map, const sfVector2f *pos, sfVector2f *dir,
     float dt);

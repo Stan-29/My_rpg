@@ -80,17 +80,3 @@ Test(map_set_center, set_center_on_null)
 {
     map_set_center(NULL, &(sfVector2f){0, 0});
 }
-
-Test(map_draw, draw_null_window)
-{
-    map_t *map = map_create();
-
-    map_draw(map, NULL);
-    cr_assert(map != NULL);
-    map_destroy(map);
-}
-
-Test(map_draw, draw_null_map)
-{
-    map_draw(NULL, NULL);
-}

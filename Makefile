@@ -36,6 +36,7 @@ SRC = source/const/events_tab.c 	\
 	source/linked_list/linked_list_handling.c		\
 	source/map/map_basics.c					\
 	source/map/map_collision.c				\
+	source/map/map_draw.c					\
 	source/map/map_update.c					\
 	source/music/music_basics.c		\
 	source/player/player_basics.c			\
