@@ -96,6 +96,7 @@ extern const int map_floor[MAP_ROWS][MAP_COLS];
 typedef struct object_tab_s {
     const char *filepath;
     bool solid;
+    sfFloatRect hitbox;
 } object_tab_t;
 
 extern const object_tab_t object_tab[];

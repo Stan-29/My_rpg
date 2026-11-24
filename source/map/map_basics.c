@@ -96,13 +96,21 @@ static void map_draw_floor_tile(map_t *map, sfRenderWindow *window,
     sfRenderWindow_drawSprite(window, map->sprite, NULL);
 }
 
+sfVector2f map_get_object_base(int col, int row)
+{
+    sfVector2f pos = get_screen_pos_from_tab(col, row);
+
+    pos.y += TILE_H / 1.5f;
+    return pos;
+}
+
 static void map_draw_object(map_t *map, sfRenderWindow *window,
     int row, int col)
 {
     int id = map_objects[row][col];
     sfTexture *texture = NULL;
     sfVector2u size = {0};
-    sfVector2f pos = {0};
+    sfVector2f pos = map_get_object_base(col, row);
     float scale = 0;
 
     if (id == OBJECT_NONE)
@@ -110,8 +118,6 @@ static void map_draw_object(map_t *map, sfRenderWindow *window,
     texture = map->object_textures[id];
     size = sfTexture_getSize(texture);
     scale = (float)TILE_W / size.x;
-    pos = get_screen_pos_from_tab(col, row);
-    pos.y += (float)TILE_H / 1.5;
     sfSprite_setTexture(map->sprite, texture, sfTrue);
     sfSprite_setScale(map->sprite, (sfVector2f){scale, scale});
     sfSprite_setOrigin(map->sprite, (sfVector2f){size.x / 2.0f, size.y});

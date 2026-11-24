@@ -10,6 +10,7 @@
 
 #include "player/player.h"
 #include "player/player_internal.h" // IWYU pragma: keep
+#include "map/map.h"
 
 #include <SFML/System/Vector2.h>
 #include <SFML/Graphics/Sprite.h>
@@ -42,6 +43,7 @@ void player_reset_inputs(player_t *player)
 static void player_update_pos(player_t *player, float dt)
 {
     float len = 0;
+    sfVector2f next = {0};
     state_id_t state = player->state.state;
 
     len = sqrtf(player->move.movement.x * player->move.movement.x
@@ -50,10 +52,14 @@ static void player_update_pos(player_t *player, float dt)
         player->move.movement.x /= len;
         player->move.movement.y /= len;
     }
-    player->move.pos.x += player->move.movement.x *
-        state_tab[state].speed * dt;
-    player->move.pos.y += player->move.movement.y *
-        state_tab[state].speed * dt;
+    next = (sfVector2f){player->move.pos.x + player->move.movement.x *
+        state_tab[state].speed * dt, player->move.pos.y};
+    if (!map_collides(&next))
+        player->move.pos.x = next.x;
+    next = (sfVector2f){player->move.pos.x, player->move.pos.y +
+        player->move.movement.y * state_tab[state].speed * dt};
+    if (!map_collides(&next))
+        player->move.pos.y = next.y;
     sfSprite_setPosition(player->anim.sprite, player->move.pos);
 }
 

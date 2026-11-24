@@ -46,6 +46,9 @@
     #define PLAYER_SCALE 2
     #define PLAYER_SPAWN_COL 12
     #define PLAYER_SPAWN_ROW 12
+    #define PLAYER_HITBOX_W 36
+    #define PLAYER_HITBOX_H 12
+    #define MAX_DELTA 0.05f
 
     #define HALF_TILE_W (TILE_W / 2.0f)
     #define HALF_TILE_H (TILE_H / 2.0f)

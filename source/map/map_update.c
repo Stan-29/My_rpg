@@ -12,12 +12,13 @@
 #include <SFML/Graphics/View.h>
 #include <SFML/System/Vector2.h>
 
-void map_update_view(map_t *map, const sfVector2f *pos, sfVector2f *dir, float dt)
+void map_update_view(map_t *map, const sfVector2f *pos, sfVector2f *dir,
+    float dt)
 {
     sfVector2f target = {0};
     float factor = CAMERA_SMOOTH * dt;
     sfVector2f center = {0};
- 
+
     if (!map || !pos || !dir)
         return;
     if (factor > 1)
