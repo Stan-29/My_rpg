@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2026
 ** My RPG
 ** File description:
-** tests_images_func_settings
+** tests_image_func_settings
 */
 #include <criterion/criterion.h>
 
@@ -26,7 +26,7 @@
 #include <SFML/Audio/Sound.h>
 #include <SFML/System/Vector2.h>
 
-#include "images_func.h"
+#include "image_func/image_func.h"
 
 Test(image_func_go_to_settings, basic_change_in_scene)
 {

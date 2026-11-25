@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2026
 ** My_rpg
 ** File description:
-** engine code
+** engine_get
 */
 #include "engine/engine_internal.h" // IWYU pragma: keep
 #include "garbage_collector/garbage_collector.h"

@@ -13,7 +13,7 @@
 
 Test(text_create, basic_create)
 {
-    text_t *text = text_create(&texts_menu_tab[0], 1);
+    text_t *text = text_create(&text_menu_tab[0], 1);
 
     cr_assert(text != NULL);
     cr_assert(text->id == 1);
@@ -30,7 +30,7 @@ Test(text_create, create_on_null)
 
 Test(text_create, create_with_wrong_path)
 {
-    texts_tab_t infos = {"nope.ttf", "abc", 10, NULL, {0, 0}};
+    text_tab_t infos = {"nope.ttf", "abc", 10, NULL, {0, 0}};
     text_t *text = text_create(&infos, 1);
 
     cr_assert(text == NULL);
@@ -38,7 +38,7 @@ Test(text_create, create_with_wrong_path)
 
 Test(text_destroy, basic_destroy)
 {
-    text_t *text = text_create(&texts_menu_tab[0], 1);
+    text_t *text = text_create(&text_menu_tab[0], 1);
 
     cr_assert(text_destroy(text) == NULL);
 }
@@ -52,7 +52,7 @@ Test(text_destroy, destroy_on_null)
 
 Test(text_get_id, basic_get_id)
 {
-    text_t *text = text_create(&texts_menu_tab[0], 1);
+    text_t *text = text_create(&text_menu_tab[0], 1);
 
     cr_assert(text_get_id(text) == 1);
     text_destroy(text);
@@ -67,7 +67,7 @@ Test(text_get_id, get_id_on_null)
 
 Test(text_change_str, basic_change_on_text)
 {
-    text_t *text = text_create(&texts_menu_tab[0], 1);
+    text_t *text = text_create(&text_menu_tab[0], 1);
 
     text_change_str(text, "abcd");
     cr_assert(text_contains(text, "abcd\0") == true);

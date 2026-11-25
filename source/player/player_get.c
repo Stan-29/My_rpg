@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2026
 ** My_rpg
 ** File description:
-** player_basics
+** player_get
 */
 #include "player/player.h"
 #include "player/player_internal.h" // IWYU pragma: keep

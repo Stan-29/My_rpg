@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2026
 ** My_rpg
 ** File description:
-** garbage collector header
+** garbage_collector internal header
 */
 
 #ifndef GARBAGE_COLLECTOR_INTERNAL_H_

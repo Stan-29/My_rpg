@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2026
 ** My_rpg
 ** File description:
-** scene code
+** event_func_move_player
 */
 #include "defines.h"
 

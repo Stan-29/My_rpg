@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2026
 ** My_rpg
 ** File description:
-** scene_manager_basics
+** scene_manager_manage
 */
 #include "consts.h"
 
@@ -15,7 +15,7 @@ void scene_manager_set_scene(scene_manager_t *scene_manager,
 {
     if (!scene_manager || scene_id <= SCENE_NONE || scene_id >= SCENE_COUNT)
         return;
-    if (!scenes_tab[scene_id].is_main) {
+    if (!scene_tab[scene_id].is_main) {
         scene_manager->sub_scene = scene_id;
         return;
     }

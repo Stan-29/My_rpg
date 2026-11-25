@@ -15,7 +15,7 @@
 
 Test(image_is_clickable, image_not_clickable)
 {
-    image_t *temp = image_create(&images_menu_tab[0], 0);
+    image_t *temp = image_create(&image_menu_tab[0], 0);
 
     cr_assert(image_is_clickable(temp) == false);
     image_destroy(temp);
@@ -23,7 +23,7 @@ Test(image_is_clickable, image_not_clickable)
 
 Test(image_is_clickable, image_clickable)
 {
-    image_t *temp = image_create(&images_menu_tab[1], 1);
+    image_t *temp = image_create(&image_menu_tab[1], 1);
 
     cr_assert(image_is_clickable(temp) == true);
     image_destroy(temp);

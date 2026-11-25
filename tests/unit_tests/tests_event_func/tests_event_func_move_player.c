@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2026
 ** My RPG
 ** File description:
-** tests_events_func_move_player
+** tests_event_func_move_player
 */
 #include <criterion/criterion.h>
 
@@ -15,7 +15,7 @@
 #include "engine/engine_internal.h" // IWYU pragma: keep
 #include "player/player_internal.h" // IWYU pragma: keep
 
-#include "events_func.h"
+#include "event_func/event_func.h"
 
 Test(event_func_move_up, basic_move_up)
 {

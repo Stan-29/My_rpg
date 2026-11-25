@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2026
 ** My_rpg
 ** File description:
-** map header
+** map internal header
 */
 
 #ifndef MAP_INTERNAL_H_

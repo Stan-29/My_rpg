@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2026
 ** My_rpg
 ** File description:
-** scene header
+** music header
 */
 
 #ifndef MUSIC_H_
@@ -12,7 +12,7 @@
 
 typedef struct music_s music_t;
 
-music_t *music_create(const musics_tab_t *music_infos);
+music_t *music_create(const music_tab_t *music_infos);
 void *music_destroy(void *data);
 void *music_stop(music_t *music);
 void music_play(music_t *music);

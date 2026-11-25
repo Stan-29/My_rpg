@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2026
 ** My_rpg
 ** File description:
-** scene code
+** scene_basics
 */
 #include "consts.h"
 #include "defines.h"
@@ -24,15 +24,15 @@
 #include <SFML/Graphics/View.h>
 
 static unsigned int scene_init_images(linked_list_t **ll_images,
-    const images_tab_t *images_tab)
+    const image_tab_t *image_tab)
 {
     image_t *new_elem = NULL;
     linked_list_t *new_node = NULL;
 
-    if (!images_tab)
+    if (!image_tab)
         return OK;
-    for (unsigned int index = 0; images_tab[index].filepath != NULL; index++) {
-        new_elem = image_create(&images_tab[index], index);
+    for (unsigned int index = 0; image_tab[index].filepath != NULL; index++) {
+        new_elem = image_create(&image_tab[index], index);
         if (!new_elem)
             return ERROR;
         new_node = linked_list_create_node(new_elem, index);
@@ -46,15 +46,15 @@ static unsigned int scene_init_images(linked_list_t **ll_images,
 }
 
 static unsigned int scene_init_texts(linked_list_t **ll_texts,
-    const texts_tab_t *texts_tab)
+    const text_tab_t *text_tab)
 {
     text_t *new_elem = NULL;
     linked_list_t *new_node = NULL;
 
-    if (!texts_tab)
+    if (!text_tab)
         return OK;
-    for (unsigned int index = 0; texts_tab[index].filepath != NULL; index++) {
-        new_elem = text_create(&texts_tab[index], index);
+    for (unsigned int index = 0; text_tab[index].filepath != NULL; index++) {
+        new_elem = text_create(&text_tab[index], index);
         if (!new_elem)
             return ERROR;
         new_node = linked_list_create_node(new_elem, index);
@@ -68,15 +68,15 @@ static unsigned int scene_init_texts(linked_list_t **ll_texts,
 }
 
 static unsigned int scene_init_sounds(linked_list_t **ll_sounds,
-    const sounds_tab_t *sounds_tab)
+    const sound_tab_t *sound_tab)
 {
     sound_t *new_elem = NULL;
     linked_list_t *new_node = NULL;
 
-    if (!sounds_tab)
+    if (!sound_tab)
         return OK;
-    for (unsigned int index = 0; sounds_tab[index].filepath != NULL; index++) {
-        new_elem = sound_create(&sounds_tab[index]);
+    for (unsigned int index = 0; sound_tab[index].filepath != NULL; index++) {
+        new_elem = sound_create(&sound_tab[index]);
         if (!new_elem)
             return ERROR;
         new_node = linked_list_create_node(new_elem, index);
@@ -90,15 +90,15 @@ static unsigned int scene_init_sounds(linked_list_t **ll_sounds,
 }
 
 static unsigned int scene_init_musics(linked_list_t **ll_musics,
-    const musics_tab_t *musics_tab)
+    const music_tab_t *music_tab)
 {
     music_t *new_elem = NULL;
     linked_list_t *new_node = NULL;
 
-    if (!musics_tab)
+    if (!music_tab)
         return OK;
-    for (unsigned int index = 0; musics_tab[index].filepath != NULL; index++) {
-        new_elem = music_create(musics_tab);
+    for (unsigned int index = 0; music_tab[index].filepath != NULL; index++) {
+        new_elem = music_create(music_tab);
         if (!new_elem)
             return ERROR;
         new_node = linked_list_create_node(new_elem, index);
@@ -117,16 +117,16 @@ static unsigned int scene_init_lists(scene_t *scene, unsigned int id)
     if (!scene->lists)
         return ERROR;
     if (scene_init_sounds(&scene->lists->ll_sounds,
-            scenes_tab[id].sounds) == ERROR)
+            scene_tab[id].sounds) == ERROR)
         return ERROR;
     if (scene_init_musics(&scene->lists->ll_musics,
-            scenes_tab[id].musics) == ERROR)
+            scene_tab[id].musics) == ERROR)
         return ERROR;
     if (scene_init_images(&scene->lists->ll_images,
-            scenes_tab[id].images) == ERROR)
+            scene_tab[id].images) == ERROR)
         return ERROR;
     if (scene_init_texts(&scene->lists->ll_texts,
-            scenes_tab[id].texts) == ERROR)
+            scene_tab[id].texts) == ERROR)
         return ERROR;
     return OK;
 }

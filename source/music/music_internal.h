@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2026
 ** My_rpg
 ** File description:
-** scene header
+** music internal header
 */
 
 #ifndef MUSIC_INTERNAL_H_

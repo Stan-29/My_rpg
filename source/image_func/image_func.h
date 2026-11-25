@@ -2,11 +2,11 @@
 ** EPITECH PROJECT, 2026
 ** My_rpg
 ** File description:
-** defines header
+** image_func header
 */
 
-#ifndef IMAGES_FUNC_H_
-    #define IMAGES_FUNC_H_
+#ifndef IMAGE_FUNC_H_
+    #define IMAGE_FUNC_H_
 
     #include "types.h"
 

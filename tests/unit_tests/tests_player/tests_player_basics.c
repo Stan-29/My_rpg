@@ -7,7 +7,7 @@
 #include <criterion/criterion.h>
 
 #include "enums.h"
-#include "saves.h"
+#include "save/save.h"
 
 #include "player/player.h"
 #include "player/player_internal.h" // IWYU pragma: keep

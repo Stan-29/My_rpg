@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2026
 ** My_rpg
 ** File description:
-** scene code
+** image_basics
 */
 #include "consts.h"
 #include "defines.h"
@@ -15,7 +15,7 @@
 #include <SFML/Graphics/Sprite.h>
 #include <SFML/Graphics/Texture.h>
 
-static void image_fill_struct(image_t *image, const images_tab_t *image_infos,
+static void image_fill_struct(image_t *image, const image_tab_t *image_infos,
     unsigned int id)
 {
     image->id = id;
@@ -25,7 +25,7 @@ static void image_fill_struct(image_t *image, const images_tab_t *image_infos,
     image->func = image_infos->func;
 }
 
-image_t *image_create(const images_tab_t *image_infos, unsigned int id)
+image_t *image_create(const image_tab_t *image_infos, unsigned int id)
 {
     image_t *image = garbage_collector_malloc(sizeof(image_t));
 

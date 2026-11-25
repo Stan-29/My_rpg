@@ -2,11 +2,11 @@
 ** EPITECH PROJECT, 2026
 ** My_rpg
 ** File description:
-** defines header
+** save header
 */
 
-#ifndef SAVES_H_
-    #define SAVES_H_
+#ifndef SAVE_H_
+    #define SAVE_H_
 
     #include "enums.h"
 

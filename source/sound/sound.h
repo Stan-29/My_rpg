@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2026
 ** My_rpg
 ** File description:
-** scene header
+** sound header
 */
 
 #ifndef SOUND_H_
@@ -12,7 +12,7 @@
 
 typedef struct sound_s sound_t;
 
-sound_t *sound_create(const sounds_tab_t *sound_infos);
+sound_t *sound_create(const sound_tab_t *sound_infos);
 void *sound_destroy(void *data);
 void sound_play(sound_t *sound);
 void sound_change_volume(sound_t *sound, float ratio);

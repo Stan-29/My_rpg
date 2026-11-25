@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2026
 ** My_rpg
 ** File description:
-** defines header
+** consts header
 */
 
 #ifndef CONSTS_H_
@@ -16,74 +16,74 @@
 
     #include <stdbool.h>
 
-typedef struct images_tab_s {
+typedef struct image_tab_s {
     const char *filepath;
     sfIntRect sprite_sheet;
     sfVector2f pos;
     sfVector2f scale;
     sfFloatRect movable_zone;
     unsigned int (* func)(scene_manager_t *, scene_t *, engine_t *);
-} images_tab_t;
+} image_tab_t;
 
-extern const images_tab_t images_menu_tab[];
-extern const images_tab_t images_save_tab[];
-extern const images_tab_t images_settings_tab[];
-extern const images_tab_t images_game_tab[];
-extern const images_tab_t images_pause_tab[];
+extern const image_tab_t image_menu_tab[];
+extern const image_tab_t image_save_tab[];
+extern const image_tab_t image_settings_tab[];
+extern const image_tab_t image_game_tab[];
+extern const image_tab_t image_pause_tab[];
 
 
-typedef struct texts_tab_s {
+typedef struct text_tab_s {
     const char *filepath;
     const char *str;
     int size;
     sfColor *color;
     sfVector2f pos;
-} texts_tab_t;
+} text_tab_t;
 
-extern const texts_tab_t texts_menu_tab[];
-extern const texts_tab_t texts_save_tab[];
-extern const texts_tab_t texts_settings_tab[];
-extern const texts_tab_t texts_game_tab[];
-extern const texts_tab_t texts_pause_tab[];
+extern const text_tab_t text_menu_tab[];
+extern const text_tab_t text_save_tab[];
+extern const text_tab_t text_settings_tab[];
+extern const text_tab_t text_game_tab[];
+extern const text_tab_t text_pause_tab[];
 
 
-typedef struct musics_tab_s {
+typedef struct music_tab_s {
     unsigned int id;
     const char *filepath;
     float volume;
-} musics_tab_t;
+} music_tab_t;
 
-extern const musics_tab_t musics_menu_tab[];
-extern const musics_tab_t musics_save_tab[];
-extern const musics_tab_t musics_settings_tab[];
-extern const musics_tab_t musics_game_tab[];
-extern const musics_tab_t musics_pause_tab[];
+extern const music_tab_t music_menu_tab[];
+extern const music_tab_t music_save_tab[];
+extern const music_tab_t music_settings_tab[];
+extern const music_tab_t music_game_tab[];
+extern const music_tab_t music_pause_tab[];
 
 
-typedef struct sounds_tab_s {
+typedef struct sound_tab_s {
     unsigned int id_sound;
     const char *filepath;
     float base_volume;
-} sounds_tab_t;
+} sound_tab_t;
 
-extern const sounds_tab_t sounds_menu_tab[];
-extern const sounds_tab_t sounds_save_tab[];
-extern const sounds_tab_t sounds_settings_tab[];
-extern const sounds_tab_t sounds_game_tab[];
-extern const sounds_tab_t sounds_pause_tab[];
+extern const sound_tab_t sound_menu_tab[];
+extern const sound_tab_t sound_save_tab[];
+extern const sound_tab_t sound_settings_tab[];
+extern const sound_tab_t sound_game_tab[];
+extern const sound_tab_t sound_pause_tab[];
 
-typedef struct scenes_tab_s {
+typedef struct scene_tab_s {
     unsigned int id_scene;
     bool is_main;
-    const images_tab_t *images;
-    const texts_tab_t *texts;
-    const musics_tab_t *musics;
-    const sounds_tab_t *sounds;
-} scenes_tab_t;
+    const image_tab_t *images;
+    const text_tab_t *texts;
+    const music_tab_t *musics;
+    const sound_tab_t *sounds;
+} scene_tab_t;
 
-extern const scenes_tab_t scenes_tab[];
+extern const scene_tab_t scene_tab[];
 
-extern const char *saves_path_tab[];
+extern const char *save_path_tab[];
 
 typedef struct floor_tab_s {
     const char *filepath;
@@ -114,11 +114,11 @@ typedef struct state_tab_s {
 
 extern const state_tab_t state_tab[];
 
-typedef struct events_tab_s {
+typedef struct event_tab_s {
     int key_id;
     unsigned int (* func)(scene_manager_t *, scene_t *, engine_t *);
-} events_tab_t;
+} event_tab_t;
 
-extern const events_tab_t events_tab[];
+extern const event_tab_t event_tab[];
 
 #endif

@@ -2,11 +2,11 @@
 ** EPITECH PROJECT, 2026
 ** My_rpg
 ** File description:
-** defines header
+** event_func header
 */
 
-#ifndef EVENTS_FUNC_H_
-    #define EVENTS_FUNC_H_
+#ifndef EVENT_FUNC_H_
+    #define EVENT_FUNC_H_
 
     #include "types.h"
 

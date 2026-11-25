@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2026
 ** My_rpg
 ** File description:
-** scene code
+** text_basics
 */
 #include "garbage_collector/garbage_collector.h"
 #include "text/text.h"
@@ -12,7 +12,7 @@
 #include <SFML/Graphics/RenderWindow.h>
 #include <SFML/Graphics/Text.h>
 
-text_t *text_create(const texts_tab_t *text_infos, unsigned int id)
+text_t *text_create(const text_tab_t *text_infos, unsigned int id)
 {
     text_t *text = garbage_collector_malloc(sizeof(text_t));
 

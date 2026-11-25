@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2026
 ** My_rpg
 ** File description:
-** scene code
+** music_basics
 */
 #include "defines.h"
 
@@ -13,7 +13,7 @@
 #include <SFML/Audio/Music.h>
 #include <SFML/Audio/Types.h>
 
-music_t *music_create(const musics_tab_t *music_infos)
+music_t *music_create(const music_tab_t *music_infos)
 {
     music_t *music = garbage_collector_malloc(sizeof(music_t));
 

@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2026
 ** My_rpg
 ** File description:
-** scene code
+** image_check
 */
 #include "image/image_internal.h" // IWYU pragma: keep
 #include "image/image.h"

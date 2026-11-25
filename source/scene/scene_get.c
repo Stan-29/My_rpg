@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2026
 ** My_rpg
 ** File description:
-** scene code
+** scene_get
 */
 #include "scene/scene.h"
 #include "scene/scene_internal.h" // IWYU pragma: keep

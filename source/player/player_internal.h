@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2026
 ** My_rpg
 ** File description:
-** player header
+** player internal header
 */
 
 #ifndef PLAYER_INTERNAL_H_

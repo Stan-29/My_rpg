@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2026
 ** My_rpg
 ** File description:
-** scene header
+** text header
 */
 
 #ifndef TEXT_H_
@@ -14,7 +14,7 @@
 
 typedef struct text_s text_t;
 
-text_t *text_create(const texts_tab_t *text_infos, unsigned int id);
+text_t *text_create(const text_tab_t *text_infos, unsigned int id);
 void *text_destroy(void *data);
 void text_draw(text_t *text, sfRenderWindow *window);
 unsigned int text_get_id(text_t *text);

@@ -16,7 +16,7 @@
 
 Test(image_get_sprite, basic_image)
 {
-    image_t *temp = image_create(&images_menu_tab[0], 0);
+    image_t *temp = image_create(&image_menu_tab[0], 0);
 
     cr_assert(image_get_sprite(temp) == temp->sprite);
     image_destroy(temp);
@@ -29,7 +29,7 @@ Test(image_get_sprite, image_null)
 
 Test(image_get_scale, basic_image)
 {
-    image_t *temp = image_create(&images_menu_tab[0], 0);
+    image_t *temp = image_create(&image_menu_tab[0], 0);
     sfVector2f scale = image_get_scale(temp);
 
     cr_assert_float_eq(scale.x, temp->base_scale.x, 0.01);
@@ -47,7 +47,7 @@ Test(image_get_scale, image_null)
 
 Test(image_get_pos, basic_image)
 {
-    image_t *temp = image_create(&images_menu_tab[0], 0);
+    image_t *temp = image_create(&image_menu_tab[0], 0);
     sfVector2f pos = image_get_pos(temp);
 
     cr_assert_float_eq(pos.x, temp->base_pos.x, 0.01);
@@ -65,7 +65,7 @@ Test(image_get_pos, image_null)
 
 Test(image_get_movable_zone, basic_image)
 {
-    image_t *temp = image_create(&images_menu_tab[0], 0);
+    image_t *temp = image_create(&image_menu_tab[0], 0);
     sfFloatRect rect = image_get_movable_zone(temp);
 
     cr_assert_float_eq(rect.top, temp->movable_zone.top, 0.01);

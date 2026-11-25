@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2026
 ** My_rpg
 ** File description:
-** scene code
+** image_func_settings
 */
 #include "enums.h"
 #include "defines.h"

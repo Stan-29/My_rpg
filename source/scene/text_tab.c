@@ -10,13 +10,13 @@
 
 #include <stddef.h>
 
-const texts_tab_t texts_menu_tab[] = {
+const text_tab_t text_menu_tab[] = {
     {"ressource/fonts/vel/vel.ttf",
         "--ANANAS--", 100, &sfBlack, {700, 100}},
     {NULL, NULL, 0, NULL, {0, 0}}
 };
 
-const texts_tab_t texts_save_tab[] = {
+const text_tab_t text_save_tab[] = {
     {"ressource/fonts/vel/vel.ttf",
         "--Choose a save--", 80, &sfBlack, {725, 260}},
     {"ressource/fonts/vel/vel.ttf",
@@ -52,7 +52,7 @@ const texts_tab_t texts_save_tab[] = {
     {NULL, NULL, 0, NULL, {0, 0}}
 };
 
-const texts_tab_t texts_settings_tab[] = {
+const text_tab_t text_settings_tab[] = {
     {"ressource/fonts/vel/vel.ttf",
         "--Settings--", 80, &sfBlack, {775, 270}},
     {"ressource/fonts/vel/vel.ttf",
@@ -66,11 +66,11 @@ const texts_tab_t texts_settings_tab[] = {
     {NULL, NULL, 0, NULL, {0, 0}}
 };
 
-const texts_tab_t texts_game_tab[] = {
+const text_tab_t text_game_tab[] = {
     {NULL, NULL, 0, NULL, {0, 0}}
 };
 
-const texts_tab_t texts_pause_tab[] = {
+const text_tab_t text_pause_tab[] = {
     {"ressource/fonts/vel/vel.ttf",
         "Pause Menu", 80, &sfBlack, {750, 260}},
     {"ressource/fonts/vel/vel.ttf",

@@ -15,7 +15,7 @@
 
 Test(image_is_movable, image_not_clickable)
 {
-    image_t *temp = image_create(&images_menu_tab[0], 0);
+    image_t *temp = image_create(&image_menu_tab[0], 0);
 
     cr_assert(image_is_movable(temp) == false);
     image_destroy(temp);
@@ -23,7 +23,7 @@ Test(image_is_movable, image_not_clickable)
 
 Test(image_is_movable, image_clickable)
 {
-    image_t *temp = image_create(&images_settings_tab[6], 6);
+    image_t *temp = image_create(&image_settings_tab[6], 6);
 
     cr_assert(image_is_movable(temp) == true);
     image_destroy(temp);

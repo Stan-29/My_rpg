@@ -2,34 +2,34 @@
 ** EPITECH PROJECT, 2026
 ** My_rpg
 ** File description:
-** images_tab
+** sound_tab
 */
 #include "consts.h"
 #include "enums.h"
 
 #include <stddef.h>
 
-const sounds_tab_t sounds_menu_tab[] = {
+const sound_tab_t sound_menu_tab[] = {
     {SOUND_CLICK, "ressource/sounds/click.wav", 50},
     {SOUND_NONE, NULL, 0}
 };
 
-const sounds_tab_t sounds_save_tab[] = {
+const sound_tab_t sound_save_tab[] = {
     {SOUND_CLICK, "ressource/sounds/click.wav", 50},
     {SOUND_NONE, NULL, 0}
 };
 
-const sounds_tab_t sounds_settings_tab[] = {
+const sound_tab_t sound_settings_tab[] = {
     {SOUND_CLICK, "ressource/sounds/click.wav", 50},
     {SOUND_NONE, NULL, 0}
 };
 
-const sounds_tab_t sounds_game_tab[] = {
+const sound_tab_t sound_game_tab[] = {
     {SOUND_CLICK, "ressource/sounds/click.wav", 50},
     {SOUND_NONE, NULL, 0}
 };
 
-const sounds_tab_t sounds_pause_tab[] = {
+const sound_tab_t sound_pause_tab[] = {
     {SOUND_CLICK, "ressource/sounds/click.wav", 50},
     {SOUND_NONE, NULL, 0}
 };

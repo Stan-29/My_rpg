@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2026
 ** My RPG
 ** File description:
-** tests_images_func_start_saves
+** tests_image_func_start_saves
 */
 #include <criterion/criterion.h>
 
@@ -15,7 +15,7 @@
 #include "engine/engine_internal.h" // IWYU pragma: keep
 #include "garbage_collector/garbage_collector.h"
 
-#include "images_func.h"
+#include "image_func/image_func.h"
 
 Test(image_func_go_to_save, basic_change_in_scene)
 {

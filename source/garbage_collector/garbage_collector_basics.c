@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2026
 ** My_rpg
 ** File description:
-** engine code
+** garbage_collector_basics
 */
 #include "defines.h"
 

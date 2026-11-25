@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2026
 ** My_rpg
 ** File description:
-** engine code
+** engine_events
 */
 #include "defines.h"
 #include "consts.h"
@@ -59,9 +59,9 @@ static unsigned int manage_keyboard(engine_t *engine,
 {
     unsigned int return_value = OK;
 
-    for (unsigned int index = 0; events_tab[index].key_id != -1; index++) {
-        if (sfKeyboard_isKeyPressed(events_tab[index].key_id))
-            return_value = events_tab[index].func(scene_manager, scene, engine);
+    for (unsigned int index = 0; event_tab[index].key_id != -1; index++) {
+        if (sfKeyboard_isKeyPressed(event_tab[index].key_id))
+            return_value = event_tab[index].func(scene_manager, scene, engine);
         if (return_value == ERROR)
             return ERROR;
     }

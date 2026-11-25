@@ -72,7 +72,7 @@ Test(scene_change_music_volume, basic_change_volume)
     scene_change_music_volume(scene, 1);
     music = linked_list_get_data(scene->lists->ll_musics);
     cr_assert_float_eq(sfMusic_getVolume(music->music),
-        musics_menu_tab[0].volume, 0.01);
+        music_menu_tab[0].volume, 0.01);
     scene_destroy(scene);
 }
 

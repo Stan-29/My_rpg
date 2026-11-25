@@ -13,7 +13,7 @@
 
 Test(text_contains, basic_check)
 {
-    text_t *text = text_create(&texts_menu_tab[0], 1);
+    text_t *text = text_create(&text_menu_tab[0], 1);
 
     text_change_str(text, "abcd");
     cr_assert(text_contains(text, "abcd\0") == true);
@@ -30,7 +30,7 @@ Test(text_contains, check_on_null)
 
 Test(text_contains, check_partial_match)
 {
-    text_t *text = text_create(&texts_menu_tab[0], 1);
+    text_t *text = text_create(&text_menu_tab[0], 1);
 
     text_change_str(text, "abcd");
     cr_assert(text_contains(text, "abd") == false);

@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2026
 ** My_rpg
 ** File description:
-** scene code
+** text_check
 */
 #include "text/text.h"
 #include "text/text_internal.h" // IWYU pragma: keep

@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2026
 ** My RPG
 ** File description:
-** tests_images_func_start_switch_scenes
+** tests_image_func_pause
 */
 #include <criterion/criterion.h>
 
@@ -15,23 +15,27 @@
 #include "engine/engine_internal.h" // IWYU pragma: keep
 #include "garbage_collector/garbage_collector.h"
 
-#include "images_func.h"
+#include "image_func/image_func.h"
 
-Test(image_func_exit_sub_scene, basic_change_in_scene)
+Test(image_func_go_to_pause, basic_change_in_scene)
 {
     engine_t *engine = garbage_collector_malloc(sizeof(engine_t));
     scene_manager_t *scene_manager = scene_manager_create();
     scene_t *scene = scene_manager_get_current(scene_manager);
 
-    scene_manager->sub_scene = SCENE_SETTINGS;
-    image_func_exit_sub_scene(scene_manager, scene, engine);
-    cr_assert(scene_manager->sub_scene == SCENE_NONE);
-    cr_assert(scene_manager->main_scene == SCENE_MENU);
+    scene_manager->sub_scene = SCENE_NONE;
+    image_func_go_to_pause(scene_manager, scene, engine);
+    cr_assert(scene_manager->sub_scene == SCENE_PAUSE);
     scene_manager_destroy(scene_manager);
     engine_destroy(engine);
 }
 
-Test(image_func_exit_sub_scene, change_in_scene_from_settings_to_pause)
+Test(image_func_go_to_pause, null_params)
+{
+    cr_assert(image_func_go_to_pause(NULL, NULL, NULL) == ERROR);
+}
+
+Test(image_func_back_to_menu, basic_change_in_scene)
 {
     engine_t *engine = garbage_collector_malloc(sizeof(engine_t));
     scene_manager_t *scene_manager = scene_manager_create();
@@ -39,19 +43,14 @@ Test(image_func_exit_sub_scene, change_in_scene_from_settings_to_pause)
 
     scene_manager_set_scene(scene_manager, SCENE_GAME);
     scene_manager->sub_scene = SCENE_SETTINGS;
-    image_func_exit_sub_scene(scene_manager, scene, engine);
-    cr_assert(scene_manager->sub_scene == SCENE_PAUSE);
-    cr_assert(scene_manager->main_scene == SCENE_GAME);
+    image_func_back_to_menu(scene_manager, scene, engine);
+    cr_assert(scene_manager->main_scene == SCENE_MENU);
+    cr_assert(scene_manager->sub_scene == SCENE_NONE);
     scene_manager_destroy(scene_manager);
     engine_destroy(engine);
 }
 
-Test(image_func_exit_sub_scene, null_params)
+Test(image_func_back_to_menu, null_params)
 {
-    cr_assert(image_func_exit_sub_scene(NULL, NULL, NULL) == ERROR);
-}
-
-Test(image_func_exit_game, null_params)
-{
-    cr_assert(image_func_exit_game(NULL, NULL, NULL) == ERROR);
+    cr_assert(image_func_back_to_menu(NULL, NULL, NULL) == ERROR);
 }

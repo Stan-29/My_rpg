@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2026
 ** My_rpg
 ** File description:
-** scene code
+** scene_manage
 */
 #include "linked_list/linked_list.h"
 #include "scene/scene.h"

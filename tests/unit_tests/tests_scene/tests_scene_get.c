@@ -64,7 +64,7 @@ Test(scene_find_image_by_pos, find_by_pos_not_clickable)
 Test(scene_get_held, basic_get_held)
 {
     scene_t *scene = scene_create(SCENE_MENU);
-    image_t *image = image_create(&images_menu_tab[0], 0);
+    image_t *image = image_create(&image_menu_tab[0], 0);
 
     scene->held = image;
     cr_assert(scene_get_held(scene) == scene->held);

@@ -2,14 +2,14 @@
 ** EPITECH PROJECT, 2026
 ** My_rpg
 ** File description:
-** images_tab
+** image_tab
 */
 #include "consts.h"
-#include "images_func.h"
+#include "image_func/image_func.h"
 
 #include <stddef.h>
 
-const images_tab_t images_menu_tab[] = {
+const image_tab_t image_menu_tab[] = {
     {"./ressource/images/Background Menu.PNG", {0, 0, 0, 0},
         {0, 0}, {1.15, 1.15}, {0, 0, 0, 0}, NULL},
     {"./ressource/images/button.png", {0, 0, 0, 0},
@@ -21,7 +21,7 @@ const images_tab_t images_menu_tab[] = {
     {NULL, {0, 0, 0, 0}, {0, 0}, {0, 0}, {0, 0, 0, 0}, NULL}
 };
 
-const images_tab_t images_save_tab[] = {
+const image_tab_t image_save_tab[] = {
     {"./ressource/images/filter.png", {0, 0, 0, 0},
         {0, 0}, {1920, 1080}, {0, 0, 0, 0}, NULL},
     {"./ressource/images/wood_panel.png", {0, 0, 0, 0},
@@ -37,7 +37,7 @@ const images_tab_t images_save_tab[] = {
     {NULL, {0, 0, 0, 0}, {0, 0}, {0, 0}, {0, 0, 0, 0}, NULL}
 };
 
-const images_tab_t images_settings_tab[] = {
+const image_tab_t image_settings_tab[] = {
     {"./ressource/images/filter.png", {0, 0, 0, 0},
         {0, 0}, {1920, 1080}, {0, 0, 0, 0}, NULL},
     {"./ressource/images/wood_panel.png", {0, 0, 0, 0},
@@ -61,13 +61,13 @@ const images_tab_t images_settings_tab[] = {
     {NULL, {0, 0, 0, 0}, {0, 0}, {0, 0}, {0, 0, 0, 0}, NULL}
 };
 
-const images_tab_t images_game_tab[] = {
+const image_tab_t image_game_tab[] = {
     {"./ressource/images/button.png", {0, 0, 0, 0},
         {1550, 900}, {0.3, 0.3}, {0, 0, 0, 0}, &image_func_go_to_pause},
     {NULL, {0, 0, 0, 0}, {0, 0}, {0, 0}, {0, 0, 0, 0}, NULL}
 };
 
-const images_tab_t images_pause_tab[] = {
+const image_tab_t image_pause_tab[] = {
     {"./ressource/images/filter.png", {0, 0, 0, 0},
         {0, 0}, {1920, 1080}, {0, 0, 0, 0}, NULL},
     {"./ressource/images/wood_panel.png", {0, 0, 0, 0},

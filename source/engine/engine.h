@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2026
 ** My_rpg
 ** File description:
-** game infos header
+** engine header
 */
 
 #ifndef ENGINE_H_

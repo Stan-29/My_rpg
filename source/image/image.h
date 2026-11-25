@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2026
 ** My_rpg
 ** File description:
-** scene header
+** image header
 */
 
 #ifndef IMAGE_H_
@@ -14,7 +14,7 @@
 
 typedef struct image_s image_t;
 
-image_t *image_create(const images_tab_t *image_infos, unsigned int id);
+image_t *image_create(const image_tab_t *image_infos, unsigned int id);
 void *image_destroy(void *data);
 void image_draw(image_t *image, sfRenderWindow *window);
 

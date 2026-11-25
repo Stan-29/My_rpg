@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2026
 ** My_rpg
 ** File description:
-** map_basics
+** map_update
 */
 #include "defines.h"
 

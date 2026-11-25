@@ -13,7 +13,7 @@
 
 Test(music_create, basic_create)
 {
-    music_t *music = music_create(&musics_menu_tab[0]);
+    music_t *music = music_create(&music_menu_tab[0]);
 
     cr_assert(music != NULL);
     cr_assert(music->id == MUSIC_MENU);
@@ -22,7 +22,7 @@ Test(music_create, basic_create)
 
 Test(music_create, create_with_null_path)
 {
-    music_t *music = music_create(&musics_settings_tab[0]);
+    music_t *music = music_create(&music_settings_tab[0]);
 
     cr_assert(music == NULL);
     music_destroy(music);
@@ -30,7 +30,7 @@ Test(music_create, create_with_null_path)
 
 Test(music_create, create_with_wrong_path)
 {
-    musics_tab_t infos = {0, "nope.wav", 50};
+    music_tab_t infos = {0, "nope.wav", 50};
     music_t *music = music_create(&infos);
 
     cr_assert(music == NULL);
@@ -38,7 +38,7 @@ Test(music_create, create_with_wrong_path)
 
 Test(music_destroy, basic_destroy)
 {
-    music_t *music = music_create(&musics_menu_tab[0]);
+    music_t *music = music_create(&music_menu_tab[0]);
 
     cr_assert(music_destroy(music) == NULL);
 }
@@ -52,7 +52,7 @@ Test(music_destroy, destroy_on_null)
 
 Test(music_play, basic_play)
 {
-    music_t *music = music_create(&musics_menu_tab[0]);
+    music_t *music = music_create(&music_menu_tab[0]);
 
     music_play(music);
     cr_assert(music != NULL);
@@ -69,7 +69,7 @@ Test(music_play, play_on_null)
 
 Test(music_stop, basic_stop)
 {
-    music_t *music = music_create(&musics_menu_tab[0]);
+    music_t *music = music_create(&music_menu_tab[0]);
 
     music_stop(music);
     cr_assert(music != NULL);
@@ -86,7 +86,7 @@ Test(music_stop, stop_on_null)
 
 Test(music_change_volume, basic_change_volume)
 {
-    music_t *music = music_create(&musics_menu_tab[0]);
+    music_t *music = music_create(&music_menu_tab[0]);
 
     music_change_volume(music, 1);
     cr_assert(music != NULL);

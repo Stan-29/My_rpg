@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2026
 ** My_rpg
 ** File description:
-** images_tab
+** floor_tab
 */
 #include "consts.h"
 #include "enums.h"

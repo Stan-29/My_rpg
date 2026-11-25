@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2026
 ** My_rpg
 ** File description:
-** scene code
+** image_func_start_saves
 */
 #include "consts.h"
 #include "defines.h"
@@ -103,9 +103,9 @@ unsigned int image_func_go_to_save(scene_manager_t *scene_manager,
     scene_play_sound(scene, SOUND_CLICK);
     scene_manager_set_scene(scene_manager, SCENE_SAVE);
     scene = scene_manager_get_current(scene_manager);
-    manage_save_infos(scene, saves_path_tab[0], 1);
-    manage_save_infos(scene, saves_path_tab[1], 2);
-    manage_save_infos(scene, saves_path_tab[2], 3);
+    manage_save_infos(scene, save_path_tab[0], 1);
+    manage_save_infos(scene, save_path_tab[1], 2);
+    manage_save_infos(scene, save_path_tab[2], 3);
     return OK;
 }
 

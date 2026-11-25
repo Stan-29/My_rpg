@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2026
 ** My_rpg
 ** File description:
-** player handling
+** event_func_player_handling
 */
 #include "defines.h"
 

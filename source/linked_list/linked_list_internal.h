@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2026
 ** My_rpg
 ** File description:
-** linked_list header
+** linked_list internal header
 */
 
 #ifndef LINKED_LIST_INTERNAL_H_

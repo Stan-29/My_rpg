@@ -17,7 +17,7 @@
 
 Test(image_change_scale, basic_image)
 {
-    image_t *temp = image_create(&images_menu_tab[0], 0);
+    image_t *temp = image_create(&image_menu_tab[0], 0);
     sfVector2f new_scale = {0};
 
     image_change_scale(temp, &(sfVector2f){2, 2});
@@ -29,19 +29,19 @@ Test(image_change_scale, basic_image)
 
 Test(image_change_scale, image_null)
 {
-    image_t *temp = image_create(&images_menu_tab[0], 0);
+    image_t *temp = image_create(&image_menu_tab[0], 0);
     sfVector2f new_scale = {0};
 
     image_change_scale(NULL, &(sfVector2f){2, 2});
     new_scale = sfSprite_getScale(temp->sprite);
-    cr_assert_float_eq(new_scale.x, images_menu_tab[0].scale.x, 0.01);
-    cr_assert_float_eq(new_scale.y, images_menu_tab[0].scale.y, 0.01);
+    cr_assert_float_eq(new_scale.x, image_menu_tab[0].scale.x, 0.01);
+    cr_assert_float_eq(new_scale.y, image_menu_tab[0].scale.y, 0.01);
     image_destroy(temp);
 }
 
 Test(image_change_pos, basic_image)
 {
-    image_t *temp = image_create(&images_menu_tab[0], 0);
+    image_t *temp = image_create(&image_menu_tab[0], 0);
     sfVector2f new_pos = {0};
 
     image_change_pos(temp, &(sfVector2f){2, 2});
@@ -53,7 +53,7 @@ Test(image_change_pos, basic_image)
 
 Test(image_change_pos, image_null)
 {
-    image_t *temp = image_create(&images_menu_tab[0], 0);
+    image_t *temp = image_create(&image_menu_tab[0], 0);
     sfVector2f new_pos = {0};
 
     image_change_pos(NULL, &(sfVector2f){2, 2});
@@ -65,7 +65,7 @@ Test(image_change_pos, image_null)
 
 Test(image_change_base_pos, basic_image_not_movable)
 {
-    image_t *temp = image_create(&images_menu_tab[0], 0);
+    image_t *temp = image_create(&image_menu_tab[0], 0);
 
     image_change_base_pos(temp, &(sfVector2f){2, 2});
     cr_assert_float_eq(temp->base_pos.x, 0, 0.01);
@@ -75,7 +75,7 @@ Test(image_change_base_pos, basic_image_not_movable)
 
 Test(image_change_base_pos, basic_image_x_movable)
 {
-    image_t *temp = image_create(&images_settings_tab[0], 0);
+    image_t *temp = image_create(&image_settings_tab[0], 0);
 
     temp->movable_zone.width = 100;
     temp->movable_zone.left = 0;
@@ -87,7 +87,7 @@ Test(image_change_base_pos, basic_image_x_movable)
 
 Test(image_change_base_pos, basic_image_x_movable_edge_case_left)
 {
-    image_t *temp = image_create(&images_settings_tab[0], 0);
+    image_t *temp = image_create(&image_settings_tab[0], 0);
 
     temp->movable_zone.width = 100;
     temp->movable_zone.left = 5;
@@ -99,7 +99,7 @@ Test(image_change_base_pos, basic_image_x_movable_edge_case_left)
 
 Test(image_change_base_pos, basic_image_x_movable_edge_case_right)
 {
-    image_t *temp = image_create(&images_settings_tab[0], 0);
+    image_t *temp = image_create(&image_settings_tab[0], 0);
 
     temp->movable_zone.width = 100;
     temp->movable_zone.left = 0;
@@ -111,7 +111,7 @@ Test(image_change_base_pos, basic_image_x_movable_edge_case_right)
 
 Test(image_change_base_pos, basic_image_y_movable)
 {
-    image_t *temp = image_create(&images_settings_tab[0], 0);
+    image_t *temp = image_create(&image_settings_tab[0], 0);
 
     temp->movable_zone.height = 100;
     temp->movable_zone.top = 0;
@@ -123,7 +123,7 @@ Test(image_change_base_pos, basic_image_y_movable)
 
 Test(image_change_base_pos, basic_image_y_movable_edge_case_top)
 {
-    image_t *temp = image_create(&images_settings_tab[0], 0);
+    image_t *temp = image_create(&image_settings_tab[0], 0);
 
     temp->movable_zone.height = 100;
     temp->movable_zone.top = 5;
@@ -135,7 +135,7 @@ Test(image_change_base_pos, basic_image_y_movable_edge_case_top)
 
 Test(image_change_base_pos, basic_image_y_movable_edge_case_bot)
 {
-    image_t *temp = image_create(&images_settings_tab[0], 0);
+    image_t *temp = image_create(&image_settings_tab[0], 0);
 
     temp->movable_zone.height = 100;
     temp->movable_zone.top = 0;
@@ -147,7 +147,7 @@ Test(image_change_base_pos, basic_image_y_movable_edge_case_bot)
 
 Test(image_change_base_pos, image_null)
 {
-    image_t *temp = image_create(&images_menu_tab[0], 0);
+    image_t *temp = image_create(&image_menu_tab[0], 0);
 
     image_change_base_pos(NULL, &(sfVector2f){2, 2});
     cr_assert_float_eq(temp->base_pos.x, 0, 0.01);
@@ -157,7 +157,7 @@ Test(image_change_base_pos, image_null)
 
 Test(image_change_color, basic_image)
 {
-    image_t *temp = image_create(&images_menu_tab[0], 0);
+    image_t *temp = image_create(&image_menu_tab[0], 0);
     sfColor new_color = {0};
 
     image_change_color(temp, &(sfColor){0, 0, 0, 100});
@@ -171,7 +171,7 @@ Test(image_change_color, basic_image)
 
 Test(image_change_color, image_null)
 {
-    image_t *temp = image_create(&images_menu_tab[0], 0);
+    image_t *temp = image_create(&image_menu_tab[0], 0);
     sfColor new_color = {0};
 
     image_change_color(NULL, &(sfColor){0, 0, 0, 100});

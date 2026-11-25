@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2026
 ** My_rpg
 ** File description:
-** engine code
+** linked_list_get
 */
 #include "garbage_collector/garbage_collector.h"
 #include "linked_list/linked_list.h"

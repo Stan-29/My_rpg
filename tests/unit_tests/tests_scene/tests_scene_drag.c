@@ -19,7 +19,7 @@
 Test(scene_grab, basic_grab)
 {
     scene_t *scene = scene_create(SCENE_MENU);
-    image_t *image = image_create(&images_menu_tab[0], 0);
+    image_t *image = image_create(&image_menu_tab[0], 0);
 
     scene_grab(scene, image, &(sfVector2f){0, 0});
     cr_assert(scene->held == image);
@@ -39,7 +39,7 @@ Test(scene_grab, grab_on_null)
 Test(scene_release, basic_release)
 {
     scene_t *scene = scene_create(SCENE_MENU);
-    image_t *image = image_create(&images_menu_tab[0], 0);
+    image_t *image = image_create(&image_menu_tab[0], 0);
 
     scene->held = image;
     scene_release(scene);
@@ -59,7 +59,7 @@ Test(scene_release, release_on_null)
 Test(scene_handle_drag, basic_drag)
 {
     scene_t *scene = scene_create(SCENE_MENU);
-    image_t *image = image_create(&images_menu_tab[0], 0);
+    image_t *image = image_create(&image_menu_tab[0], 0);
 
     scene->held = image;
     scene->offset.x = 0;
@@ -74,7 +74,7 @@ Test(scene_handle_drag, basic_drag)
 Test(scene_handle_drag, scene_on_null)
 {
     scene_t *scene = NULL;
-    image_t *image = image_create(&images_menu_tab[0], 0);
+    image_t *image = image_create(&image_menu_tab[0], 0);
     sfVector2f old_pos = image->base_pos;
 
     scene_handle_drag(scene, NULL);

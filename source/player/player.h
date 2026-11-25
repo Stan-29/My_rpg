@@ -2,14 +2,14 @@
 ** EPITECH PROJECT, 2026
 ** My_rpg
 ** File description:
-** player module
+** player header
 */
 
 #ifndef PLAYER_H_
     #define PLAYER_H_
 
     #include "enums.h"
-    #include "saves.h"
+    #include "save/save.h"
 
     #include "map/map.h"
 

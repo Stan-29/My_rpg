@@ -5,54 +5,54 @@
 ## Makefile
 ##
 
-SRC = source/const/events_tab.c 	\
-	source/const/floor_tab.c 		\
-	source/const/images_tab.c 		\
-	source/const/musics_tab.c 		\
-	source/const/object_tab.c 		\
-	source/const/saves_tab.c 		\
-	source/const/scenes_tab.c 		\
-	source/const/skin_tab.c 		\
-	source/const/sounds_tab.c 		\
-	source/const/state_tab.c 		\
-	source/const/texts_tab.c 		\
-	source/engine/engine_basics.c		\
-	source/engine/engine_events.c		\
-	source/engine/engine_get.c			\
-	source/events_func/events_func_move_player.c		\
-	source/events_func/events_func_player_handling.c	\
-	source/garbage_collector/garbage_collector_basics.c		\
-	source/image/image_basics.c			\
-	source/image/image_check.c			\
-	source/image/image_get.c			\
-	source/image/image_change.c			\
-	source/images_func/image_func_pause.c	 		\
-	source/images_func/image_func_settings.c 		\
-	source/images_func/image_func_start_saves.c 	\
-	source/images_func/image_func_switch_scenes.c 	\
-	source/linked_list/linked_list_basics.c			\
-	source/linked_list/linked_list_get.c			\
-	source/linked_list/linked_list_handling.c		\
-	source/map/map_basics.c					\
-	source/map/map_collision.c				\
-	source/map/map_draw.c					\
-	source/map/map_update.c					\
-	source/music/music_basics.c		\
-	source/player/player_basics.c			\
-	source/player/player_get.c				\
-	source/player/player_update.c			\
-	source/scene/scene_basics.c			\
-	source/scene/scene_drag.c			\
-	source/scene/scene_get.c			\
-	source/scene/scene_handle.c			\
-	source/scene/scene_manage.c			\
-	source/scene/scene_update.c			\
-	source/scene_manager/scene_manager_basics.c			\
-	source/scene_manager/scene_manager_get.c			\
-	source/scene_manager/scene_manager_manage.c			\
-	source/sound/sound_basics.c			\
-	source/text/text_basics.c		\
-	source/text/text_check.c		\
+SRC = source/engine/engine_basics.c                            \
+	source/engine/engine_events.c                          \
+	source/engine/engine_get.c                             \
+	source/engine/event_tab.c                              \
+	source/event_func/event_func_move_player.c             \
+	source/event_func/event_func_player_handling.c         \
+	source/garbage_collector/garbage_collector_basics.c    \
+	source/image/image_basics.c                            \
+	source/image/image_change.c                            \
+	source/image/image_check.c                             \
+	source/image/image_get.c                               \
+	source/image_func/image_func_pause.c                   \
+	source/image_func/image_func_settings.c                \
+	source/image_func/image_func_start_saves.c             \
+	source/image_func/image_func_switch_scenes.c           \
+	source/linked_list/linked_list_basics.c                \
+	source/linked_list/linked_list_get.c                   \
+	source/linked_list/linked_list_handling.c              \
+	source/map/floor_tab.c                                 \
+	source/map/map_basics.c                                \
+	source/map/map_collision.c                             \
+	source/map/map_draw.c                                  \
+	source/map/map_update.c                                \
+	source/map/object_tab.c                                \
+	source/music/music_basics.c                            \
+	source/player/player_basics.c                          \
+	source/player/player_get.c                             \
+	source/player/player_update.c                          \
+	source/player/skin_tab.c                               \
+	source/player/state_tab.c                              \
+	source/save/save_tab.c                                 \
+	source/scene/image_tab.c                               \
+	source/scene/music_tab.c                               \
+	source/scene/scene_basics.c                            \
+	source/scene/scene_drag.c                              \
+	source/scene/scene_get.c                               \
+	source/scene/scene_handle.c                            \
+	source/scene/scene_manage.c                            \
+	source/scene/scene_tab.c                               \
+	source/scene/scene_update.c                            \
+	source/scene/sound_tab.c                               \
+	source/scene/text_tab.c                                \
+	source/scene_manager/scene_manager_basics.c            \
+	source/scene_manager/scene_manager_get.c               \
+	source/scene_manager/scene_manager_manage.c            \
+	source/sound/sound_basics.c                            \
+	source/text/text_basics.c                              \
+	source/text/text_check.c                               \
 
 OBJ = $(SRC:.c=.o)
 
@@ -84,10 +84,10 @@ CFLAGS = $(INCLUDES) -Wall -Wextra
 
 
 TEST_SRC = tests/unit_tests/tests_engine/*.c \
-	tests/unit_tests/tests_events_func/*.c \
+	tests/unit_tests/tests_event_func/*.c \
 	tests/unit_tests/tests_garbage_collector/*.c \
 	tests/unit_tests/tests_image/*.c \
-	tests/unit_tests/tests_images_func/*.c \
+	tests/unit_tests/tests_image_func/*.c \
 	tests/unit_tests/tests_linked_list/*.c \
 	tests/unit_tests/tests_map/*.c \
 	tests/unit_tests/tests_music/*.c \

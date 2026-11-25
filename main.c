@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2026
 ** My_rpg
 ** File description:
-** main_function
+** main
 */
 #include "defines.h"
 
