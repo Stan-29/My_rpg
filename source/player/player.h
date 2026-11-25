@@ -11,6 +11,8 @@
     #include "enums.h"
     #include "saves.h"
 
+    #include "map/map.h"
+
     #include <SFML/Graphics/Types.h>
     #include <SFML/System/Vector2.h>
 
@@ -22,7 +24,7 @@ player_t *player_create(const player_save_t *data);
 void *player_destroy(player_t *player);
 void player_draw(player_t *player, sfRenderWindow *window);
 
-void player_update(player_t *player, float dt);
+void player_update(player_t *player, map_t *map, float dt);
 void player_update_dir(player_t *player, sfVector2f *dir);
 void player_set_run(player_t *player, bool run);
 void player_reset_inputs(player_t *player);

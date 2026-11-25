@@ -9,7 +9,6 @@
     #define CONSTS_H_
 
     #include "types.h"
-    #include "defines.h"
 
     #include <SFML/Graphics/Color.h>
     #include <SFML/Graphics/Rect.h>
@@ -91,7 +90,6 @@ typedef struct floor_tab_s {
 } floor_tab_t;
 
 extern const floor_tab_t floor_tab[];
-extern const int map_floor[MAP_ROWS][MAP_COLS];
 
 typedef struct object_tab_s {
     const char *filepath;
@@ -100,7 +98,6 @@ typedef struct object_tab_s {
 } object_tab_t;
 
 extern const object_tab_t object_tab[];
-extern const int map_objects[MAP_ROWS][MAP_COLS];
 
 typedef struct skin_tab_s {
     const char *filepath;

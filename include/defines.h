@@ -13,8 +13,6 @@
 
     #define TILE_W 192
     #define TILE_H 96
-    #define MAP_ROWS 25
-    #define MAP_COLS 25
 
     #define FULL_SCREEN_WIDTH 1920
     #define FULL_SCREEN_HEIGHT 1080
@@ -54,5 +52,9 @@
     #define HALF_TILE_H (TILE_H / 2.0f)
     #define TILE_TO_WORLD_X(c, r) (((c) - (r)) * HALF_TILE_W + MAP_OFFSET_X)
     #define TILE_TO_WORLD_Y(c, r) (((c) + (r)) * HALF_TILE_H + MAP_OFFSET_Y)
+
+    #define MAP_FLOORS_PATH "./ressource/maps/map_floors.data"
+    #define MAP_OBJECTS_PATH "./ressource/maps/map_objects.data"
+    #define MAP_FLOORS_SIZE 50
 
 #endif

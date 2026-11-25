@@ -22,7 +22,7 @@ void scene_update(scene_t *scene, float dt)
 
     if (!scene || !scene->map || !scene->player)
         return;
-    player_update(scene->player, dt);
+    player_update(scene->player, scene->map, dt);
     pos = player_get_pos(scene->player);
     dir = player_get_movement(scene->player);
     map_update_view(scene->map, &pos, &dir, dt);

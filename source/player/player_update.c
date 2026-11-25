@@ -10,7 +10,6 @@
 
 #include "player/player.h"
 #include "player/player_internal.h" // IWYU pragma: keep
-#include "map/map.h"
 
 #include <SFML/System/Vector2.h>
 #include <SFML/Graphics/Sprite.h>
@@ -40,7 +39,7 @@ void player_reset_inputs(player_t *player)
     player->state.run = false;
 }
 
-static void player_update_pos(player_t *player, float dt)
+static void player_update_pos(player_t *player, map_t *map, float dt)
 {
     float len = 0;
     sfVector2f next = {0};
@@ -54,11 +53,11 @@ static void player_update_pos(player_t *player, float dt)
     }
     next = (sfVector2f){player->move.pos.x + player->move.movement.x *
         state_tab[state].speed * dt, player->move.pos.y};
-    if (!map_collides(&next))
+    if (!map_collides(map, &next))
         player->move.pos.x = next.x;
     next = (sfVector2f){player->move.pos.x, player->move.pos.y +
         player->move.movement.y * state_tab[state].speed * dt};
-    if (!map_collides(&next))
+    if (!map_collides(map, &next))
         player->move.pos.y = next.y;
     sfSprite_setPosition(player->anim.sprite, player->move.pos);
 }
@@ -117,13 +116,13 @@ static void player_update_anim(player_t *player, float dt)
     sfSprite_setTextureRect(player->anim.sprite, player->anim.rect);
 }
 
-void player_update(player_t *player, float dt)
+void player_update(player_t *player, map_t *map, float dt)
 {
     if (!player)
         return;
     player_update_state(player);
     player_update_facing(player);
     player_update_change_of_state(player);
-    player_update_pos(player, dt);
+    player_update_pos(player, map, dt);
     player_update_anim(player, dt);
 }

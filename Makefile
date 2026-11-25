@@ -8,7 +8,6 @@
 SRC = source/const/events_tab.c 	\
 	source/const/floor_tab.c 		\
 	source/const/images_tab.c 		\
-	source/const/map_tab.c 			\
 	source/const/musics_tab.c 		\
 	source/const/object_tab.c 		\
 	source/const/saves_tab.c 		\

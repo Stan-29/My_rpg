@@ -27,11 +27,12 @@ static sfVector2i get_tab_pos_from_screen(const sfVector2f *pos)
     return tile;
 }
 
-bool map_collides(const sfVector2f *feet_pos)
+bool map_collides(map_t *map, const sfVector2f *feet_pos)
 {
     sfVector2i tile = get_tab_pos_from_screen(feet_pos);
 
-    if (tile.x < 0 || tile.x >= MAP_COLS || tile.y < 0 || tile.y >= MAP_ROWS)
+    if (tile.x < 0 || tile.x >= MAP_FLOORS_SIZE || tile.y < 0 ||
+        tile.y >= MAP_FLOORS_SIZE)
         return true;
-    return object_tab[map_objects[tile.y][tile.x]].solid;
+    return object_tab[map->map_objects[tile.y][tile.x]].solid;
 }

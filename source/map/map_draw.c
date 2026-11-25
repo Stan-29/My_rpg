@@ -4,7 +4,6 @@
 ** File description:
 ** map_draw
 */
-#include "consts.h"
 #include "defines.h"
 
 #include "map/map.h"
@@ -28,7 +27,7 @@ static sfVector2f get_screen_pos_from_tab(int col, int row)
 static void map_draw_floor_tile(map_t *map, sfRenderWindow *window,
     int row, int col)
 {
-    sfTexture *texture = map->floor_textures[map_floor[row][col]];
+    sfTexture *texture = map->floor_textures[map->map_floors[row][col]];
     sfVector2u size = sfTexture_getSize(texture);
     float scale = (float)TILE_W / size.x;
 
@@ -44,8 +43,8 @@ void map_draw_floor(map_t *map, sfRenderWindow *window)
     if (map == NULL || window == NULL)
         return;
     sfRenderWindow_setView(window, map->camera);
-    for (int row = 0; row < MAP_ROWS; row++)
-        for (int col = 0; col < MAP_COLS; col++)
+    for (int row = 0; row < MAP_FLOORS_SIZE; row++)
+        for (int col = 0; col < MAP_FLOORS_SIZE; col++)
             map_draw_floor_tile(map, window, row, col);
 }
 
@@ -60,7 +59,7 @@ static sfVector2f map_get_object_base(int col, int row)
 static void map_draw_object(map_t *map, sfRenderWindow *window,
     int row, int col)
 {
-    int id = map_objects[row][col];
+    int id = map->map_objects[row][col];
     sfTexture *texture = NULL;
     sfVector2u size = {0};
     sfVector2f pos = map_get_object_base(col, row);
@@ -88,9 +87,9 @@ void map_draw_objects(map_t *map, sfRenderWindow *window,
 
     if (map == NULL || window == NULL)
         return;
-    for (int i = 0; i < MAP_ROWS * MAP_COLS; i++) {
-        row = i / MAP_COLS;
-        col = i % MAP_COLS;
+    for (int i = 0; i < MAP_FLOORS_SIZE * MAP_FLOORS_SIZE; i++) {
+        row = i / MAP_FLOORS_SIZE;
+        col = i % MAP_FLOORS_SIZE;
         base = map_get_object_base(col, row);
         in_front = base.y >= feet_y;
         if (in_front == front)

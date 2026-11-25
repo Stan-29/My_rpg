@@ -5,6 +5,7 @@
 ** state_tab
 */
 #include "consts.h"
+#include "defines.h"
 #include "enums.h"
 
 const state_tab_t state_tab[] = {

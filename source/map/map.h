@@ -27,6 +27,6 @@ void map_update_view(map_t *map, const sfVector2f *pos, sfVector2f *dir,
     float dt);
 void map_set_center(map_t *map, const sfVector2f *pos);
 
-bool map_collides(const sfVector2f *feet);
+bool map_collides(map_t *map, const sfVector2f *feet_pos);
 
 #endif
