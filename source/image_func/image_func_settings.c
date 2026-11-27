@@ -4,13 +4,14 @@
 ** File description:
 ** image_func_settings
 */
-#include "enums.h"
 #include "defines.h"
+#include "types.h"
 
 #include "image/image.h"
 #include "scene/scene.h"
 #include "engine/engine.h"
 #include "scene_manager/scene_manager.h"
+#include "sound/sound.h"
 
 unsigned int image_func_go_to_settings(scene_manager_t *scene_manager,
     scene_t *scene, engine_t *engine)

@@ -6,7 +6,7 @@
 */
 #include <criterion/criterion.h>
 
-#include "enums.h"
+#include "types.h"
 
 #include "scene/scene.h"
 #include "scene/scene_internal.h" // IWYU pragma: keep

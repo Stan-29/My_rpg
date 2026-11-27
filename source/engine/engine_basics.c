@@ -5,6 +5,7 @@
 ** engine_basics
 */
 #include "defines.h"
+#include "types.h"
 
 #include "engine/engine_internal.h"
 #include "garbage_collector/garbage_collector.h"

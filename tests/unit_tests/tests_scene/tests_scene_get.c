@@ -6,12 +6,13 @@
 */
 #include <criterion/criterion.h>
 
-#include "enums.h"
+#include "types.h"
 
 #include "image/image.h"
 #include "image/image_internal.h" // IWYU pragma: keep
 #include "scene/scene.h"
 #include "scene/scene_internal.h" // IWYU pragma: keep
+#include "linked_list/linked_list.h"
 
 #include <SFML/Graphics/Rect.h>
 #include <SFML/Graphics/Sprite.h>

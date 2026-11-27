@@ -4,13 +4,12 @@
 ** File description:
 ** scene_handle
 */
-#include "defines.h"
-
 #include "scene/scene.h"
 #include "scene/scene_internal.h" // IWYU pragma: keep
 #include "types.h"
 #include "sound/sound.h"
 #include "image/image.h"
+#include "linked_list/linked_list.h"
 
 #include <SFML/Graphics/Sprite.h>
 #include <SFML/Graphics/RenderWindow.h>

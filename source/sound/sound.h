@@ -8,9 +8,19 @@
 #ifndef SOUND_H_
     #define SOUND_H_
 
-    #include "consts.h"
+typedef enum sound_id_e {
+    SOUND_NONE = 0,
+    SOUND_CLICK,
+    SOUND_COUNT
+} sound_id_t;
 
 typedef struct sound_s sound_t;
+
+typedef struct sound_tab_s {
+    unsigned int id_sound;
+    const char *filepath;
+    float base_volume;
+} sound_tab_t;
 
 sound_t *sound_create(const sound_tab_t *sound_infos);
 void *sound_destroy(void *data);

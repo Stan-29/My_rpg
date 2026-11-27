@@ -4,12 +4,9 @@
 ** File description:
 ** player_update
 */
-#include "consts.h"
-#include "defines.h"
-#include "enums.h"
-
 #include "player/player.h"
 #include "player/player_internal.h" // IWYU pragma: keep
+#include "map/map.h"
 
 #include <SFML/System/Vector2.h>
 #include <SFML/Graphics/Sprite.h>

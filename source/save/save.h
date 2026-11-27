@@ -8,19 +8,20 @@
 #ifndef SAVE_H_
     #define SAVE_H_
 
-    #include "enums.h"
+    #include "player/player.h"
 
-    #include <SFML/System/Vector2.h>
+    #define SAVE_COUNT 3
+    #define MAX_SAVE_INFOS 4
 
-typedef struct player_save_s {
-    sfVector2f pos;
-    skin_id_t skin;
-} player_save_t;
+    #define PLAYER_SPAWN_COL 12
+    #define PLAYER_SPAWN_ROW 12
 
 typedef struct save_s {
     player_save_t player;
 } save_t;
 
 extern const save_t default_save;
+
+extern const char *save_path_tab[];
 
 #endif

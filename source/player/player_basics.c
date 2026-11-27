@@ -4,10 +4,8 @@
 ** File description:
 ** player_basics
 */
-#include "consts.h"
 #include "defines.h"
 
-#include "enums.h"
 #include "garbage_collector/garbage_collector.h"
 #include "player/player.h"
 #include "player/player_internal.h" // IWYU pragma: keep

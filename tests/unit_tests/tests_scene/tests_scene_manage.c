@@ -6,8 +6,7 @@
 */
 #include <criterion/criterion.h>
 
-#include "consts.h"
-#include "enums.h"
+#include "types.h"
 
 #include "linked_list/linked_list.h"
 #include "scene/scene.h"

@@ -4,8 +4,7 @@
 ** File description:
 ** object_tab
 */
-#include "consts.h"
-#include "enums.h"
+#include "map/map_internal.h"
 
 #include <stddef.h>
 

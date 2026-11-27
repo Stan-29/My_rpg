@@ -6,7 +6,6 @@
 */
 #include <criterion/criterion.h>
 
-#include "enums.h"
 #include "save/save.h"
 
 #include "player/player.h"

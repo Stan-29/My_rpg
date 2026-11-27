@@ -7,7 +7,8 @@
 #include <criterion/criterion.h>
 
 #include "defines.h"
-#include "enums.h"
+#include "scene/scene.h"
+#include "types.h"
 
 #include "linked_list/linked_list.h"
 #include "scene_manager/scene_manager.h"

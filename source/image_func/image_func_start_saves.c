@@ -4,9 +4,7 @@
 ** File description:
 ** image_func_start_saves
 */
-#include "consts.h"
 #include "defines.h"
-#include "enums.h"
 #include "garbage_collector/garbage_collector.h"
 #include "types.h"
 
@@ -15,6 +13,8 @@
 #include "engine/engine.h"
 #include "text/text.h"
 #include "scene/scene.h"
+#include "save/save.h"
+#include "sound/sound.h"
 
 #include <unistd.h>
 #include <stdlib.h>

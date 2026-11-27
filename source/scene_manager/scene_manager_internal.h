@@ -9,7 +9,7 @@
     #define SCENE_MANAGER_INTERNAL_H_
 
     #include "types.h"
-    #include "enums.h"
+    #include "scene/scene.h"
 
 struct scene_manager_s {
     unsigned int main_scene;

@@ -4,8 +4,6 @@
 ** File description:
 ** map_draw
 */
-#include "defines.h"
-
 #include "map/map.h"
 #include "map/map_internal.h" // IWYU pragma: keep
 

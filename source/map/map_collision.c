@@ -4,9 +4,6 @@
 ** File description:
 ** map_collision
 */
-#include "defines.h"
-#include "consts.h"
-
 #include "map/map.h"
 #include "map/map_internal.h" // IWYU pragma: keep
 

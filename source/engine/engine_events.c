@@ -5,12 +5,12 @@
 ** engine_events
 */
 #include "defines.h"
-#include "consts.h"
 
 #include "engine/engine_internal.h"
 #include "image/image.h"
 #include "scene/scene.h"
 #include "scene_manager/scene_manager.h"
+#include "engine/engine.h"
 #include "types.h"
 
 #include <SFML/Graphics/RenderWindow.h>

@@ -6,7 +6,6 @@
 */
 #include <criterion/criterion.h>
 
-#include "consts.h"
 #include "save/save.h"
 
 #include "player/player.h"

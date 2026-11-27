@@ -4,8 +4,7 @@
 ** File description:
 ** music_tab
 */
-#include "consts.h"
-#include "enums.h"
+#include "music/music.h"
 
 #include <stddef.h>
 

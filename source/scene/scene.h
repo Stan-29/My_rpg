@@ -10,12 +10,38 @@
 
     #include "types.h"
 
+    #include "image/image.h"
     #include "linked_list/linked_list.h"
+    #include "music/music.h"
+    #include "sound/sound.h"
+    #include "text/text.h"
 
     #include <SFML/Graphics/Types.h>
     #include <SFML/System/Vector2.h>
 
     #include <stdbool.h>
+
+typedef enum scene_id_e {
+    SCENE_NONE = 0,
+    SCENE_MENU,
+    SCENE_SAVE,
+    SCENE_SETTINGS,
+    SCENE_GAME,
+    SCENE_PAUSE,
+    SCENE_INVENTORY,
+    SCENE_COUNT
+} scene_id_t;
+
+typedef struct scene_tab_s {
+    unsigned int id_scene;
+    bool is_main;
+    const image_tab_t *images;
+    const text_tab_t *texts;
+    const music_tab_t *musics;
+    const sound_tab_t *sounds;
+} scene_tab_t;
+
+extern const scene_tab_t scene_tab[];
 
 scene_t *scene_create(unsigned int id);
 void scene_draw(scene_t *scene, sfRenderWindow *window);

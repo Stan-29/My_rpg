@@ -4,12 +4,12 @@
 ** File description:
 ** map_basics
 */
-#include "consts.h"
 #include "defines.h"
 
 #include "garbage_collector/garbage_collector.h"
 #include "map/map.h"
 #include "map/map_internal.h" // IWYU pragma: keep
+#include "engine/engine.h"
 
 #include <SFML/Graphics/RenderWindow.h>
 #include <SFML/Graphics/Sprite.h>

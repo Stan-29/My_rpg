@@ -4,8 +4,9 @@
 ** File description:
 ** scene_tab
 */
-#include "consts.h"
-#include "enums.h"
+
+#include "scene/scene.h"
+#include "scene/scene_internal.h"
 
 #include <stddef.h>
 

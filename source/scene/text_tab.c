@@ -4,7 +4,7 @@
 ** File description:
 ** text_tab
 */
-#include "consts.h"
+#include "text/text.h"
 
 #include <SFML/Graphics/Color.h>
 

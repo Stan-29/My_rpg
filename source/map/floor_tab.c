@@ -4,8 +4,7 @@
 ** File description:
 ** floor_tab
 */
-#include "consts.h"
-#include "enums.h"
+#include "map/map_internal.h"
 
 const floor_tab_t floor_tab[] = {
     [FLOOR_GRASS] = {"./ressource/images/floors/grass_tile.png"},

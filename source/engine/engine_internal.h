@@ -15,6 +15,18 @@
     #include <SFML/Graphics/Types.h>
     #include <SFML/System/Types.h>
 
+    #define WINDOWED_WIDTH 1280
+    #define WINDOWED_HEIGHT 720
+
+    #define FPS 60
+
+typedef struct event_tab_s {
+    int key_id;
+    unsigned int (* func)(scene_manager_t *, scene_t *, engine_t *);
+} event_tab_t;
+
+extern const event_tab_t event_tab[];
+
 struct engine_s {
     sfRenderWindow *window;
     sfClock *clock;

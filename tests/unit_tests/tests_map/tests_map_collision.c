@@ -6,8 +6,6 @@
 */
 #include <criterion/criterion.h>
 
-#include "defines.h"
-
 #include "map/map.h"
 #include "map/map_internal.h" // IWYU pragma: keep
 

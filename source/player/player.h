@@ -8,15 +8,23 @@
 #ifndef PLAYER_H_
     #define PLAYER_H_
 
-    #include "enums.h"
-    #include "save/save.h"
-
     #include "map/map.h"
 
     #include <SFML/Graphics/Types.h>
     #include <SFML/System/Vector2.h>
 
     #include <stdbool.h>
+
+typedef enum skin_id_e {
+    SKIN_BOY = 0,
+    SKIN_GIRL,
+    SKIN_COUNT
+} skin_id_t;
+
+typedef struct player_save_s {
+    sfVector2f pos;
+    skin_id_t skin;
+} player_save_t;
 
 typedef struct player_s player_t;
 

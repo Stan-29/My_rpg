@@ -7,6 +7,7 @@
 #include "defines.h"
 
 #include "garbage_collector/garbage_collector_internal.h" // IWYU pragma: keep
+#include "garbage_collector/garbage_collector.h"
 
 #include <stddef.h>
 #include <stdlib.h>

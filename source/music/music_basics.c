@@ -7,8 +7,8 @@
 #include "defines.h"
 
 #include "garbage_collector/garbage_collector.h"
-#include "music.h"
-#include "music_internal.h"  // IWYU pragma: keep
+#include "music/music.h"
+#include "music/music_internal.h"  // IWYU pragma: keep
 
 #include <SFML/Audio/Music.h>
 #include <SFML/Audio/Types.h>

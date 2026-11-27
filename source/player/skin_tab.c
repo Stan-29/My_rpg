@@ -4,8 +4,8 @@
 ** File description:
 ** skin_tab
 */
-#include "consts.h"
-#include "enums.h"
+#include "player/player.h"
+#include "player/player_internal.h"
 
 #include <stddef.h>
 

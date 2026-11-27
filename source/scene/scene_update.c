@@ -4,9 +4,12 @@
 ** File description:
 ** scene_update
 */
+#include "types.h"
+
 #include "map/map.h"
 #include "scene/scene.h"
 #include "scene/scene_internal.h" // IWYU pragma: keep
+#include "player/player.h"
 
 void scene_update_player_dir(scene_t *scene, sfVector2f *dir)
 {

@@ -6,7 +6,7 @@
 */
 #include <criterion/criterion.h>
 
-#include "enums.h"
+#include "types.h"
 
 #include "scene_manager/scene_manager.h"
 #include "garbage_collector/garbage_collector.h"

@@ -4,8 +4,8 @@
 ** File description:
 ** image_basics
 */
-#include "consts.h"
 #include "defines.h"
+#include "types.h"
 
 #include "garbage_collector/garbage_collector.h"
 #include "image/image.h"

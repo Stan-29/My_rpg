@@ -4,9 +4,7 @@
 ** File description:
 ** state_tab
 */
-#include "consts.h"
-#include "defines.h"
-#include "enums.h"
+#include "player/player_internal.h"
 
 const state_tab_t state_tab[] = {
     [STATE_IDLE] = {0, 5, 0.25f, 0},

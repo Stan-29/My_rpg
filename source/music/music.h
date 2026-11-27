@@ -8,9 +8,20 @@
 #ifndef MUSIC_H_
     #define MUSIC_H_
 
-    #include "consts.h"
+typedef enum music_id_e {
+    MUSIC_NONE = 0,
+    MUSIC_MENU,
+    MUSIC_GAME,
+    MUSIC_COUNT
+} music_id_t;
 
 typedef struct music_s music_t;
+
+typedef struct music_tab_s {
+    unsigned int id;
+    const char *filepath;
+    float volume;
+} music_tab_t;
 
 music_t *music_create(const music_tab_t *music_infos);
 void *music_destroy(void *data);

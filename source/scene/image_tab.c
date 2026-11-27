@@ -4,7 +4,7 @@
 ** File description:
 ** image_tab
 */
-#include "consts.h"
+#include "image/image.h"
 #include "image_func/image_func.h"
 
 #include <stddef.h>

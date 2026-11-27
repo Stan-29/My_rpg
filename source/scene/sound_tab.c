@@ -4,8 +4,7 @@
 ** File description:
 ** sound_tab
 */
-#include "consts.h"
-#include "enums.h"
+#include "sound/sound.h"
 
 #include <stddef.h>
 

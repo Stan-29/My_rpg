@@ -4,6 +4,8 @@
 ** File description:
 ** scene_drag
 */
+#include "types.h"
+
 #include "scene/scene.h"
 #include "scene/scene_internal.h" // IWYU pragma: keep
 #include "image/image.h"

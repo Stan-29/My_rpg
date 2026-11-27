@@ -12,6 +12,9 @@
 
     #include <stdbool.h>
 
+    #define FULL_SCREEN_WIDTH 1920
+    #define FULL_SCREEN_HEIGHT 1080
+
 typedef struct engine_s engine_t;
 
 engine_t *engine_create(void);

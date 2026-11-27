@@ -4,6 +4,8 @@
 ** File description:
 ** scene_manager_basics
 */
+#include "types.h"
+
 #include "garbage_collector/garbage_collector.h"
 #include "scene/scene.h"
 #include "scene_manager/scene_manager.h"

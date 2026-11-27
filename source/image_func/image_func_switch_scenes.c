@@ -5,11 +5,12 @@
 ** image_func_switch_scenes
 */
 #include "defines.h"
-#include "enums.h"
+#include "types.h"
 
 #include "scene_manager/scene_manager.h"
 #include "engine/engine.h"
 #include "scene/scene.h"
+#include "sound/sound.h"
 
 #include <SFML/Graphics/RenderWindow.h>
 

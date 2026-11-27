@@ -6,10 +6,9 @@
 */
 #include <criterion/criterion.h>
 
-#include "enums.h"
-
 #include "sound/sound.h"
 #include "sound/sound_internal.h" // IWYU pragma: keep
+#include "scene/scene_internal.h"
 
 Test(sound_create, basic_create)
 {

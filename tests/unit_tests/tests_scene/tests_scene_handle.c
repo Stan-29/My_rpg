@@ -6,13 +6,13 @@
 */
 #include <criterion/criterion.h>
 
-#include "defines.h"
-#include "enums.h"
+#include "types.h"
 
 #include "scene/scene.h"
 #include "scene/scene_internal.h" // IWYU pragma: keep
 #include "image/image_internal.h" // IWYU pragma: keep
 #include "linked_list/linked_list.h"
+#include "sound/sound.h"
 
 #include <SFML/Graphics/Sprite.h>
 #include <SFML/System/Vector2.h>

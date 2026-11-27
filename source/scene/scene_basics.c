@@ -4,9 +4,8 @@
 ** File description:
 ** scene_basics
 */
-#include "consts.h"
 #include "defines.h"
-#include "enums.h"
+#include "engine/engine.h"
 
 #include "garbage_collector/garbage_collector.h"
 #include "image/image.h"
@@ -16,6 +15,9 @@
 #include "text/text.h"
 #include "sound/sound.h"
 #include "music/music.h"
+#include "save/save.h"
+#include "linked_list/linked_list.h"
+#include "player/player.h"
 #include "types.h"
 
 #include <SFML/Audio/Music.h>

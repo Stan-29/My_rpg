@@ -6,10 +6,9 @@
 */
 #include <criterion/criterion.h>
 
-#include "consts.h"
-
 #include "image/image.h"
 #include "image/image_internal.h" // IWYU pragma: keep
+#include "scene/scene_internal.h"
 
 #include <stdbool.h>
 

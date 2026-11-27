@@ -22,7 +22,6 @@ unsigned int image_func_go_to_settings(scene_manager_t *,
 unsigned int image_func_exit_sub_scene(scene_manager_t *,
     scene_t *, engine_t *);
 
-
 unsigned int image_func_go_to_save(scene_manager_t *,
     scene_t *, engine_t *);
 unsigned int image_func_start_save1(scene_manager_t *,

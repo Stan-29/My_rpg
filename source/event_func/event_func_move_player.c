@@ -5,6 +5,7 @@
 ** event_func_move_player
 */
 #include "defines.h"
+#include "types.h"
 
 #include "scene_manager/scene_manager.h" // IWYU pragma: keep
 #include "engine/engine.h"

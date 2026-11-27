@@ -4,9 +4,9 @@
 ** File description:
 ** save_tab
 */
-#include "defines.h"
-
-#include "save.h"
+#include "save/save.h"
+#include "map/map.h"
+#include "player/player.h"
 
 const char *save_path_tab[SAVE_COUNT] = {
     "./saves/save1.data",

@@ -8,6 +8,7 @@
 
 #include "text/text.h"
 #include "text/text_internal.h" // IWYU pragma: keep
+#include "scene/scene_internal.h"
 
 #include <stdbool.h>
 

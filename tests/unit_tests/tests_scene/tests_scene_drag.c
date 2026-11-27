@@ -6,8 +6,7 @@
 */
 #include <criterion/criterion.h>
 
-#include "consts.h"
-#include "enums.h"
+#include "types.h"
 
 #include "image/image.h"
 #include "image/image_internal.h" // IWYU pragma: keep
