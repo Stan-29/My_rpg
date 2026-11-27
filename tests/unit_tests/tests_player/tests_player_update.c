@@ -19,9 +19,10 @@ static void setup_map(void)
 {
     map = map_create();
     cr_assert(map != NULL);
-    for (int row = 0; row < MAP_FLOORS_SIZE; row++)
-        for (int col = 0; col < MAP_FLOORS_SIZE; col++)
-            map->map_objects[row][col] = OBJECT_NONE;
+    for (int row = 0; row < MAP_SIZE; row++)
+        for (int col = 0; col < MAP_SIZE; col++)
+            map->maps[map->current_map].map_objects[row][col] =
+                OBJECT_NONE;
 }
 
 static void destroy_map(void)

@@ -20,8 +20,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-static unsigned int fill_row(int map_tab[MAP_FLOORS_SIZE][MAP_FLOORS_SIZE],
-    unsigned int row, char *line, unsigned int map_size)
+static unsigned int fill_row(int map_tab[MAP_SIZE][MAP_SIZE],
+    unsigned int row, char *line, unsigned int max_id)
 {
     char *ptr = line;
     char *end = NULL;
@@ -31,13 +31,13 @@ static unsigned int fill_row(int map_tab[MAP_FLOORS_SIZE][MAP_FLOORS_SIZE],
     nb = strtol(ptr, &end, 10);
     while (end != ptr) {
         ptr = end;
-        if (nb < 0)
+        if (nb < 0 || nb > max_id || col >= MAP_SIZE)
             return ERROR;
         map_tab[row][col] = nb;
         col += 1;
         nb = strtol(ptr, &end, 10);
     }
-    if (col != map_size)
+    if (col != MAP_SIZE)
         return ERROR;
     return OK;
 }
@@ -50,8 +50,8 @@ static unsigned int return_func(char *line, FILE *file,
     return return_value;
 }
 
-static unsigned int fill_map_with_path(int map_tab[MAP_FLOORS_SIZE]
-    [MAP_FLOORS_SIZE], char *filepath, unsigned int map_size)
+static unsigned int fill_map_with_path(int map_tab[MAP_SIZE]
+    [MAP_SIZE], const char *filepath, unsigned int max_id)
 {
     FILE *file = fopen(filepath, "r");
     char *line = NULL;
@@ -63,12 +63,12 @@ static unsigned int fill_map_with_path(int map_tab[MAP_FLOORS_SIZE]
         return ERROR;
     len = getline(&line, &size, file);
     while (len != -1) {
-        if (fill_row(map_tab, row, line, map_size) == ERROR)
+        if (row >= MAP_SIZE || fill_row(map_tab, row, line, max_id) == ERROR)
             return return_func(line, file, ERROR);
         row += 1;
         len = getline(&line, &size, file);
     }
-    if (row != map_size)
+    if (row != MAP_SIZE)
         return return_func(line, file, ERROR);
     return return_func(line, file, OK);
 }
@@ -108,10 +108,14 @@ map_t *map_create(void)
         map->floor_textures[index] = NULL;
     for (unsigned int index = 0; index < OBJECT_COUNT; index++)
         map->object_textures[index] = NULL;
-    if (fill_map_with_path(map->map_floors, MAP_FLOORS_PATH, MAP_FLOORS_SIZE)
-        == ERROR || fill_map_with_path(map->map_objects, MAP_OBJECTS_PATH,
-            MAP_FLOORS_SIZE) == ERROR)
-        return map_destroy(map);
+    for (unsigned int map_id = 0; map_id < MAP_COUNT; map_id++) {
+        if (fill_map_with_path(map->maps[map_id].map_floors,
+                map_filepath_tab[map_id].floor_filepath, FLOOR_COUNT) == ERROR ||
+            fill_map_with_path(map->maps[map_id].map_objects,
+                map_filepath_tab[map_id].object_filepath, OBJECT_COUNT) == ERROR)
+            return map_destroy(map);
+    }
+    map->current_map = MAP_FOREST;
     return map_create_textures(map);
 }
 

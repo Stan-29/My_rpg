@@ -27,9 +27,10 @@ static sfVector2i get_tab_pos_from_screen(const sfVector2f *pos)
 bool map_collides(map_t *map, const sfVector2f *feet_pos)
 {
     sfVector2i tile = get_tab_pos_from_screen(feet_pos);
+    single_map_t *current_map = &map->maps[map->current_map];
 
-    if (tile.x < 0 || tile.x >= MAP_FLOORS_SIZE || tile.y < 0 ||
-        tile.y >= MAP_FLOORS_SIZE)
+    if (tile.x < 0 || tile.x >= MAP_SIZE || tile.y < 0 ||
+        tile.y >= MAP_SIZE)
         return true;
-    return object_tab[map->map_objects[tile.y][tile.x]].solid;
+    return object_tab[current_map->map_objects[tile.y][tile.x]].solid;
 }

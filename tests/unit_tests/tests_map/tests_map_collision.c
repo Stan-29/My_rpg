@@ -17,9 +17,12 @@ static void setup_map(void)
 {
     map = map_create();
     cr_assert(map != NULL);
-    map->map_objects[0][0] = OBJECT_NONE;
-    map->map_objects[2][2] = OBJECT_TREE;
-    map->map_objects[MAP_FLOORS_SIZE - 1][MAP_FLOORS_SIZE - 1] = OBJECT_NONE;
+    map->current_map = MAP_BEACH;
+    map->maps[MAP_BEACH].map_objects[0][0] = OBJECT_NONE;
+    map->maps[MAP_BEACH].map_objects[2][2] = OBJECT_TREE;
+    map->maps[MAP_BEACH].map_objects[MAP_SIZE - 1][MAP_SIZE - 1] =
+        OBJECT_NONE;
+    map->maps[MAP_VILLAGE].map_objects[2][2] = OBJECT_NONE;
 }
 
 static void destroy_map(void)
@@ -58,7 +61,15 @@ Test(map_collides, outside_map_collides)
 
 Test(map_collides, last_tile_is_inside_map)
 {
-    sfVector2f pos = tile_center(MAP_FLOORS_SIZE - 1, MAP_FLOORS_SIZE - 1);
+    sfVector2f pos = tile_center(MAP_SIZE - 1, MAP_SIZE - 1);
 
+    cr_assert_not(map_collides(map, &pos));
+}
+
+Test(map_collides, collision_follows_current_map)
+{
+    sfVector2f pos = tile_center(2, 2);
+
+    map->current_map = MAP_VILLAGE;
     cr_assert_not(map_collides(map, &pos));
 }
