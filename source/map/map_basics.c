@@ -31,7 +31,7 @@ static unsigned int fill_row(int map_tab[MAP_SIZE][MAP_SIZE],
     nb = strtol(ptr, &end, 10);
     while (end != ptr) {
         ptr = end;
-        if (nb < 0 || nb > max_id || col >= MAP_SIZE)
+        if (nb > (int)max_id || col >= MAP_SIZE)
             return ERROR;
         map_tab[row][col] = nb;
         col += 1;
@@ -108,11 +108,11 @@ map_t *map_create(void)
         map->floor_textures[index] = NULL;
     for (unsigned int index = 0; index < OBJECT_COUNT; index++)
         map->object_textures[index] = NULL;
-    for (unsigned int map_id = 0; map_id < MAP_COUNT; map_id++) {
+    for (unsigned int map_id = MAP_NONE + 1; map_id < MAP_COUNT; map_id++) {
         if (fill_map_with_path(map->maps[map_id].map_floors,
-                map_filepath_tab[map_id].floor_filepath, FLOOR_COUNT) == ERROR ||
-            fill_map_with_path(map->maps[map_id].map_objects,
-                map_filepath_tab[map_id].object_filepath, OBJECT_COUNT) == ERROR)
+                map_tab[map_id].floor_filepath, FLOOR_COUNT) == ERROR
+            || fill_map_with_path(map->maps[map_id].map_objects, map_tab
+                [map_id].object_filepath, OBJECT_COUNT) == ERROR)
             return map_destroy(map);
     }
     map->current_map = MAP_FOREST;

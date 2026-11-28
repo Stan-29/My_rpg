@@ -32,5 +32,7 @@ bool map_collides(map_t *map, const sfVector2f *feet_pos)
     if (tile.x < 0 || tile.x >= MAP_SIZE || tile.y < 0 ||
         tile.y >= MAP_SIZE)
         return true;
+    if (current_map->map_objects[tile.y][tile.x] < 0)
+        map->current_map = current_map->map_objects[tile.y][tile.x] * -1;
     return object_tab[current_map->map_objects[tile.y][tile.x]].solid;
 }

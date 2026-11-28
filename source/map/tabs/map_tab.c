@@ -6,7 +6,7 @@
 */
 #include "map/map_internal.h"
 
-const map_tab_t map_filepath_tab[] = {
+const map_tab_t map_tab[] = {
     [MAP_BEACH] = {"./ressource/maps/beach_floor.data",
         "./ressource/maps/beach_object.data"},
     [MAP_VILLAGE] = {"./ressource/maps/village_floor.data",

@@ -65,7 +65,7 @@ static void map_draw_object(map_t *map, sfRenderWindow *window,
     sfVector2f pos = map_get_object_base(col, row);
     float scale = 0;
 
-    if (id == OBJECT_NONE)
+    if (id == OBJECT_NONE || id < 0)
         return;
     texture = map->object_textures[id];
     size = sfTexture_getSize(texture);

@@ -9,4 +9,9 @@
 const floor_tab_t floor_tab[] = {
     [FLOOR_GRASS] = {"./ressource/maps/floors/grass_tile.png"},
     [FLOOR_PATH] = {"./ressource/maps/floors/path_tile.png"},
+    [FLOOR_SAND] = {"./ressource/maps/floors/sand_tile.png"},
+    [FLOOR_WATER] = {"./ressource/maps/floors/water_tile.png"},
+    [FLOOR_COBBLE] = {"./ressource/maps/floors/cobble_tile.png"},
+    [FLOOR_FOREST] = {"./ressource/maps/floors/forest_tile.png"},
+    [FLOOR_FLOWERS] = {"./ressource/maps/floors/flowers_tile.png"},
 };
